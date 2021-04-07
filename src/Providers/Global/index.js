@@ -2,7 +2,7 @@ import { UseCarrinho } from "../Carrinho";
 import { UseMercados } from "../ListaMercados";
 import { UseProdutos } from "../ListaProdutos";
 import { UseToken } from "../Token";
-import { UseUsuário } from "../Usuário";
+import { UseUsuario } from "../Usuario";
 
 const { createContext, useContext, useState, useEffect } = require("react");
 
@@ -15,13 +15,13 @@ export const GlobalProvider = ({ children }) => {
   const { mercados } = UseMercados();
   const { produtos } = UseProdutos();
   const { token } = UseToken();
-  const { usuário } = UseUsuário();
+  const { usuario } = UseUsuario();
 
   const [global, setGlobal] = useState([]);
 
   useEffect(() => {
-    setGlobal([carrinho, mercados, produtos, token, usuário]);
-  }, [carrinho, mercados, produtos, token, usuário, setGlobal]);
+    setGlobal([carrinho, mercados, produtos, token, usuario]);
+  }, [carrinho, mercados, produtos, token, usuario, setGlobal]);
 
   return (
     <GlobalContext.Provider value={{ global, setGlobal }}>
