@@ -13,9 +13,8 @@ function App() {
         semana."
       />
       <Store
-        name="Market Name"
+        name="Supermercado do bairro"
         imageUrl="https://picsum.photos/300/300"
-        description="Sua marca preferida, venha conferir nossas promoções"
       />
       <GlobalStyles />
     </div>

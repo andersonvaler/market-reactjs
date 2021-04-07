@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 34rem;
-  height: 11rem;
+  width: 30rem;
+  height: 9rem;
   background-color: #f6f2f9;
   border-radius: 16px;
   margin: 0.8rem 0.8rem;
@@ -12,7 +12,10 @@ export const Container = styled.div`
 export const ProductInfo = styled.div`
   width: 65%;
   height: 100%;
-  padding: 0.8rem 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const ProductImg = styled.figure`
@@ -41,5 +44,5 @@ export const Description = styled.p`
   font-weight: 500;
   color: #927dad;
   font-size: 1rem;
-  padding: 0.9rem 0;
+  line-height: 1.2rem;
 `;
