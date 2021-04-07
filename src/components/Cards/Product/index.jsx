@@ -17,7 +17,11 @@ const Product = ({ name, imageUrl, description }) => {
           <ProductHeader>
             <ProductName>{name}</ProductName>
             <RiInformationFill
-              style={{ fontSize: "25px", color: "#380F52", cursor: "pointer" }}
+              style={{
+                fontSize: "1.6rem",
+                color: "#380F52",
+                cursor: "pointer",
+              }}
             />
           </ProductHeader>
           <Description>{description}</Description>

@@ -7,9 +7,9 @@ export const Button = styled.button`
   text-transform: uppercase;
   background-color: #0ec977;
   width: 100%;
-  max-width: 300px;
-  height: 35px;
-  border-radius: 16px;
+  max-width: 18rem;
+  height: 2.2rem;
+  border-radius: 1rem;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.4s;
