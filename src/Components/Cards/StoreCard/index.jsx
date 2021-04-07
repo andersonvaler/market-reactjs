@@ -1,7 +1,7 @@
 import { Button } from "../../Button/PrimaryButton/style";
 import { Container, Footer, Image, Name, StoreInfo } from "./style";
 
-const Store = ({ name, imageUrl }) => {
+const StoreCard = ({ name, imageUrl }) => {
   return (
     <>
       <Container>
@@ -19,4 +19,4 @@ const Store = ({ name, imageUrl }) => {
   );
 };
 
-export default Store;
+export default StoreCard;

@@ -1,8 +1,8 @@
-import Product from "./components/Cards/Product";
+import Product from "./Components/Cards/Product";
 import "./App.css";
 import GlobalStyles from "./Global/globalStyles";
-import Store from "./components/Cards/Store";
-import FormLogin from "./components/Forms/FormLogin";
+import StoreCard from "./Components/Cards/StoreCard";
+import Routes from "./Routes";
 
 const App = () => {
   return (
@@ -13,10 +13,11 @@ const App = () => {
         description="Peça frutas fresquinhas aqui todo dia com entrega grátis essa
         semana."
       />
-      <Store
+      <StoreCard
         name="Supermercado do bairro"
         imageUrl="https://picsum.photos/300/300"
       />
+      <Routes />
       <GlobalStyles />
       <FormLogin />
     </div>
