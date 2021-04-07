@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Button = styled.button`
   color: #f6f2f9;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-transform: uppercase;
   background-color: #0ec977;
   width: 100%;

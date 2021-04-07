@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 9rem;
   background-color: #f6f2f9;
   border-radius: 16px;
-  margin: 0.8rem 0.8rem;
+  margin: 0.8rem;
   display: flex;
 `;
 
