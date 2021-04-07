@@ -2,8 +2,9 @@ import Product from "./components/Cards/Product";
 import "./App.css";
 import GlobalStyles from "./Global/globalStyles";
 import Store from "./components/Cards/Store";
+import FormLogin from "./components/Forms/FormLogin";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Product
@@ -17,8 +18,9 @@ function App() {
         imageUrl="https://picsum.photos/300/300"
       />
       <GlobalStyles />
+      <FormLogin />
     </div>
   );
-}
+};
 
 export default App;
