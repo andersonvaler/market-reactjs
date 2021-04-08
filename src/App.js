@@ -1,10 +1,10 @@
-import Product from "./components/Cards/Product";
+import Product from "./Components/Cards/Product";
 import "./App.css";
 import GlobalStyles from "./Global/globalStyles";
-import Store from "./components/Cards/Store";
-import Search from "./components/Search";
+import StoreCard from "./Components/Cards/StoreCard";
+import Routes from "./Routes";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Product
@@ -13,14 +13,14 @@ function App() {
         description="Peça frutas fresquinhas aqui todo dia com entrega grátis essa
         semana."
       />
-      <Store
+      <StoreCard
         name="Supermercado do bairro"
         imageUrl="https://picsum.photos/300/300"
       />
-      <Search />
+      <Routes />
       <GlobalStyles />
     </div>
   );
-}
+};
 
 export default App;
