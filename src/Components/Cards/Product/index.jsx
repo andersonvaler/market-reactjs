@@ -9,25 +9,26 @@ import {
   ProductHeader,
 } from "./style";
 
-const Product = () => {
+const Product = ({ name, imageUrl, description }) => {
   return (
     <div>
       <Container>
         <ProductInfo>
           <ProductHeader>
-            <ProductName>Product Name</ProductName>
+            <ProductName>{name}</ProductName>
             <RiInformationFill
-              style={{ fontSize: "25px", color: "#380F52", cursor: "pointer" }}
+              style={{
+                fontSize: "1.6rem",
+                color: "#380F52",
+                cursor: "pointer",
+              }}
             />
           </ProductHeader>
-          <Description>
-            Peça frutas fresquinhas aqui todo dia com entrega grátis essa
-            semana.
-          </Description>
+          <Description>{description}</Description>
           <Button>Pedir Agora</Button>
         </ProductInfo>
         <ProductImg>
-          <img src="https://picsum.photos/200/200" alt="piscsum" />
+          <img src={imageUrl} alt="product" />
         </ProductImg>
       </Container>
     </div>

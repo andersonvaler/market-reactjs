@@ -4,8 +4,8 @@ export const Container = styled.div`
   width: 30rem;
   height: 9rem;
   background-color: #f6f2f9;
-  border-radius: 16px;
-  margin: 0.8rem 0.8rem;
+  border-radius: 1rem;
+  margin: 0.8rem;
   display: flex;
 `;
 
@@ -22,7 +22,7 @@ export const ProductImg = styled.figure`
   width: 35%;
   height: 100%;
   overflow: hidden;
-  border-radius: 0 16px 16px 0;
+  border-radius: 0 1rem 1rem 0;
 `;
 
 export const ProductHeader = styled.div`
@@ -30,7 +30,7 @@ export const ProductHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #c4c4c4;
-  padding-bottom: 5px;
+  padding-bottom: 0.32rem;
 `;
 
 export const ProductName = styled.h3`
