@@ -7,6 +7,7 @@ export const Container = styled.div`
   border-radius: 1rem;
   margin: 0.8rem;
   display: flex;
+  box-shadow: 0 0 0.2rem 0.01rem #00000090;
 `;
 
 export const ProductInfo = styled.div`

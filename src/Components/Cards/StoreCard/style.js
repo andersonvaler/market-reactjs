@@ -8,6 +8,7 @@ export const Container = styled.div`
   margin: 0.8rem;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 0.2rem 0.01rem #00000090;
 `;
 
 export const Image = styled.figure`
