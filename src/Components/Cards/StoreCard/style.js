@@ -4,17 +4,18 @@ export const Container = styled.div`
   width: 14rem;
   height: 16rem;
   background-color: #f6f2f9;
-  border-radius: 16px;
-  margin: 0.8rem 0.8rem;
+  border-radius: 1rem;
+  margin: 0.8rem;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 0.2rem 0.01rem #00000090;
 `;
 
 export const Image = styled.figure`
   width: 100%;
   height: 65%;
   overflow: hidden;
-  border-radius: 16px 16px 0 0;
+  border-radius: 1rem 1rem 0 0;
 `;
 
 export const StoreInfo = styled.div`
