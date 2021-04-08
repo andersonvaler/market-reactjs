@@ -1,4 +1,4 @@
-const [createContext, useContext, useState] = require("react");
+const { createContext, useContext, useState } = require("react");
 
 const UsuarioContext = createContext();
 
@@ -12,4 +12,4 @@ export const UsuarioProvider = ({ children }) => {
   );
 };
 
-export const UseUsuario = useContext(UsuarioContext);
+export const UseUsuario = () => useContext(UsuarioContext);

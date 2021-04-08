@@ -1,4 +1,4 @@
-const [createContext, useContext, useState, useEffect] = require("react");
+const { createContext, useContext, useState, useEffect } = require("react");
 
 const TokenContext = createContext();
 
@@ -22,4 +22,4 @@ export const TokenProvider = ({ children }) => {
   );
 };
 
-export const UseToken = useContext(TokenContext);
+export const UseToken = () => useContext(TokenContext);
