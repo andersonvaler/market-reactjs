@@ -19,7 +19,6 @@ const App = () => {
       />
       <Routes />
       <GlobalStyles />
-      <FormLogin />
     </div>
   );
 };
