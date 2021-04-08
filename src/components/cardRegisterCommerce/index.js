@@ -1,32 +1,27 @@
-import { Button } from "../Button/PrimaryButton/style";
 import {
-  Container,
   Header,
   Box,
   TextInput,
   Input,
   BoxLogin,
   Link,
-} from "./style";
+  ButtonContainer,
+} from "../cardRegister/style";
+import { BiggerContainer } from "./style";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 
-export const Register = () => {
-  const schema = yup.object().shape({
-    username: yup
-      .string("invalid")
-      .matches(/^[aA-zZ]+$/, "invalid")
-      .required("required"),
-  });
+export const RegisterCommerce = () => {
+  const schema = yup.object().shape({});
 
-  const { register, handleSubmit, errors, reset } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });
   const handleForm = (data) => {
     api
-      .post("users/", data)
+      .post("commerce/", data)
       .then(() => {
         console.log("ok");
       })
@@ -37,37 +32,41 @@ export const Register = () => {
     <>
       <form onSubmit={handleSubmit(handleForm)}>
         <div>
-          <Container>
+          <BiggerContainer>
             <Header>Cadastro</Header>
             <Box>
               <TextInput>Nome:</TextInput>
-              <Input />
+              <Input {...register("name")} />
             </Box>
             <Box>
-              <TextInput>Email:</TextInput>
-              <Input />
+              <TextInput>CNPJ:</TextInput>
+              <Input {...register("cnpj")} />
             </Box>
             <Box>
               <TextInput>Endereço:</TextInput>
-              <Input />
+              <Input {...register("adress")} />
+            </Box>
+            <Box>
+              <TextInput>Email:</TextInput>
+              <Input {...register("email")} />
             </Box>
             <Box>
               <TextInput>Senha:</TextInput>
-              <Input />
+              <Input {...register("password")} />
             </Box>
             <Box>
               <TextInput>Confirmar senha:</TextInput>
-              <Input />
+              <Input {...register("confirmPassword")} />
             </Box>
             <BoxLogin>
               ja possui uma conta?
               <Link href="http://localhost:3000/"> faça o login</Link>
             </BoxLogin>
-            <Button type="submit">Cadastrar</Button>
-          </Container>
+            <ButtonContainer type="submit">Cadastrar</ButtonContainer>
+          </BiggerContainer>
         </div>
       </form>
     </>
   );
 };
-export default Register;
+export default RegisterCommerce;

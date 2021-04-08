@@ -2,6 +2,9 @@ import Product from "./Components/Cards/Product";
 import "./App.css";
 import GlobalStyles from "./Global/globalStyles";
 import Routes from "./Routes";
+import RegisterUser from "./components/cardRegister";
+import RegisterCommerce from "./components/cardRegisterCommerce";
+import Register from "./Pages/Register";
 
 const App = () => {
   return (
@@ -13,6 +16,8 @@ const App = () => {
         semana."
       />
       <Routes />
+      <RegisterUser />
+      <RegisterCommerce />
       <GlobalStyles />
     </div>
   );
