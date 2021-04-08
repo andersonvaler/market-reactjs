@@ -5,10 +5,11 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 28rem;
-  height: 4rem;
+  height: 3.3rem;
   background-color: #f6f2f9;
   border-radius: 1.8rem;
   box-shadow: 0 0.03rem 0.2rem 0.01rem #00000095;
+  margin: 0.5rem;
 `;
 
 export const Input = styled.input`
