@@ -2,6 +2,7 @@ import Product from "./components/Cards/Product";
 import "./App.css";
 import GlobalStyles from "./Global/globalStyles";
 import Store from "./components/Cards/Store";
+import Search from "./components/Search";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         name="Supermercado do bairro"
         imageUrl="https://picsum.photos/300/300"
       />
+      <Search />
       <GlobalStyles />
     </div>
   );
