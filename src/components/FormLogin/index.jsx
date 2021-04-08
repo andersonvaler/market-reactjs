@@ -2,39 +2,46 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { useForm } from "react-hook-form";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { useToken } from "../../Providers/Token";
 
-// import axios from "axios";
+import api from "../../services/api";
 
 const FormLogin = () => {
-  // const history = useHistory();
+  const history = useHistory();
+  const { setToken } = useToken();
 
   const schema = yup.object().shape({
     email: yup.string().required("Campo Obrigatório").email("Email Invalido"),
-    senha: yup.string().required("Campo Obrigatório"),
+    password: yup
+      .string()
+      .required("Campo Obrigatório")
+      .min(6, "Mínimo de 6 caracteres"),
   });
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (data) => {
     console.log(data);
-    // axios
-    //   .post("url", data)
-    //   .then((response) => {
-    //     token = JSON.stringify(response.data.access);
-    //     reset();
-    //     history.push("/home");
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     reset();
-    //   });
+    api
+      .get("users")
+      .then((response) => {
+        console.log(response);
+        // setToken(JSON.stringify(response.data.access));
+        // reset();
+        // history.push("/home");
+      })
+      .catch((error) => {
+        console.log(error);
+        reset();
+      });
   };
 
   return (
@@ -49,8 +56,8 @@ const FormLogin = () => {
 
         <label>
           <p>Senha:</p>
-          <input {...register("senha")} />
-          <p>{errors.senha?.message}</p>
+          <input {...register("password")} />
+          <p>{errors.password?.message}</p>
         </label>
 
         <input type="submit" />

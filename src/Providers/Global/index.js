@@ -1,8 +1,8 @@
-import { UseCarrinho } from "../Carrinho";
-import { UseMercados } from "../ListaMercados";
-import { UseProdutos } from "../ListaProdutos";
-import { UseToken } from "../Token";
-import { UseUsuario } from "../Usuario";
+import { useCarrinho } from "../Carrinho";
+import { useMercados } from "../ListaMercados";
+import { useProdutos } from "../ListaProdutos";
+import { useToken } from "../Token";
+import { useUsuario } from "../Usuario";
 
 const { createContext, useContext, useState, useEffect } = require("react");
 
@@ -11,11 +11,11 @@ const GlobalContext = createContext();
 export const GlobalProvider = ({ children }) => {
   /* Aqui serão importados todos os estados do projeto.
     Para sempre os componentes sempre atualizarem quando forem modificados */
-  const { carrinho } = UseCarrinho();
-  const { mercados } = UseMercados();
-  const { produtos } = UseProdutos();
-  const { token } = UseToken();
-  const { usuario } = UseUsuario();
+  const { carrinho } = useCarrinho();
+  const { mercados } = useMercados();
+  const { produtos } = useProdutos();
+  const { token } = useToken();
+  const { usuario } = useUsuario();
 
   const [global, setGlobal] = useState([]);
 
@@ -30,4 +30,4 @@ export const GlobalProvider = ({ children }) => {
   );
 };
 
-export const UseGlobal = () => useContext(GlobalContext);
+export const useGlobal = () => useContext(GlobalContext);

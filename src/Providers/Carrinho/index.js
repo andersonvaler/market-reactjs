@@ -12,4 +12,4 @@ export const CarrinhoProvider = ({ children }) => {
   );
 };
 
-export const UseCarrinho = () => useContext(CarrinhoContext);
+export const useCarrinho = () => useContext(CarrinhoContext);
