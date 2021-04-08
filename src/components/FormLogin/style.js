@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 22rem;
-  height: 30rem;
+  height: 15rem;
   background-color: #f3ecf9;
   border-radius: 1rem;
+  margin: 0 auto;
 `;
 
 export const Header = styled.div`
@@ -16,7 +21,6 @@ export const Header = styled.div`
 
 export const Box = styled.div`
   padding: 0.2rem;
-  padding-left: 1.5rem;
 `;
 
 export const TextInput = styled.div`
@@ -25,7 +29,7 @@ export const TextInput = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 19rem;
+  width: 18rem;
   height: 2rem;
   border-radius: 1rem;
   padding-left: 1.5rem;

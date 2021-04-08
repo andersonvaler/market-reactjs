@@ -2,13 +2,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useToken } from "../../Providers/Token";
 
 import api from "../../services/api";
 
+import { Container, Header, Box, TextInput, Input } from "./style";
+import { Button } from "../../Components/Button/PrimaryButton/style";
+
 const FormLogin = () => {
-  const history = useHistory();
+  // const history = useHistory();
   const { setToken } = useToken();
 
   const schema = yup.object().shape({
@@ -29,14 +32,11 @@ const FormLogin = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
     api
-      .get("users")
+      .post("login", data)
       .then((response) => {
-        console.log(response);
-        // setToken(JSON.stringify(response.data.access));
-        // reset();
-        // history.push("/home");
+        setToken(JSON.stringify(response.data.access));
+        reset();
       })
       .catch((error) => {
         console.log(error);
@@ -48,19 +48,22 @@ const FormLogin = () => {
     <div>
       <h1>Form User</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          <p>Email:</p>
-          <input {...register("email")} />
-          <p>{errors.email?.message}</p>
-        </label>
-
-        <label>
-          <p>Senha:</p>
-          <input {...register("password")} />
-          <p>{errors.password?.message}</p>
-        </label>
-
-        <input type="submit" />
+        <div>
+          <Container>
+            <Header>Login</Header>
+            <Box>
+              <TextInput>Email:</TextInput>
+              <Input {...register("email")} />
+              <p>{errors.email?.message}</p>
+            </Box>
+            <Box>
+              <TextInput>Senha:</TextInput>
+              <Input {...register("password")} />
+              <p>{errors.password?.message}</p>
+            </Box>
+            <Button type="submit">Fazer Login</Button>
+          </Container>
+        </div>
       </form>
     </div>
   );
