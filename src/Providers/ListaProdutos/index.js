@@ -1,4 +1,4 @@
-const [createContext, useContext, useState] = require("react");
+const { createContext, useContext, useState } = require("react");
 
 const ListaProdutosContext = createContext();
 
@@ -12,4 +12,4 @@ export const ListaProdutosProvider = ({ children }) => {
   );
 };
 
-export const UseProdutos = useContext(ListaProdutosContext);
+export const UseProdutos = () => useContext(ListaProdutosContext);

@@ -1,4 +1,4 @@
-const [createContext, useContext, useState] = require("react");
+const { createContext, useContext, useState } = require("react");
 
 const CarrinhoContext = createContext();
 
@@ -12,4 +12,4 @@ export const CarrinhoProvider = ({ children }) => {
   );
 };
 
-export const UseCarrinho = useContext(CarrinhoContext);
+export const UseCarrinho = () => useContext(CarrinhoContext);

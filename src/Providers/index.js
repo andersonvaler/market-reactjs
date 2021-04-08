@@ -8,17 +8,17 @@ import { TokenProvider } from "./Token";
 const Providers = ({ children }) => {
   return (
     <>
-      <GlobalProvider>
-        <TokenProvider>
-          <UsuarioProvider>
-            <CarrinhoProvider>
-              <ListaMercadosProvider>
-                <ListaProdutosProvider>{children}</ListaProdutosProvider>
-              </ListaMercadosProvider>
-            </CarrinhoProvider>
-          </UsuarioProvider>
-        </TokenProvider>
-      </GlobalProvider>
+      <TokenProvider>
+        <UsuarioProvider>
+          <CarrinhoProvider>
+            <ListaMercadosProvider>
+              <ListaProdutosProvider>
+                <GlobalProvider>{children}</GlobalProvider>
+              </ListaProdutosProvider>
+            </ListaMercadosProvider>
+          </CarrinhoProvider>
+        </UsuarioProvider>
+      </TokenProvider>
     </>
   );
 };
