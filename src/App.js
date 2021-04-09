@@ -2,6 +2,7 @@ import Product from "./Components/Cards/Product";
 import "./App.css";
 import GlobalStyles from "./Global/globalStyles";
 import Routes from "./Routes";
+import Pagamento from "./components/Pagamento";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       />
       <Routes />
       <GlobalStyles />
+      <Pagamento />
     </div>
   );
 };
