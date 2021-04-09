@@ -12,4 +12,4 @@ export const ListaMercadosProvider = ({ children }) => {
   );
 };
 
-export const UseMercados = () => useContext(ListaMercadosContext);
+export const useMercados = () => useContext(ListaMercadosContext);
