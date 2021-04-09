@@ -1,22 +1,17 @@
-const { createContext, useContext, useState, useEffect } = require("react");
+const { createContext, useContext, useState } = require("react");
 
 const TokenContext = createContext();
 
 export const TokenProvider = ({ children }) => {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState(localStorage.getItem("token") || false);
+  console.log(token);
 
-  useEffect(() => {
+  const getToken = () => {
     setToken(localStorage.getItem("token"));
-    //se não tiver token, vai retornar null
-    if (token) {
-      //usuario logado
-    } else {
-      //precisa fazer login
-    }
-  }, [token, setToken]);
+  };
 
   return (
-    <TokenContext.Provider value={{ token, setToken }}>
+    <TokenContext.Provider value={{ token, setToken, getToken }}>
       {children}
     </TokenContext.Provider>
   );
