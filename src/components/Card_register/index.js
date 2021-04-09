@@ -63,7 +63,7 @@ export const Register = () => {
               ja possui uma conta?
               <Link href="http://localhost:3000/"> faça o login</Link>
             </BoxLogin>
-            <Button type="submit">Cadastrar</Button>
+            <button type="submit">Cadastrar</button>
           </Container>
         </div>
       </form>

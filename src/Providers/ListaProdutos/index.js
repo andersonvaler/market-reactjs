@@ -12,4 +12,4 @@ export const ListaProdutosProvider = ({ children }) => {
   );
 };
 
-export const UseProdutos = () => useContext(ListaProdutosContext);
+export const useProdutos = () => useContext(ListaProdutosContext);
