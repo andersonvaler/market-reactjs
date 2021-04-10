@@ -1,5 +1,5 @@
-import { PagamentosContainer, CardIcon } from "./style";
-import BotaoPagamentos from "../BotaoPagamento";
+import { PagamentosContainer, CardIcon, DeleteButton } from "./style";
+/* import BotaoPagamentos from "../BotaoPagamento"; */
 
 const Pagamento = () => {
   return (
@@ -7,13 +7,36 @@ const Pagamento = () => {
       <button className="metodo">
         <CardIcon />
         **** **** **** 2498
-        <BotaoPagamentos selecionado={"a"} />
+        <DeleteButton>X</DeleteButton>
+        {/* <BotaoPagamentos selecionado={"a"} /> */}
       </button>
 
       <button className="metodo">
         <CardIcon />
         **** **** **** 5499
-        <BotaoPagamentos selecionado={"b"} />
+        <DeleteButton>X</DeleteButton>
+        {/* <BotaoPagamentos selecionado={"b"} /> */}
+      </button>
+
+      <button className="metodo">
+        <CardIcon />
+        **** **** **** 3844
+        <DeleteButton>X</DeleteButton>
+        {/* <BotaoPagamentos selecionado={"c"} /> */}
+      </button>
+
+      <button className="metodo">
+        <CardIcon />
+        **** **** **** 3874
+        <DeleteButton>X</DeleteButton>
+        {/* <BotaoPagamentos selecionado={"d"} /> */}
+      </button>
+
+      <button className="metodo">
+        <CardIcon />
+        **** **** **** 1244
+        <DeleteButton>X</DeleteButton>
+        {/* <BotaoPagamentos selecionado={"e"} /> */}
       </button>
 
       <button className="add">ADICIONAR CARTÃO</button>
