@@ -12,7 +12,7 @@ import { Button } from "../../Components/Button/PrimaryButton/style";
 
 const FormLogin = () => {
   // const history = useHistory();
-  const { setToken } = useToken();
+  const { getToken } = useToken();
 
   const schema = yup.object().shape({
     email: yup.string().required("Campo Obrigatório").email("Email Invalido"),
@@ -35,8 +35,9 @@ const FormLogin = () => {
     api
       .post("login", data)
       .then((response) => {
-        setToken(JSON.stringify(response.data.access));
-        reset();
+        localStorage.setItem("token", response.data.accessToken);
+        getToken();
+        // reset();
       })
       .catch((error) => {
         console.log(error);
