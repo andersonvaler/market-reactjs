@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import FormLogin from "../../components/FormLogin";
+import FormLogin from "../../Components/FormLogin";
 
 const Login = () => {
   const params = useParams();

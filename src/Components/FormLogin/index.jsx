@@ -1,17 +1,12 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
 import { useForm } from "react-hook-form";
-// import { useHistory } from "react-router-dom";
 import { useToken } from "../../Providers/Token";
-
 import api from "../../services/api";
-
 import { Container, Header, Box, TextInput, Input } from "./style";
-import { Button } from "../../Components/Button/PrimaryButton/style";
+import PrimaryButton from "../Button/PrimaryButton";
 
 const FormLogin = () => {
-  // const history = useHistory();
   const { getToken } = useToken();
 
   const schema = yup.object().shape({
@@ -62,7 +57,7 @@ const FormLogin = () => {
               <Input {...register("password")} />
               <p>{errors.password?.message}</p>
             </Box>
-            <Button type="submit">Fazer Login</Button>
+            <PrimaryButton type="submit">Fazer Login</PrimaryButton>
           </Container>
         </div>
       </form>
