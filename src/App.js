@@ -3,6 +3,7 @@ import "./App.css";
 import GlobalStyles from "./Global/globalStyles";
 import Routes from "./Routes";
 import PerfilUser from "./components/PerfilUser";
+import HeaderMobile from "./components/HeaderMobile";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Routes />
       <GlobalStyles />
       <PerfilUser />
+      <HeaderMobile />
     </div>
   );
 };

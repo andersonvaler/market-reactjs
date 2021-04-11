@@ -1,7 +1,7 @@
 import { withStyles } from "@material-ui/core/styles";
 import Radio from "@material-ui/core/Radio";
 import { CircleContainer } from "./style";
-import { UseValorSelecionado } from "../../Providers/ValorSelecionado";
+import { useState } from "react";
 
 const ButtonRadio = withStyles({
   root: {
@@ -14,7 +14,7 @@ const ButtonRadio = withStyles({
 })((props) => <Radio color="default" {...props} />);
 
 const BotaoPagamentos = ({ selecionado }) => {
-  const { valorSelecionado, setValorSelecionado } = UseValorSelecionado();
+  const [valorSelecionado, setValorSelecionado] = useState();
 
   const handleChange = (event) => {
     setValorSelecionado(event.target.value);
