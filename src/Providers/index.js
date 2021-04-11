@@ -4,7 +4,6 @@ import { ListaProdutosProvider } from "./ListaProdutos";
 import { CarrinhoProvider } from "./Carrinho";
 import { UsuarioProvider } from "./Usuario";
 import { TokenProvider } from "./Token";
-import { ValorSelecionadoProvider } from "./ValorSelecionado";
 
 const Providers = ({ children }) => {
   return (
@@ -14,9 +13,7 @@ const Providers = ({ children }) => {
           <CarrinhoProvider>
             <ListaMercadosProvider>
               <ListaProdutosProvider>
-                <ValorSelecionadoProvider>
-                  <GlobalProvider>{children}</GlobalProvider>
-                </ValorSelecionadoProvider>
+                <GlobalProvider>{children}</GlobalProvider>
               </ListaProdutosProvider>
             </ListaMercadosProvider>
           </CarrinhoProvider>
