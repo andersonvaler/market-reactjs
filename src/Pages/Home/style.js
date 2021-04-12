@@ -9,11 +9,24 @@ export const PageContainer = styled.main`
     position: absolute;
     bottom: 2%;
     left: 12%;
+    overflow: hidden;
+    @media (max-width: 900px) {
+      display: none;
+    }
   }
   .cloud2 {
     position: absolute;
     bottom: 10%;
     left: 0;
+    width: 100%;
+    overflow: hidden;
+    @media (max-width: 900px) {
+      bottom: 0;
+    }
+  }
+  @media (max-width: 900px) {
+    flex-direction: column;
+    overflow: hidden;
   }
 `;
 
@@ -26,6 +39,12 @@ export const RightContainer = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  @media (max-width: 900px) {
+    width: 100%;
+    justify-content: flex-start;
+    height: 50%;
+    align-items: center;
+  }
 `;
 
 export const LeftContainer = styled.div`
@@ -36,6 +55,12 @@ export const LeftContainer = styled.div`
   flex-direction: column;
   align-items: center;
   z-index: 1000;
+  @media (max-width: 900px) {
+    align-items: flex-start;
+    height: auto;
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 export const Msg = styled.p`
@@ -48,5 +73,10 @@ export const Msg = styled.p`
   text-align: justify;
   span {
     color: #c4fd2e;
+  }
+  @media (max-width: 900px) {
+    justify-content: center;
+    height: 50%;
+    margin-top: 4rem;
   }
 `;
