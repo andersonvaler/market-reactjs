@@ -4,7 +4,7 @@ const TokenContext = createContext();
 
 export const TokenProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || false);
-  console.log(token);
+  // console.log(token);
 
   const getToken = () => {
     setToken(localStorage.getItem("token"));
