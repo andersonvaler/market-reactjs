@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import FormLogin from "../../Components/FormLogin";
 import FullLogo from "../../Components/Logo/FullLogo";
+import { LoginContainer } from "./style";
 
 const Login = () => {
   const params = useParams();
@@ -8,8 +9,9 @@ const Login = () => {
   return (
     <div>
       <FullLogo />
-      <h1> Login - {params.userType} </h1>
-      <FormLogin />
+      <LoginContainer>
+        <FormLogin />
+      </LoginContainer>
     </div>
   );
 };
