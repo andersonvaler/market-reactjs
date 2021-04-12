@@ -108,9 +108,11 @@ export const Msg = styled.p`
   font-size: 1.3rem;
   font-weight: 700;
   text-align: justify;
+
   span {
     color: #c4fd2e;
   }
+
   @media (max-width: 900px) {
     justify-content: center;
     height: 50%;
