@@ -10,11 +10,12 @@ const UsuarioContext = createContext();
 export const UsuarioProvider = ({ children }) => {
   const { token } = useToken();
   const [usuario, setUsuario] = useState();
+  console.log(usuario);
 
   const loadUser = () => {
-    const { user_id } = jwt_decode(JSON.parse(token));
+    const user_id = jwt_decode(token);
     api
-      .get(`users/${user_id}/`)
+      .get(`users/${user_id.sub}`)
       .then((response) => {
         setUsuario(response.data);
       })

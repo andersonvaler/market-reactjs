@@ -1,18 +1,17 @@
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import { useCarrinho } from "../../Providers/Carrinho";
 import { useProdutos } from "../../Providers/ListaProdutos";
-// import { useToken } from "../../Providers/Token";
-// import { useUsuario } from "../../Providers/Usuario";
+import { useUsuario } from "../../Providers/Usuario";
 
 const Store = () => {
   const { produtos } = useProdutos();
   const { carrinho, setCarrinho } = useCarrinho();
-  // const { token } = useToken();
-  // const { loadUser } = useUsuario();
+  const { loadUser } = useUsuario();
 
-  // useEffect(() => {
-  //   token && loadUser();
-  // }, []);
+  useEffect(() => {
+    loadUser();
+    // eslint-disable-next-line
+  }, []);
 
   const mudarQuantidade = (boleano) => {};
   return (
