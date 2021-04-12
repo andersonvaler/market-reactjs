@@ -37,9 +37,10 @@ export const Msg = styled.p`
   width: 100%;
   height: auto;
   color: #f6f2f9;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 600;
   text-align: justify;
+  margin-bottom: 1rem;
 `;
 
 export const ButtonClient = styled.button`

@@ -10,6 +10,16 @@ export const PageContainer = styled.main`
     bottom: 2%;
     left: 12%;
     overflow: hidden;
+    animation: surgirTopo 11s alternate infinite;
+    @keyframes surgirTopo {
+      0% {
+        transform: translateY(-15%);
+      }
+      100% {
+        transform: translateY(0);
+        transform: translateX(-5%);
+      }
+    }
     @media (max-width: 900px) {
       display: none;
     }
@@ -20,6 +30,15 @@ export const PageContainer = styled.main`
     left: 0;
     width: 100%;
     overflow: hidden;
+    animation: surgirBaixo 11s alternate infinite;
+    @keyframes surgirBaixo {
+      0% {
+        transform: translateY(10%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
     @media (max-width: 900px) {
       bottom: 0;
     }
@@ -39,6 +58,15 @@ export const RightContainer = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  animation: surgirDireita 1.15s backwards;
+  @keyframes surgirDireita {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
   @media (max-width: 900px) {
     width: 100%;
     justify-content: flex-start;
@@ -55,6 +83,15 @@ export const LeftContainer = styled.div`
   flex-direction: column;
   align-items: center;
   z-index: 1000;
+  animation: surgirEsquerda 1.15s backwards;
+  @keyframes surgirEsquerda {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
   @media (max-width: 900px) {
     align-items: flex-start;
     height: auto;
