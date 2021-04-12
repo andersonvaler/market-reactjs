@@ -1,0 +1,17 @@
+import styled from "styled-components";
+
+export const FullLogoContainer = styled.div`
+  background-color: rgba(194, 242, 68, 1);
+  color: rgba(14, 201, 119, 1);
+  padding: 2px 8px;
+  cursor: pointer;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+
+  @media (min-width: 768px) {
+    top: 32px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+`;
