@@ -1,8 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+
 import { useForm } from "react-hook-form";
 import { useToken } from "../../Providers/Token";
+
 import api from "../../services/api";
+
 import { Container, Header, Box, TextInput, Input } from "./style";
 import PrimaryButton from "../Button/PrimaryButton";
 
