@@ -72,7 +72,7 @@ const FormLogin = () => {
             <p>{errors.password?.message}</p>
           </Box>
           <h5>
-            Não tem conta?{" "}
+            Não tem conta?{""}
             <span onClick={() => history.push("/register/user")}>
               Cadastre-se
             </span>
