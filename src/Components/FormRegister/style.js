@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { Button } from "../Button/PrimaryButton/style";
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
 
   h5 {
     color: #380f52;
@@ -17,9 +17,16 @@ export const Container = styled.div`
     color: #0ec977;
     cursor: pointer;
   }
+
+  @media (min-width: 319px) and (max-width: 321px) {
+    h5 {
+      color: #380f52;
+      margin: 6px 0;
+    }
+  }
 `;
 
-export const LoginFormContainer = styled.div`
+export const RegisterFormContainer = styled.div`
   min-width: 80vw;
   border-radius: 16px;
 
@@ -45,6 +52,15 @@ export const Box = styled.div`
     font-size: 12px;
     margin: 6px;
   }
+
+  @media (min-width: 319px) and (max-width: 321px) {
+    p {
+      color: red;
+      height: 12px;
+      font-size: 12px;
+      margin: 2px 2px;
+    }
+  }
 `;
 
 export const TextInput = styled.div`
@@ -62,9 +78,13 @@ export const Input = styled.input`
   color: #380f52;
   border: 1px solid;
   border-color: ${(props) => (props.error ? "red" : "rgba(213, 197, 232, 1)")};
+
+  @media (min-width: 319px) and (max-width: 321px) {
+    height: 32px;
+  }
 `;
 
-export const LoginButton = styled(Button)`
+export const RegisterButton = styled(Button)`
   padding: 6px 16px;
   max-width: 40vw;
 `;

@@ -17,7 +17,7 @@ import {
 } from "./style";
 import { useHistory } from "react-router";
 
-const FormLogin = () => {
+const FormLogin = ({ userType }) => {
   const { getToken } = useToken();
   const history = useHistory();
 
@@ -39,6 +39,7 @@ const FormLogin = () => {
   });
 
   const onSubmit = (data) => {
+    // Verificar se o userType === "user" ou "store"
     api
       .post("login", data)
       .then((response) => {
@@ -50,6 +51,12 @@ const FormLogin = () => {
         console.log(error);
         reset();
       });
+  };
+
+  const redirect = () => {
+    userType === "user"
+      ? history.push("/register/user")
+      : history.push("/register/store");
   };
 
   return (
@@ -72,10 +79,8 @@ const FormLogin = () => {
             <p>{errors.password?.message}</p>
           </Box>
           <h5>
-            Não tem conta?{""}
-            <span onClick={() => history.push("/register/user")}>
-              Cadastre-se
-            </span>
+            Não tem conta?&nbsp;
+            <span onClick={redirect}>Cadastre-se</span>
           </h5>
           <LoginButton type="submit">Entrar</LoginButton>
         </Container>

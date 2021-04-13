@@ -26,7 +26,7 @@ const CardHome = () => {
         Sou cliente
       </ButtonClient>
       <ButtonStore onClick={() => history.push("/login/store")}>
-        Sou Loja
+        Tenho um negócio
       </ButtonStore>
     </Container>
   );

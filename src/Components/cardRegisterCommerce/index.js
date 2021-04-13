@@ -13,8 +13,10 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
+import { useHistory } from "react-router";
 
 export const RegisterCommerce = () => {
+  const history = useHistory();
   const schema = yup.object().shape({
     name: yup.string().required("campo obrigatorio"),
     cnpj: yup
@@ -89,8 +91,10 @@ export const RegisterCommerce = () => {
               <Error>{errors.confirmPassword?.message}</Error>
             </Box>
             <BoxLogin>
-              ja possui uma conta?
-              <Link href="http://localhost:3000/"> faça o login</Link>
+              Já possui uma conta? &nbsp;
+              <span onClick={() => history.push("/login/store")}>
+                Faça o login
+              </span>
             </BoxLogin>
             <ButtonContainer type="submit">Cadastrar</ButtonContainer>
           </BiggerContainer>
