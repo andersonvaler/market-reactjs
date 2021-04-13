@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import FormLogin from "../../Components/FormLogin";
 import FullLogo from "../../Components/Logo/FullLogo";
 import {
@@ -10,7 +10,7 @@ import {
 } from "./style";
 
 const Login = () => {
-  const params = useParams();
+  // const params = useParams();
 
   return (
     <PageContainer>

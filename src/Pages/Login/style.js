@@ -6,9 +6,19 @@ export const PageContainer = styled.main`
   background-color: #933fff;
   overflow: hidden;
 
-  .purpleClouds {
+  .purpleClouds,
+  .greenClouds {
     z-index: 1000;
     overflow: hidden;
+    animation: opacidade 5s backwards;
+    @keyframes opacidade {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
   }
 
   .cloud1 {
@@ -119,6 +129,16 @@ export const LoginContainer = styled.div`
   padding-bottom: 5px;
   padding-top: 40px;
   z-index: 1000;
+
+  animation: topo 1.2s alternate;
+  @keyframes topo {
+    0% {
+      transform: translate(-50%, -250%);
+    }
+    100% {
+      transform: translateY(-50%, -50%);
+    }
+  }
 
   h4 {
     color: #927dad;
