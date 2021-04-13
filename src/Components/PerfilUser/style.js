@@ -8,6 +8,7 @@ export const PerfilContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #f6f2f9;
+  margin-top: 70px;
 
   .imagePerfil {
     border-radius: 360px;

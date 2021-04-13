@@ -59,10 +59,11 @@ export const CardIcon = styled(MdCreditCard)`
 export const DeleteButton = styled.button`
   width: 30px;
   height: 30px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #380f52;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   color: #0ec977;
 `;
