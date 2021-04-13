@@ -5,12 +5,17 @@ import { useState } from "react";
 import { useCarrinho } from "../../../../Providers/Carrinho";
 
 const ComponenteModal = ({ produto, setOpen }) => {
-  const [quantidade, setQuantidade] = useState(0);
+  const [quantidade, setQuantidade] = useState();
   const { carrinho, setCarrinho } = useCarrinho();
 
   const manipulaCarrinho = () => {
-    produto["quantity"] = parseInt(quantidade);
-    setCarrinho([...carrinho, produto]);
+    if (!produto.quantity) {
+      produto["quantity"] = parseInt(quantidade);
+      setCarrinho([...carrinho, produto]);
+    } else {
+      produto.quantity += parseInt(quantidade);
+    }
+
     setOpen(false);
   };
 

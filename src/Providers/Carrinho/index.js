@@ -4,6 +4,7 @@ const CarrinhoContext = createContext();
 
 export const CarrinhoProvider = ({ children }) => {
   const [carrinho, setCarrinho] = useState([]);
+
   console.log(carrinho);
 
   return (
