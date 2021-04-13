@@ -6,11 +6,20 @@ import { useToken } from "../../Providers/Token";
 
 import api from "../../services/api";
 
-import { Container, Header, Box, TextInput, Input } from "./style";
-import PrimaryButton from "../Button/PrimaryButton";
+import {
+  Container,
+  Header,
+  Box,
+  TextInput,
+  Input,
+  LoginButton,
+  LoginFormContainer,
+} from "./style";
+import { useHistory } from "react-router";
 
 const FormLogin = () => {
   const { getToken } = useToken();
+  const history = useHistory();
 
   const schema = yup.object().shape({
     email: yup.string().required("Campo Obrigatório").email("Email Invalido"),
@@ -44,27 +53,34 @@ const FormLogin = () => {
   };
 
   return (
-    <div>
-      <h1>Form User</h1>
+    <LoginFormContainer>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <Container>
-            <Header>Login</Header>
-            <Box>
-              <TextInput>Email:</TextInput>
-              <Input {...register("email")} />
-              <p>{errors.email?.message}</p>
-            </Box>
-            <Box>
-              <TextInput>Senha:</TextInput>
-              <Input {...register("password")} />
-              <p>{errors.password?.message}</p>
-            </Box>
-            <PrimaryButton type="submit">Fazer Login</PrimaryButton>
-          </Container>
-        </div>
+        <Container>
+          <Header>Login</Header>
+          <Box>
+            <TextInput error={!!errors.email}>Email:</TextInput>
+            <Input {...register("email")} error={!!errors.email} />
+            <p>{errors.email?.message}</p>
+          </Box>
+          <Box>
+            <TextInput error={!!errors.password}>Senha:</TextInput>
+            <Input
+              {...register("password")}
+              type="password"
+              error={!!errors.password}
+            />
+            <p>{errors.password?.message}</p>
+          </Box>
+          <h5>
+            Não tem conta?{" "}
+            <span onClick={() => history.push("/register/user")}>
+              Cadastre-se
+            </span>
+          </h5>
+          <LoginButton type="submit">Entrar</LoginButton>
+        </Container>
       </form>
-    </div>
+    </LoginFormContainer>
   );
 };
 
