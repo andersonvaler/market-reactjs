@@ -61,7 +61,6 @@ export const Input = styled.input`
   padding-left: 1.5rem;
   color: #380f52;
   border: 1px solid;
-  width: 100%;
   border-color: ${(props) => (props.error ? "red" : "rgba(213, 197, 232, 1)")};
 `;
 
