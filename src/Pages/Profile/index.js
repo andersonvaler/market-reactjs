@@ -1,12 +1,15 @@
-import { useParams } from "react-router-dom";
+import Header from "../../Components/Header";
+import PerfilUser from "../../Components/PerfilUser";
+import Footer from "../../Components/Footer";
+import { ProfileContainer } from "./style";
 
 const Profile = () => {
-  const params = useParams();
-
   return (
-    <div>
-      <h1> Profile - {params.userType} </h1>
-    </div>
+    <ProfileContainer>
+      <Header />
+      <PerfilUser />
+      <Footer />
+    </ProfileContainer>
   );
 };
 
