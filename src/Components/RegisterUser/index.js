@@ -53,7 +53,7 @@ export const RegisterUser = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(handleForm)}>
+      <form onSubmit={handleSubmit(handleForm)} style={{ zIndex: "1000" }}>
         <div>
           <Container>
             <Header>Cadastro</Header>

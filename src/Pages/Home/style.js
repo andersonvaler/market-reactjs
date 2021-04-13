@@ -5,6 +5,17 @@ export const PageContainer = styled.main`
   width: 100vw;
   height: 100vh;
   background: #933fff;
+  .cloud {
+    animation: opacidade 5s;
+    @keyframes opacidade {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
   .cloud1 {
     position: absolute;
     bottom: 2%;

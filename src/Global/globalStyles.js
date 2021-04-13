@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body {
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   overflow-x: hidden;
 }
 `;

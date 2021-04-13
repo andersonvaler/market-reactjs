@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const PageContainer = styled.main`
   width: 100vw;
   height: 100vh;
-  background-color: #933fff;
+  background-color: #b378ff;
   overflow: hidden;
-
-  .purpleClouds,
-  .greenClouds {
-    z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .Clouds {
     overflow: hidden;
     animation: opacidade 5s backwards;
     @keyframes opacidade {
@@ -24,7 +24,7 @@ export const PageContainer = styled.main`
   .cloud1 {
     display: none;
     position: absolute;
-    bottom: 0;
+    bottom: 50%;
     left: 5%;
     overflow: hidden;
     animation: surgirTopo 11s alternate infinite;
@@ -45,7 +45,7 @@ export const PageContainer = styled.main`
   .cloud2 {
     display: none;
     position: absolute;
-    bottom: 5%;
+    bottom: 45%;
     left: 0;
     overflow: hidden;
     animation: surgirBaixo 11s alternate infinite;
@@ -65,13 +65,13 @@ export const PageContainer = styled.main`
   .cloud3 {
     display: none;
     position: absolute;
-    bottom: 40%;
+    bottom: 5%;
     right: 16%;
     overflow: hidden;
     animation: surgirTopo 11s alternate infinite;
     @keyframes surgirTopo {
       0% {
-        transform: translateY(-15%);
+        transform: translateY(15%);
       }
       100% {
         transform: translateY(0);
@@ -81,22 +81,18 @@ export const PageContainer = styled.main`
     @media (min-width: 900px) {
       display: block;
     }
-
-    path {
-      overflow: hidden;
-    }
   }
 
   .cloud4 {
     display: none;
     position: absolute;
-    bottom: 50%;
+    bottom: 0%;
     right: 5%;
     overflow: hidden;
     animation: surgirBaixo 11s alternate infinite;
     @keyframes surgirBaixo {
       0% {
-        transform: translateY(10%);
+        transform: translateY(-10%);
       }
       100% {
         transform: translateY(0);
@@ -104,58 +100,6 @@ export const PageContainer = styled.main`
     }
     @media (min-width: 900px) {
       display: block;
-    }
-
-    path {
-      overflow: hidden;
-    }
-  }
-`;
-
-export const LoginContainer = styled.div`
-  background: rgba(246, 242, 249, 1);
-  backdrop-filter: blur(8px);
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  min-width: 100vw;
-  height: 60vh;
-  padding-bottom: 5px;
-  padding-top: 40px;
-  z-index: 1000;
-
-  animation: topo 1.2s alternate;
-  @keyframes topo {
-    0% {
-      transform: translate(-50%, -250%);
-    }
-    100% {
-      transform: translateY(-50%, -50%);
-    }
-  }
-
-  h4 {
-    color: #927dad;
-  }
-
-  @media (min-width: 768px) {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 350px;
-    border-radius: 24px;
-    height: 350px;
-    background: rgba(246, 242, 249, 0.8);
-    backdrop-filter: blur(8px);
-
-    h4 {
-      display: none;
     }
   }
 `;
@@ -186,6 +130,5 @@ export const TextContainer = styled.div`
     color: #fff;
     margin-left: 32px;
     padding-top: 114px;
-    z-index: 1000;
   }
 `;
