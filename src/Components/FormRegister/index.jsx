@@ -72,17 +72,29 @@ const FormRegister = ({ userType }) => {
           <Header>Cadastro</Header>
           <Box>
             <TextInput error={!!errors.name}>Nome:</TextInput>
-            <Input {...register("name")} error={!!errors.name} />
+            <Input
+              {...register("name")}
+              error={!!errors.name}
+              data-testid="input/name"
+            />
             <p>{errors.name?.message}</p>
           </Box>
           <Box>
             <TextInput error={!!errors.email}>Email:</TextInput>
-            <Input {...register("email")} error={!!errors.email} />
+            <Input
+              {...register("email")}
+              error={!!errors.email}
+              data-testid="input/email"
+            />
             <p>{errors.email?.message}</p>
           </Box>
           <Box>
             <TextInput error={!!errors.adress}>Endereço:</TextInput>
-            <Input {...register("adress")} error={!!errors.adress} />
+            <Input
+              {...register("adress")}
+              error={!!errors.adress}
+              data-testid="input/adress"
+            />
             <p>{errors.adress?.message}</p>
           </Box>
           <Box>
@@ -91,6 +103,7 @@ const FormRegister = ({ userType }) => {
               {...register("password")}
               error={!!errors.password}
               type="password"
+              data-testid="input/password"
             />
             <p>{errors.password?.message}</p>
           </Box>
@@ -102,6 +115,7 @@ const FormRegister = ({ userType }) => {
               {...register("confirmPassword")}
               error={!!errors.confirmPassword}
               type="password"
+              data-testid="input/confirmPassword"
             />
             <p>{errors.confirmPassword?.message}</p>
           </Box>

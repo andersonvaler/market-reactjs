@@ -10,4 +10,5 @@ test("testando botoes", () => {
   expect(botaoDois).toBeInTheDocument();
   expect(botaoUm).toBeEnabled();
   expect(botaoDois).toBeEnabled();
+  expect(botaoDois).toBeEnabled();
 });
