@@ -62,32 +62,35 @@ export const RegisterCommerce = () => {
             <Header>Cadastro</Header>
             <Box>
               <TextInput>Nome:</TextInput>
-              <Input {...register("name")} />
+              <Input {...register("name")} data-testid="input/name" />
               <Error>{errors.name?.message}</Error>
             </Box>
             <Box>
               <TextInput>CNPJ:</TextInput>
-              <Input {...register("cnpj")} />
+              <Input {...register("cnpj")} data-testid="input/cnpj" />
               <Error>{errors.cnpj?.message}</Error>
             </Box>
             <Box>
               <TextInput>Endereço:</TextInput>
-              <Input {...register("adress")} />
+              <Input {...register("adress")} data-testid="input/adress" />
               <Error>{errors.adress?.message}</Error>
             </Box>
             <Box>
               <TextInput>Email:</TextInput>
-              <Input {...register("email")} />
+              <Input {...register("email")} data-testid="input/email" />
               <Error>{errors.email?.message}</Error>
             </Box>
             <Box>
               <TextInput>Senha:</TextInput>
-              <Input {...register("password")} />
+              <Input {...register("password")} data-testid="input/password" />
               <Error>{errors.password?.message}</Error>
             </Box>
             <Box>
               <TextInput>Confirmar senha:</TextInput>
-              <Input {...register("confirmPassword")} />
+              <Input
+                {...register("confirmPassword")}
+                data-testid="input/name"
+              />
               <Error>{errors.confirmPassword?.message}</Error>
             </Box>
             <BoxLogin>
