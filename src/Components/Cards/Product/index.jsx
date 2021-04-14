@@ -33,14 +33,14 @@ const Product = ({ produto }) => {
               }}
             />
           </ProductHeader>
-          <Description>{produto.price}</Description>
+          <Description>{produto.description}</Description>
           <Button onClick={abrirModal}>Pedir Agora</Button>
           <ModalCard open={open} setOpen={setOpen}>
             <ComponenteModal produto={produto} setOpen={setOpen} />
           </ModalCard>
         </ProductInfo>
         <ProductImg>
-          <img src={null} alt="product" />
+          <img src={produto.image} alt="product" />
         </ProductImg>
       </Container>
     </div>
