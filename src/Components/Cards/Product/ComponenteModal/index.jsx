@@ -1,4 +1,4 @@
-import { ProductName, Input } from "../style";
+import { ProductName, Input, Modal } from "../style";
 import { Button } from "../../../Button/PrimaryButton/style";
 
 import { useState } from "react";
@@ -20,7 +20,7 @@ const ComponenteModal = ({ produto, setOpen }) => {
   };
 
   return (
-    <>
+    <Modal>
       <ProductName>Escolha a quantidade</ProductName>
       <Input
         type="number"
@@ -29,7 +29,7 @@ const ComponenteModal = ({ produto, setOpen }) => {
         value={quantidade}
       />
       <Button onClick={manipulaCarrinho}>Adicionar ao Carrinho</Button>
-    </>
+    </Modal>
   );
 };
 
