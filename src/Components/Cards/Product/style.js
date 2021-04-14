@@ -53,7 +53,17 @@ export const Input = styled.input`
   height: 32px;
   border-radius: 16px;
   padding-left: 1.5rem;
+  margin: 15px 0;
   color: #380f52;
   border: 1px solid;
   border-color: ${(props) => (props.error ? "red" : "rgba(213, 197, 232, 1)")};
+`;
+
+export const Modal = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  min-width: 50vh;
 `;

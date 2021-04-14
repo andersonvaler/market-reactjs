@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    minWidth: "50vh",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,

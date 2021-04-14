@@ -10,7 +10,6 @@ const UsuarioContext = createContext();
 export const UsuarioProvider = ({ children }) => {
   const { token } = useToken();
   const [usuario, setUsuario] = useState();
-  console.log(usuario);
 
   const loadUser = () => {
     const user_id = jwt_decode(token);
