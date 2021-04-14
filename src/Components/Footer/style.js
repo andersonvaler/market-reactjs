@@ -4,14 +4,17 @@ export const FooterContainer = styled.footer`
   width: 100vw;
   height: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   border-bottom: solid 2px #d5c5e8;
   padding-left: 5%;
   padding-right: 5%;
-  background-color: #fff;
+  background-color: #f6f2f9;
+  position: relative;
+  bottom: 0;
+  margin-top: 0.4rem;
 
-  .header-button {
+  .footer-button {
     border: none;
     :hover {
       cursor: pointer;

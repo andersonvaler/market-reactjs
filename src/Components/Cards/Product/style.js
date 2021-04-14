@@ -47,3 +47,13 @@ export const Description = styled.p`
   font-size: 1rem;
   line-height: 1.2rem;
 `;
+
+export const Input = styled.input`
+  width: 100%;
+  height: 32px;
+  border-radius: 16px;
+  padding-left: 1.5rem;
+  color: #380f52;
+  border: 1px solid;
+  border-color: ${(props) => (props.error ? "red" : "rgba(213, 197, 232, 1)")};
+`;
