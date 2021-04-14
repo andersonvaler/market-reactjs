@@ -1,14 +1,20 @@
 import { HeaderContainer } from "./style";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { useToken } from "../../Providers/Token";
 
 const Header = () => {
   const params = useParams();
+  const history = useHistory();
+  const { clearToken } = useToken();
 
   return (
     <HeaderContainer>
       {params.userType === "user" ? (
         <>
-          <button className="header-button">
+          <button
+            className="header-button"
+            onClick={() => history.push("/dashboard/user")}
+          >
             <svg
               width="34"
               height="40"
@@ -29,7 +35,10 @@ const Header = () => {
           </button>
 
           <>
-            <button className="header-button-descktop">
+            <button
+              className="header-button-descktop"
+              onClick={() => history.push("/cart")}
+            >
               <svg
                 width="54"
                 height="34"
@@ -48,7 +57,10 @@ const Header = () => {
               </svg>
             </button>
 
-            <button className="header-button-descktop">
+            <button
+              className="header-button-descktop"
+              onClick={() => history.push("/dashboard/user")}
+            >
               <svg
                 width="40"
                 height="31"
@@ -67,7 +79,10 @@ const Header = () => {
               </svg>
             </button>
 
-            <button className="header-button-descktop">
+            <button
+              className="header-button-descktop"
+              onClick={() => history.push("/profile/user")}
+            >
               <svg
                 width="34"
                 height="32"
@@ -87,7 +102,13 @@ const Header = () => {
             </button>
           </>
 
-          <button className="header-button">
+          <button
+            className="header-button"
+            onClick={() => {
+              clearToken();
+              history.push("/");
+            }}
+          >
             <svg
               width="34"
               height="40"
@@ -111,7 +132,10 @@ const Header = () => {
         </>
       ) : (
         <>
-          <button className="header-button">
+          <button
+            className="header-button"
+            onClick={() => history.push("/dashboard/store")}
+          >
             <svg
               width="34"
               height="40"
@@ -131,7 +155,10 @@ const Header = () => {
             </svg>
           </button>
 
-          <button className="header-button-descktop">
+          <button
+            className="header-button-descktop"
+            onClick={() => history.push("/profile/store")}
+          >
             <svg
               width="34"
               height="32"
@@ -150,7 +177,10 @@ const Header = () => {
             </svg>
           </button>
 
-          <button className="header-button-descktop">
+          <button
+            className="header-button-descktop"
+            onClick={() => history.push("/dashboard/store")}
+          >
             <svg
               width="40"
               height="31"
@@ -169,7 +199,13 @@ const Header = () => {
             </svg>
           </button>
 
-          <button className="header-button">
+          <button
+            className="header-button"
+            onClick={() => {
+              clearToken();
+              history.push("/");
+            }}
+          >
             <svg
               width="50"
               height="50"

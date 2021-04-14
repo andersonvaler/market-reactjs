@@ -46,6 +46,7 @@ const FormRegister = ({ userType }) => {
         .then((res) => {
           console.log("ok", res);
           reset();
+          history.push("/login/user");
         })
         .catch((error) => console.log(error));
     } else {
@@ -54,6 +55,7 @@ const FormRegister = ({ userType }) => {
         .then((res) => {
           console.log("ok", res);
           reset();
+          history.push("/login/store");
         })
         .catch((error) => console.log(error));
     }

@@ -1,14 +1,18 @@
 import { FooterContainer } from "./style";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 const Footer = () => {
   const params = useParams();
+  const history = useHistory();
 
   return (
     <FooterContainer>
       {params.userType === "user" ? (
         <>
-          <button className="footer-button">
+          <button
+            className="footer-button"
+            onClick={() => history.push("/cart")}
+          >
             <svg
               width="54"
               height="34"
@@ -27,7 +31,10 @@ const Footer = () => {
             </svg>
           </button>
 
-          <button className="footer-button">
+          <button
+            className="footer-button"
+            onClick={() => history.push("/dashboard/user")}
+          >
             <svg
               width="40"
               height="31"
@@ -46,7 +53,10 @@ const Footer = () => {
             </svg>
           </button>
 
-          <button className="footer-button">
+          <button
+            className="footer-button"
+            onClick={() => history.push("/profile/user")}
+          >
             <svg
               width="34"
               height="32"
@@ -67,7 +77,10 @@ const Footer = () => {
         </>
       ) : (
         <>
-          <button className="footer-button">
+          <button
+            className="footer-button"
+            onClick={() => history.push("/profile/store")}
+          >
             <svg
               width="34"
               height="32"
@@ -86,7 +99,10 @@ const Footer = () => {
             </svg>
           </button>
 
-          <button className="footer-button">
+          <button
+            className="footer-button"
+            onClick={() => history.push("/dashboard/store")}
+          >
             <svg
               width="40"
               height="31"

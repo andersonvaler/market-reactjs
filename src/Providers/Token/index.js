@@ -9,8 +9,13 @@ export const TokenProvider = ({ children }) => {
     setToken(localStorage.getItem("token"));
   };
 
+  const clearToken = () => {
+    setToken(false);
+    localStorage.clear();
+  };
+
   return (
-    <TokenContext.Provider value={{ token, setToken, getToken }}>
+    <TokenContext.Provider value={{ token, setToken, getToken, clearToken }}>
       {children}
     </TokenContext.Provider>
   );
