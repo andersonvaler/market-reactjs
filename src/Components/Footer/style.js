@@ -10,7 +10,7 @@ export const FooterContainer = styled.footer`
   padding-left: 5%;
   padding-right: 5%;
   background-color: #f6f2f9;
-  position: relative;
+  position: fixed;
   bottom: 0;
   margin-top: 0.4rem;
 
