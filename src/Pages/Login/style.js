@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const PageContainer = styled.main`
   width: 100vw;
   height: 100vh;
-  background-color: #933fff;
+  background-color: ${(props) =>
+    props.userType === "user" ? "#933fff" : "#A053E6"};
   overflow: hidden;
 
   .purpleClouds,
@@ -78,7 +79,7 @@ export const PageContainer = styled.main`
         transform: translateX(-5%);
       }
     }
-    @media (min-width: 900px) {
+    @media (min-width: 900px) and (min-height: 900px) {
       display: block;
     }
 
@@ -102,7 +103,7 @@ export const PageContainer = styled.main`
         transform: translateY(0);
       }
     }
-    @media (min-width: 900px) {
+    @media (min-width: 900px) and (min-height: 900px) {
       display: block;
     }
 
@@ -130,16 +131,6 @@ export const LoginContainer = styled.div`
   padding-top: 40px;
   z-index: 1000;
 
-  animation: topo 1.2s alternate;
-  @keyframes topo {
-    0% {
-      transform: translate(-50%, -250%);
-    }
-    100% {
-      transform: translateY(-50%, -50%);
-    }
-  }
-
   h4 {
     color: #927dad;
   }
@@ -156,6 +147,16 @@ export const LoginContainer = styled.div`
 
     h4 {
       display: none;
+    }
+
+    animation: topo 1.2s alternate;
+    @keyframes topo {
+      0% {
+        transform: translate(-50%, -250%);
+      }
+      100% {
+        transform: translateY(-50%, -50%);
+      }
     }
   }
 `;
