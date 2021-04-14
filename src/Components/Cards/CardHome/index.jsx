@@ -3,14 +3,12 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { MdStoreMallDirectory } from "react-icons/md";
 import { BsFillPersonFill } from "react-icons/bs";
 import { useHistory } from "react-router-dom";
-import FullLogo from "../../Logo/FullLogo";
 
 const CardHome = () => {
   const history = useHistory();
 
   return (
     <Container>
-      <FullLogo />
       <Art>
         <MdStoreMallDirectory className="ico" />
         <span />

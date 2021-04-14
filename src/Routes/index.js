@@ -16,8 +16,8 @@ const Routes = () => {
       <Route path="/" exact component={Home} />
       <Route path="/login/:userType" exact component={Login} />
       <Route path="/register/:userType" exact component={Register} />
-      <Route path="/dashboard/:userType" component={Dashboard} />
-      <Route path="/store" component={Store} />
+      <Route path="/dashboard/:userType" component={Dashboard} isPrivate />
+      <Route path="/store" component={Store} isPrivate />
       <Route path="/profile/:userType" component={Profile} isPrivate />
       <Route path="/checkout" component={Checkout} isPrivate />
       <Route path="/cart" component={Cart} isPrivate />

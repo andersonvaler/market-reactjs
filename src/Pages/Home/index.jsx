@@ -1,9 +1,11 @@
 import CardHome from "../../Components/Cards/CardHome";
 import { PageContainer, RightContainer, LeftContainer, Msg } from "./style";
+import FullLogo from "../../Components/Logo/FullLogo";
 
 const Home = () => {
   return (
     <PageContainer>
+      <FullLogo />
       <LeftContainer>
         <Msg>
           Conheça o <span>Market</span>, o aplicativo que conecta lojas que

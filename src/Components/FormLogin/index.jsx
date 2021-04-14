@@ -39,18 +39,33 @@ const FormLogin = ({ userType }) => {
   });
 
   const onSubmit = (data) => {
-    // Verificar se o userType === "user" ou "store"
-    api
-      .post("login", data)
-      .then((response) => {
-        localStorage.setItem("token", response.data.accessToken);
-        getToken();
-        // reset();
-      })
-      .catch((error) => {
-        console.log(error);
-        reset();
-      });
+    if (userType === "user") {
+      api
+        .post("login", data)
+        .then((response) => {
+          localStorage.setItem("token", response.data.accessToken);
+          getToken();
+          reset();
+          history.push("/dashboard/user");
+        })
+        .catch((error) => {
+          console.log(error);
+          reset();
+        });
+    } else {
+      api
+        .post("login", data)
+        .then((response) => {
+          localStorage.setItem("token", response.data.accessToken);
+          getToken();
+          reset();
+          history.push("/dashboard/store");
+        })
+        .catch((error) => {
+          console.log(error);
+          reset();
+        });
+    }
   };
 
   const redirect = () => {
