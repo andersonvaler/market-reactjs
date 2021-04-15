@@ -1,31 +1,46 @@
-import { useEffect } from "react";
 import { useHistory } from "react-router";
 import { useCarrinho } from "../../Providers/Carrinho";
+import { useGlobal } from "../../Providers/Global";
 
 import ProdutoCarrinho from "../../Components/Cards/ProdutoCarrinho";
-import { useGlobal } from "../../Providers/Global";
+
+import { DivProdutos, MainContainer, Footer, Contador } from "./style";
+import { Button } from "../../Components/Button/PrimaryButton/style";
+
+import Header from "../../Components/Header";
 
 const Cart = () => {
   const history = useHistory();
-  const { carrinho, setCarrinho } = useCarrinho();
-  const { global } = useGlobal();
 
-  useEffect(() => {}, [global]);
+  const { carrinho } = useCarrinho();
+  const { global } = useGlobal();
+  let contador = 0;
 
   return (
     <div>
-      <button onClick={() => history.push("/store")}>Ir para Store</button>
-      <h1>Cart</h1>
-      {carrinho &&
-        carrinho.map((valor, index) => {
-          return (
-            <ProdutoCarrinho
-              valor={valor}
-              index={index}
-              setCarrinho={setCarrinho}
-            />
-          );
-        })}
+      <Header />
+      <MainContainer>
+        <button onClick={() => history.push("/store")}>Ir para Store</button>
+        <h1>Carrinho:</h1>
+        <h3>Adicione ou Remova itens e prossiga para o orçamento</h3>
+        <DivProdutos>
+          {carrinho &&
+            carrinho.map((valor, index) => {
+              contador += valor.quantity;
+              return (
+                <ProdutoCarrinho
+                  valor={valor}
+                  index={index}
+                  contador={contador}
+                />
+              );
+            })}
+        </DivProdutos>
+      </MainContainer>
+      <Footer>
+        <Contador>Número de Produtos: {contador}</Contador>
+        <Button>Solicitar Orçamento</Button>
+      </Footer>
     </div>
   );
 };
