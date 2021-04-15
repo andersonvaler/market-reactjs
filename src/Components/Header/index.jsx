@@ -6,10 +6,11 @@ const Header = () => {
   const params = useParams();
   const history = useHistory();
   const { clearToken } = useToken();
+  console.log(params);
 
   return (
     <HeaderContainer>
-      {params.userType === "user" ? (
+      {params.userType !== "store" ? (
         <>
           <button
             className="header-button"
