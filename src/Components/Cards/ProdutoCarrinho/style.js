@@ -8,8 +8,9 @@ export const Card = styled.div`
   flex-direction: column;
   border-radius: 16px;
   background: #f6f2f9;
+  box-shadow: 0 0 0.2rem 0.01rem #00000090;
   margin: 20px;
-  max-width: 20vw;
+  max-width: 15vw;
 `;
 
 export const DivContador = styled.div`
@@ -21,7 +22,7 @@ export const DivContador = styled.div`
   margin: 20px 10px;
   border-radius: 8px;
   box-shadow: 0 0 0.2rem 0.01rem #00000090;
-  min-width: 17vw;
+  min-width: 12vw;
 `;
 
 export const Button = styled.div`
@@ -51,7 +52,7 @@ export const DescricaoCard = styled.p`
 
 export const ProdutoImg = styled.figure`
   width: 100%;
-  height: 15vh;
+  height: 12vh;
   overflow: hidden;
   border-radius: 0 1rem 1rem 0;
 `;

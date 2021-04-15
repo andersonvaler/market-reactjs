@@ -8,15 +8,17 @@ import {
   ProdutoImg,
 } from "./style";
 
-const ProdutoCarrinho = ({ valor, index }) => {
+const ProdutoCarrinho = ({ valor, index, contador }) => {
   const { global, setGlobal } = useGlobal();
 
   const addContador = () => {
+    contador++;
     valor.quantity += 1;
     setGlobal(!global);
   };
   const subContador = () => {
     if (valor.quantity > 0) {
+      contador++;
       valor.quantity -= 1;
       setGlobal(!global);
     }
