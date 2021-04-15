@@ -38,37 +38,28 @@ const FormLogin = ({ userType }) => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    if (userType === "user") {
-      api
-        .post("login", data)
-        .then((response) => {
-          localStorage.setItem("token", response.data.accessToken);
-          getToken();
-          reset();
-          history.push("/dashboard/user");
-        })
-        .catch((error) => {
-          console.log(error);
-          reset();
-        });
-    } else {
-      api
-        .post("login", data)
-        .then((response) => {
-          localStorage.setItem("token", response.data.accessToken);
-          getToken();
-          reset();
-          history.push("/dashboard/store");
-        })
-        .catch((error) => {
-          console.log(error);
-          reset();
-        });
-    }
+  const redirectToDashboard = () => {
+    userType === "user"
+      ? history.push("/dashboard/user")
+      : history.push("/dashboard/store");
   };
 
-  const redirect = () => {
+  const onSubmit = (data) => {
+    const isStore = userType === "user";
+    api
+      .post("login", { ...data, isStore: isStore })
+      .then((response) => {
+        localStorage.setItem("token", response.data.accessToken);
+        getToken();
+        reset();
+        redirectToDashboard();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const redirectToRegister = () => {
     userType === "user"
       ? history.push("/register/user")
       : history.push("/register/store");
@@ -95,7 +86,7 @@ const FormLogin = ({ userType }) => {
           </Box>
           <h5>
             Não tem conta?&nbsp;
-            <span onClick={redirect}>Cadastre-se</span>
+            <span onClick={redirectToRegister}>Cadastre-se</span>
           </h5>
           <LoginButton type="submit">Entrar</LoginButton>
         </Container>

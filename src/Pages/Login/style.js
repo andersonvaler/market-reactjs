@@ -115,7 +115,7 @@ export const PageContainer = styled.main`
 
 export const LoginContainer = styled.div`
   background: rgba(246, 242, 249, 1);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   display: flex;

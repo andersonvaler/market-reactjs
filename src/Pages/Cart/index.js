@@ -20,7 +20,7 @@ const Cart = () => {
     <div>
       <Header />
       <MainContainer>
-        <button onClick={() => history.push("/store")}>Ir para Store</button>
+        <button onClick={() => history.push("/products")}>Ir para Store</button>
         <h1>Carrinho:</h1>
         <h3>Adicione ou Remova itens e prossiga para o orçamento</h3>
         <DivProdutos>
