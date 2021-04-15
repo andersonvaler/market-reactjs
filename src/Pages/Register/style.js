@@ -135,7 +135,7 @@ export const RegisterContainer = styled.div`
     border-radius: 24px;
     height: 580px;
     background: rgba(246, 242, 249, 0.8);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(4px);
 
     h4 {
       display: none;

@@ -39,32 +39,22 @@ const FormRegister = ({ userType }) => {
     resolver: yupResolver(schema),
   });
 
-  const handleForm = (data) => {
-    if (userType === "user") {
-      api
-        .post("users", data)
-        .then((res) => {
-          console.log("ok", res);
-          reset();
-          history.push("/login/user");
-        })
-        .catch((error) => console.log(error));
-    } else {
-      api
-        .post("commerce/", data)
-        .then((res) => {
-          console.log("ok", res);
-          reset();
-          history.push("/login/store");
-        })
-        .catch((error) => console.log(error));
-    }
-  };
-
   const redirect = () => {
     userType === "user"
       ? history.push("/login/user")
       : history.push("/login/store");
+  };
+
+  const handleForm = (data) => {
+    const isStore = userType === "store";
+    api
+      .post("register", { ...data, isStore: isStore })
+      .then((res) => {
+        console.log("ok", res);
+        reset();
+        redirect();
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
