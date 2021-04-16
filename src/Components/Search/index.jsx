@@ -1,7 +1,9 @@
 import { Container, Input, Icon } from "./style";
 import { FaSearch } from "react-icons/fa";
+import { useState } from "react";
 
 const Search = () => {
+  const [busca, setBusca] = useState();
   return (
     <>
       <Container>
@@ -13,7 +15,11 @@ const Search = () => {
             }}
           />
         </Icon>
-        <Input placeholder="Procurar"></Input>
+        <Input
+          placeholder="Procurar"
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
+        ></Input>
       </Container>
     </>
   );
