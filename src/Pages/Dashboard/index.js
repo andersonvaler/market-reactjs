@@ -13,16 +13,9 @@ const Dashboard = () => {
   const { mercados } = useMercados();
   const { produtos } = useProdutos();
   const params = useParams();
-  const produto1 = {
-    name: "Maçãs",
-    description:
-      "Peça frutas fresquinhas aqui todo dia com entrega grátis essa semana.",
-    image:
-      "https://conteudo.imguol.com.br/c/entretenimento/32/2018/01/18/maca-1516308281068_v2_1920x1279.jpg",
-  };
+
   return (
     <>
-      {console.log(mercados)}
       <Header />
       <MainContainer>
         {params.userType === "user" ? (

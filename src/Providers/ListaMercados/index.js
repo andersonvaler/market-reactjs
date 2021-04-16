@@ -10,18 +10,19 @@ export const ListaMercadosProvider = ({ children }) => {
   const { token } = useToken();
 
   useEffect(() => {
-    api
-      .get("users/?isStore=true", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        setMercados(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    token &&
+      api
+        .get("users/?isStore=true", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setMercados(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   }, [token]);
 
   return (

@@ -10,18 +10,19 @@ export const ListaProdutosProvider = ({ children }) => {
   const { token } = useToken();
 
   useEffect(() => {
-    api
-      .get("products", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        setProdutos(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    token &&
+      api
+        .get("products", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setProdutos(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   }, [token]);
 
   return (
