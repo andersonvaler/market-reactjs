@@ -28,7 +28,9 @@ const Product = ({ produto }) => {
           <Description>
             {produto.description || "Nenhuma descrição foi cadastrada"}
           </Description>
-          <Button onClick={abrirModal}>Pedir Agora</Button>
+          <Button onClick={abrirModal} disable={false}>
+            Adicionar ao carrinho
+          </Button>
           <ModalCard open={open} setOpen={setOpen}>
             <ComponenteModal produto={produto} setOpen={setOpen} />
           </ModalCard>
