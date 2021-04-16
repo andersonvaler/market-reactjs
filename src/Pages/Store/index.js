@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 
 import Product from "../../Components/Cards/Product";
 import Footer from "../../Components/Footer";
+import Header from "../../Components/Header";
 
 const Store = () => {
   const { produtos } = useProdutos();
@@ -17,14 +18,15 @@ const Store = () => {
   }, []);
   return (
     <div>
-      <button onClick={() => history.push("/cart")}>Ir para carrinho</button>
-      <h1>Store</h1>
-      <div>
+      <Header />
+      {/* <button onClick={() => history.push("/cart")}>Ir para carrinho</button>
+      <h1>Store</h1> */}
+      {/* <div>
         {produtos &&
           produtos.map((valor, index) => {
             return <Product produto={valor} key={index} />;
           })}
-      </div>
+      </div> */}
       <Footer />
     </div>
   );
