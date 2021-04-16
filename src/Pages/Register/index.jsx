@@ -4,15 +4,45 @@ import FullLogo from "../../Components/Logo/FullLogo";
 import FullLogoBusiness from "../../Components/Logo/FullLogoBusiness";
 import { PageContainer, RegisterContainer } from "./style";
 import { useParams } from "react-router-dom";
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const { userType } = useParams();
+  const notifyError = () =>
+    toast.error("tente novamente", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  const notifyRegister = () => {
+    toast.success("registrado com seucesso!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   return (
     <PageContainer userType={userType}>
+      <ToastContainer />
       {userType === "user" ? <FullLogo /> : <FullLogoBusiness />}
       <RegisterContainer>
-        <FormRegister userType={userType} />
+        <FormRegister
+          userType={userType}
+          notifyError={notifyError}
+          notifyRegister={notifyRegister}
+        />
         <h4>Market &copy; Curitiba, Brazil</h4>
       </RegisterContainer>
       <div className="Clouds">
