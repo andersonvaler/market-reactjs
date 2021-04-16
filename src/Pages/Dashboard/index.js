@@ -107,7 +107,6 @@ const Dashboard = () => {
             </div>
           </>
         )}
-
         <Footer />
       </MainContainer>
     </>
