@@ -7,9 +7,11 @@ import { useParams } from "react-router-dom";
 import CardIntroUser from "../../Images/MainBanner.png";
 import CardIntroStore from "../../Images/MainBannerStore.png";
 import { useMercados } from "../../Providers/ListaMercados";
+import { useProdutos } from "../../Providers/ListaProdutos";
 
 const Dashboard = () => {
   const { mercados } = useMercados();
+  const { produtos } = useProdutos();
   const params = useParams();
   const produto1 = {
     name: "Maçãs",
@@ -41,21 +43,13 @@ const Dashboard = () => {
                 ))}
             </div>
 
-            <h1>Produtos</h1>
+            <h1>Produtos pedidos recentemente</h1>
             <h3>Selecione os melhores produtos aqui</h3>
             <div className="produtos">
-              <div className="produto">
-                <Product produto={produto1} />
-              </div>
-              <div className="produto">
-                <Product produto={produto1} />
-              </div>
-              <div className="produto">
-                <Product produto={produto1} />
-              </div>
-              <div className="produto">
-                <Product produto={produto1} />
-              </div>
+              {produtos &&
+                produtos.map((produto, index) => (
+                  <Product produto={produto} key={index} />
+                ))}
             </div>
           </>
         ) : (

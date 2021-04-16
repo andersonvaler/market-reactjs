@@ -1,17 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 95%;
+  max-width: 30rem;
   height: 9rem;
   background-color: #f6f2f9;
   border-radius: 1rem;
   margin: 0.8rem;
   display: flex;
   box-shadow: 0 0 0.2rem 0.01rem #00000090;
-
-  @media (min-width: 768px) {
-    width: 25vw;
-  }
 `;
 
 export const ProductInfo = styled.div`
