@@ -10,12 +10,27 @@ import {
   TextContainer,
 } from "./style";
 import { useParams } from "react-router-dom";
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const { userType } = useParams();
+  const notify = () =>
+    toast.error("Email ou senha incorretos!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
   return (
     <PageContainer userType={userType}>
+      <ToastContainer />
       {userType === "user" ? <FullLogo /> : <FullLogoBusiness />}
       <TextContainer>
         <Msg>
@@ -28,7 +43,7 @@ const Login = () => {
         </SubMsg>
       </TextContainer>
       <LoginContainer>
-        <FormLogin userType={userType} />
+        <FormLogin userType={userType} notify={notify} />
         <h4>Market &copy; Curitiba, Brazil</h4>
       </LoginContainer>
       <div className="greenClouds">

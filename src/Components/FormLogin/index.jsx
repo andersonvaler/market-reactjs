@@ -17,7 +17,7 @@ import {
 } from "./style";
 import { useHistory } from "react-router";
 
-const FormLogin = ({ userType }) => {
+const FormLogin = ({ userType, notify }) => {
   const { getToken } = useToken();
   const history = useHistory();
 
@@ -56,6 +56,7 @@ const FormLogin = ({ userType }) => {
       })
       .catch((error) => {
         console.log(error);
+        notify();
       });
   };
 
