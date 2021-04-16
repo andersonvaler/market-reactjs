@@ -1,5 +1,6 @@
 import { ProdutosContainer, PaginationContainer } from "./style";
 import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
 import Search from "../../Components/Search";
 import Product from "../../Components/Cards/Product/index";
 import SelectCategory from "../../Components/SelectCategory";
@@ -46,6 +47,7 @@ const Products = () => {
         onChange={handleChange}
         shape="rounded"
       />
+      <Footer />
     </ProdutosContainer>
   );
 };

@@ -8,6 +8,10 @@ export const Container = styled.div`
   margin: 0.8rem;
   display: flex;
   box-shadow: 0 0 0.2rem 0.01rem #00000090;
+
+  @media (min-width: 768px) {
+    width: 25vw;
+  }
 `;
 
 export const ProductInfo = styled.div`
