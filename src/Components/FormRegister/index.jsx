@@ -14,7 +14,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { useHistory } from "react-router";
 
-const FormRegister = ({ userType }) => {
+const FormRegister = ({ userType, notifyError, notifyRegister }) => {
   const history = useHistory();
   const schema = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
@@ -53,8 +53,12 @@ const FormRegister = ({ userType }) => {
         console.log("ok", res);
         reset();
         redirect();
+        notifyRegister();
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        notifyError();
+      });
   };
 
   return (

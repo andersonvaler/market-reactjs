@@ -10,12 +10,38 @@ import {
   TextContainer,
 } from "./style";
 import { useParams } from "react-router-dom";
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const { userType } = useParams();
+  const notifyError = () =>
+    toast.error("tente novamente", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  const notifyLogin = () => {
+    toast.success("Logado com seucesso!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   return (
     <PageContainer userType={userType}>
+      <ToastContainer />
       {userType === "user" ? <FullLogo /> : <FullLogoBusiness />}
       <TextContainer>
         <Msg>
@@ -28,7 +54,11 @@ const Login = () => {
         </SubMsg>
       </TextContainer>
       <LoginContainer>
-        <FormLogin userType={userType} />
+        <FormLogin
+          userType={userType}
+          notifyError={notifyError}
+          notifyLogin={notifyLogin}
+        />
         <h4>Market &copy; Curitiba, Brazil</h4>
       </LoginContainer>
       <div className="greenClouds">
