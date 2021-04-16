@@ -37,9 +37,6 @@ export const HeaderContainer = styled.header`
   }
 
   @media (min-width: 768px) {
-    padding-left: 25%;
-    padding-right: 25%;
-
     .header-button-desktop {
       display: block;
       border: none;
