@@ -8,22 +8,37 @@ export const ProdutosContainer = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 70px;
+  margin-bottom: 70px;
 
-  @media (min-width: 768px) {
-    width: 60vw;
+  h1 {
+    color: #380f52;
   }
 
   .produtos-pesquisa {
     width: 100%;
+
+    @media (min-width: 768px) {
+      width: 60vw;
+    }
   }
 
   .produtos-categorias {
     width: 100%;
     height: 80px;
+
+    @media (min-width: 768px) {
+      width: 60vw;
+    }
   }
 
   .produtos-cards {
-    width: 90%;
+    width: 100%;
+    @media (min-width: 768px) {
+      width: 60vw;
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 `;
 
