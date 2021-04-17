@@ -67,7 +67,7 @@ export const PageContainer = styled.main`
   .cloud3 {
     display: none;
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     right: 16%;
     overflow: hidden;
     animation: surgirTopo 11s alternate infinite;
@@ -88,7 +88,7 @@ export const PageContainer = styled.main`
   .cloud4 {
     display: none;
     position: absolute;
-    bottom: 0%;
+    bottom: 11%;
     right: 5%;
     overflow: hidden;
     animation: surgirBaixo 11s alternate infinite;

@@ -8,6 +8,7 @@ import CardIntroUser from "../../Images/MainBanner.png";
 import CardIntroStore from "../../Images/MainBannerStore.png";
 import { useMercados } from "../../Providers/ListaMercados";
 import { useProdutos } from "../../Providers/ListaProdutos";
+import { ToastContainer } from "react-toastify";
 
 const Dashboard = () => {
   const { mercados } = useMercados();
@@ -16,6 +17,7 @@ const Dashboard = () => {
 
   return (
     <>
+      <ToastContainer />
       <Header />
       <MainContainer>
         {params.userType === "user" ? (
