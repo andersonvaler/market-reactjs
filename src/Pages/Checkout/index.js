@@ -51,6 +51,7 @@ const Checkout = () => {
 
         <div>
           <h1>Orçamentos retornados:</h1>
+
           <Lojas>
             {mercados &&
               mercados.map((mercado, index) => (
