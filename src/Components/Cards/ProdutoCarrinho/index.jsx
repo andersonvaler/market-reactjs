@@ -1,4 +1,6 @@
 import { useCarrinho } from "../../../Providers/Carrinho";
+import { useGlobal } from "../../../Providers/Global";
+
 import {
   DivContador,
   Button,
@@ -13,15 +15,18 @@ import {
 const ProdutoCarrinho = ({ produto, index, contador }) => {
   const { setCarrinho } = useCarrinho();
   let fakeCarrinho = JSON.parse(localStorage.getItem("carrinho"));
+  const { global, setGlobal } = useGlobal();
 
   const addContador = () => {
     contador++;
-    produto.quantity += 1;
+    produto.quantity++;
+    setGlobal(!global);
   };
   const subContador = () => {
     if (produto.quantity > 0) {
-      contador++;
-      produto.quantity -= 1;
+      contador--;
+      produto.quantity--;
+      setGlobal(!global);
     }
   };
   const deletaCard = () => {

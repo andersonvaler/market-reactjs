@@ -1,6 +1,6 @@
 import { useMercados } from "../../Providers/ListaMercados";
 import Header from "../../Components/Header";
-import StoreCard from "../../Components/Cards/StoreCard";
+import StoreCardFinal from "../../Components/Cards/StoreCardFinal";
 import {
   Edit,
   Topic,
@@ -14,14 +14,16 @@ import {
 import { MainContainer, Footer } from "../Cart/style";
 import { EditIcon } from "../../Components/PerfilUser/style";
 import { Button } from "../../Components/Button/PrimaryButton/style";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useUsuario } from "../../Providers/Usuario";
+/* import ModalProdutos from "../../Components/ModalProdutos"; */
 
 const Checkout = () => {
   const { mercados } = useMercados();
   const { isStore, usuario } = useUsuario();
   const history = useHistory();
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (isStore) {
@@ -51,14 +53,13 @@ const Checkout = () => {
         <br />
 
         <div>
-          {/* <h1>Orçamentos retornados:</h1> */}
-
           <Lojas>
             {mercados &&
               mercados.map((mercado, index) => (
-                <StoreCard
+                <StoreCardFinal
                   name={mercado.name}
-                  adress={mercado.adress}
+                  open={open}
+                  setOpen={setOpen}
                   key={index}
                   imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
                 />
@@ -86,7 +87,7 @@ const Checkout = () => {
           <p>Nome</p>
           <p>Total: 0</p>
         </div>
-        <Button>Confirmar</Button>
+        <Button onClick={() => setOpen(true)}>Confirmar</Button>
       </Footer>
     </div>
   );

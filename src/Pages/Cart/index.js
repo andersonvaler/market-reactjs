@@ -2,7 +2,7 @@ import { useHistory } from "react-router";
 import { useCarrinho } from "../../Providers/Carrinho";
 import { useToken } from "../../Providers/Token";
 import api from "../../services/api";
-// import { useGlobal } from "../../Providers/Global";
+import { useGlobal } from "../../Providers/Global";
 import { useEffect } from "react";
 import { useUsuario } from "../../Providers/Usuario";
 import ProdutoCarrinho from "../../Components/Cards/ProdutoCarrinho";
@@ -13,9 +13,15 @@ import Header from "../../Components/Header";
 
 const Cart = () => {
   const { token } = useToken();
-
+  const { carrinho, setCarrinho } = useCarrinho();
   const { isStore, usuario } = useUsuario();
   const history = useHistory();
+  const { global } = useGlobal();
+  let contador = 0;
+
+  useEffect(() => {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  }, [global]);
 
   useEffect(() => {
     if (isStore) {
@@ -23,10 +29,6 @@ const Cart = () => {
     }
     //eslint-disable-next-line
   }, [isStore]);
-
-  const { carrinho, setCarrinho } = useCarrinho();
-  // const { global } = useGlobal();
-  let contador = 0;
 
   const sendCart = () => {
     const { name, adress, id, number } = usuario;
@@ -76,7 +78,6 @@ const Cart = () => {
                   produto={produto}
                   index={index}
                   contador={contador}
-                  carrinho={carrinho}
                 />
               );
             })}
