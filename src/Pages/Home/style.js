@@ -18,7 +18,7 @@ export const PageContainer = styled.main`
   }
   .cloud1 {
     position: absolute;
-    bottom: 2%;
+    bottom: 9%;
     left: 12%;
     overflow: hidden;
     animation: surgirTopo 11s alternate infinite;
@@ -50,13 +50,11 @@ export const PageContainer = styled.main`
         transform: translateY(0);
       }
     }
-    @media (max-width: 900px) {
-      bottom: 0;
-    }
   }
   @media (max-width: 900px) {
     flex-direction: column;
     overflow: hidden;
+    justify-content: space-around;
   }
 `;
 

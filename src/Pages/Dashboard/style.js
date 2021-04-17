@@ -58,15 +58,15 @@ export const MainContainer = styled.main`
   }
 
   .produtos {
-    padding: 0 1rem;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    /* @media (min-width: 768px) {
-      width: 100%;
-    } */
+
+    @media (min-width: 768px) {
+      width: 110%;
+    }
   }
 
   .produto {

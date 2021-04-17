@@ -57,9 +57,10 @@ const Dashboard = () => {
             <h3>Selecione os melhores produtos aqui</h3>
             <div className="produtos">
               {produtos &&
-                produtos.map((produto, index) => (
-                  <Product produto={produto} key={index} />
-                ))}
+                produtos.map(
+                  (produto, index) =>
+                    index < 6 && <Product produto={produto} key={index} />
+                )}
             </div>
           </>
         )}
