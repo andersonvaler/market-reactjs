@@ -8,10 +8,12 @@ export const MainContainer = styled.main`
   overflow-x: hidden;
 
   h1 {
+    font-size: 1.3rem;
     color: #380f52;
   }
 
   h3 {
+    font-size: 1rem;
     color: #927dad;
   }
 

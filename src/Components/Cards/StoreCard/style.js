@@ -40,3 +40,17 @@ export const Footer = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const MarketName = styled.h2`
+  font-size: 1.2rem;
+  color: #380f52;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px dotted #00000060;
+`;
+
+export const MarketAdress = styled.p`
+  font-size: 1rem;
+  color: #380f5295;
+  font-weight: 400;
+`;

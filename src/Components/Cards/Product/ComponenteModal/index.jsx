@@ -21,6 +21,7 @@ const ComponenteModal = ({ produto, setOpen }) => {
 
   return (
     <Modal>
+      {console.log("carrinho", carrinho)}
       <ProductName>Escolha a quantidade</ProductName>
       <Input
         type="number"
@@ -28,7 +29,7 @@ const ComponenteModal = ({ produto, setOpen }) => {
         onChange={(data) => setQuantidade(data.target.value)}
         value={quantidade}
       />
-      <Button onClick={manipulaCarrinho}>Adicionar ao Carrinho</Button>
+      <Button onClick={manipulaCarrinho}>Confirmar</Button>
     </Modal>
   );
 };
