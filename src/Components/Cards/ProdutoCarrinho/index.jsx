@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useCarrinho } from "../../../Providers/Carrinho";
 import {
   DivContador,
@@ -12,8 +11,8 @@ import {
 } from "./style";
 
 const ProdutoCarrinho = ({ produto, index, contador }) => {
-  const { carrinho, setCarrinho } = useCarrinho();
-  // const [fakeCarrinho, setFakeCarrinho] = useState(carrinho);
+  const { setCarrinho } = useCarrinho();
+  let fakeCarrinho = JSON.parse(localStorage.getItem("carrinho"));
 
   const addContador = () => {
     contador++;
@@ -26,10 +25,9 @@ const ProdutoCarrinho = ({ produto, index, contador }) => {
     }
   };
   const deletaCard = () => {
-    console.log("Index", index);
-    carrinho.splice(index, 1);
-    console.log("Carrinho", carrinho);
-    // setCarrinho(fakeCarrinho);
+    fakeCarrinho.splice(index, 1);
+    localStorage.setItem("carrinho", JSON.stringify(fakeCarrinho));
+    setCarrinho(fakeCarrinho);
   };
 
   return (

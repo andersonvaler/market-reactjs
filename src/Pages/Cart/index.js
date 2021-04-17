@@ -1,6 +1,8 @@
 import { useHistory } from "react-router";
 import { useCarrinho } from "../../Providers/Carrinho";
-import { useGlobal } from "../../Providers/Global";
+// import { useGlobal } from "../../Providers/Global";
+import { useEffect } from "react";
+import { useUsuario } from "../../Providers/Usuario";
 
 import ProdutoCarrinho from "../../Components/Cards/ProdutoCarrinho";
 
@@ -8,8 +10,6 @@ import { DivProdutos, MainContainer, Footer } from "./style";
 import { Button } from "../../Components/Button/PrimaryButton/style";
 
 import Header from "../../Components/Header";
-import { useEffect } from "react";
-import { useUsuario } from "../../Providers/Usuario";
 
 const Cart = () => {
   const { isStore } = useUsuario();
@@ -23,7 +23,7 @@ const Cart = () => {
   }, [isStore]);
 
   const { carrinho } = useCarrinho();
-  const { global } = useGlobal();
+  // const { global } = useGlobal();
   let contador = 0;
 
   return (
