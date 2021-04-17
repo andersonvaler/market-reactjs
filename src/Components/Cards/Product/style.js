@@ -42,7 +42,7 @@ export const ProductName = styled.h3`
 `;
 
 export const Description = styled.p`
-  font-weight: 500;
+  font-weight: 600;
   color: #927dad;
   font-size: 0.9rem;
   line-height: 1.2rem;
