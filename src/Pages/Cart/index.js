@@ -19,7 +19,9 @@ const Cart = () => {
   const { global } = useGlobal();
   let contador = 0;
 
-  useEffect(() => {}, [global]);
+  useEffect(() => {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  }, [global]);
 
   useEffect(() => {
     if (isStore) {
