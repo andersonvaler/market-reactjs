@@ -12,8 +12,6 @@ export const UsuarioProvider = ({ children }) => {
   const [usuario, setUsuario] = useState();
   const [isStore, setIsStore] = useState();
 
-  const loadUser = () => {};
-
   useEffect(() => {
     const user_id = token ? jwt_decode(token) : false;
     token &&

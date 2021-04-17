@@ -1,14 +1,14 @@
 import { Input, Container } from "./style";
 import { Button } from "../style";
 import api from "../../../services/api";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useToken } from "../../../Providers/Token";
-import { useGlobal } from "../../../Providers/Global";
+// import { useGlobal } from "../../../Providers/Global";
 
 export const ModalEdit = ({ propriedade, usuario }) => {
   const [texto, setTexto] = useState("");
   const { token } = useToken();
-  const { global, setGlobal } = useGlobal();
+  // const { global, setGlobal } = useGlobal();
 
   const editar = () => {
     let objeto = {};

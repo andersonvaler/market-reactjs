@@ -8,7 +8,6 @@ export const CarrinhoProvider = ({ children }) => {
   const [carrinho, setCarrinho] = useState(
     JSON.parse(localStorage.getItem("carrinho")) || []
   );
-  console.log("CarrinhoProviders", carrinho);
 
   useEffect(() => {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));

@@ -8,15 +8,17 @@ export const Edit = styled.div`
 
   h4 {
     color: #927dad;
+    font-weight: 600;
+    font-size: 0.9rem;
   }
 `;
 
 export const Topic = styled.div`
   width: 90%;
   text-align: left;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: #380f52;
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;
 
 export const Lojas = styled.div`
@@ -24,9 +26,9 @@ export const Lojas = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+  overflow-x: scroll;
   @media (min-width: 768px) {
     width: 60vw;
-    overflow-x: hidden;
   }
 `;
 
@@ -67,4 +69,11 @@ export const CardIcon = styled(MdCreditCard)`
 export const CardIconMoney = styled(MdAttachMoney)`
   color: #380f52;
   font-size: 2rem;
+`;
+
+export const CheckoutDiv = styled.div`
+  h1 {
+    font-size: 1.2rem;
+    text-align: left;
+  }
 `;

@@ -4,7 +4,7 @@ import StoreCard from "../../Components/Cards/StoreCard";
 import Product from "../../Components/Cards/Product/index";
 import Footer from "../../Components/Footer";
 import { useHistory, useParams } from "react-router-dom";
-import CardIntroStore from "../../Images/MainBannerStore.png";
+// import CardIntroStore from "../../Images/MainBannerStore.png";
 import { useMercados } from "../../Providers/ListaMercados";
 import { useProdutos } from "../../Providers/ListaProdutos";
 import { ToastContainer } from "react-toastify";
@@ -65,11 +65,7 @@ const Dashboard = () => {
         )}
         {store && (
           <>
-            <div className="cardIntro">
-              <img alt="" className="cardImage" src={CardIntroStore} />
-            </div>
-
-            <h1>Meus produtos</h1>
+            <h1>Minhas categorias:</h1>
             <div className="categorias">
               <div className="categoriaDiv">
                 <h3>Carnes</h3>

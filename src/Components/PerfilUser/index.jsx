@@ -1,10 +1,10 @@
 import { PerfilContainer, EditIcon, Button } from "./style";
-import Pagamento from "../Pagamento";
+// import Pagamento from "../Pagamento";
 import { useParams } from "react-router-dom";
 import { useUsuario } from "../../Providers/Usuario";
 import { useState } from "react";
 import ModalCard from "../ModalCard";
-import ModaEdit, { ModalEdit } from "./modalEdit";
+import { ModalEdit } from "./modalEdit";
 
 const PerfilUser = () => {
   const params = useParams();
