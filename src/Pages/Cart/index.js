@@ -8,9 +8,19 @@ import { DivProdutos, MainContainer, Footer, Contador } from "./style";
 import { Button } from "../../Components/Button/PrimaryButton/style";
 
 import Header from "../../Components/Header";
+import { useEffect } from "react";
+import { useUsuario } from "../../Providers/Usuario";
 
 const Cart = () => {
+  const { isStore } = useUsuario();
   const history = useHistory();
+
+  useEffect(() => {
+    if (isStore) {
+      history.push("/dashboard/store");
+    }
+    //eslint-disable-next-line
+  }, [isStore]);
 
   const { carrinho } = useCarrinho();
   // const { global } = useGlobal();
