@@ -6,6 +6,7 @@ import PedidoAceito from "../../Components/Cards/PedidoAceito";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useUsuario } from "../../Providers/Usuario";
+import PreOrder from "../../Components/PreOrders";
 
 const PedidosStore = () => {
   const { isStore } = useUsuario();
@@ -22,6 +23,7 @@ const PedidosStore = () => {
       <Header />
       <PedidosPageContainer>
         <h1>Pedidos em andamento</h1>
+        <PreOrder />
         <PedidosContainer>
           <Pedido />
           <Pedido />

@@ -9,6 +9,7 @@ import {
   ButtonCartao,
   ContainerButton,
   CardIconMoney,
+  CheckoutDiv,
 } from "./style";
 import { MainContainer, Footer } from "../Cart/style";
 import { EditIcon } from "../../Components/PerfilUser/style";
@@ -20,7 +21,7 @@ import { useUsuario } from "../../Providers/Usuario";
 
 const Checkout = () => {
   const { mercados } = useMercados();
-  const { isStore } = useUsuario();
+  const { isStore, usuario } = useUsuario();
   const history = useHistory();
   const [open, setOpen] = useState(false);
 
@@ -35,25 +36,23 @@ const Checkout = () => {
     <div>
       <Header />
       <MainContainer>
-        <div>
-          <h1>Confirme os dados:</h1>
+        <CheckoutDiv>
+          <h1>Seus dados:</h1>
           <Topic>Endereço:</Topic>
           <Edit>
-            <h4>R. Não sei das quantas, n 235</h4>
+            <h4>{usuario.adress}</h4>
             <EditIcon />
           </Edit>
           <Topic>Telefone:</Topic>
           <Edit>
-            <h4>(00) 99999-9999</h4>
+            <h4>{usuario.number}</h4>
             <EditIcon />
           </Edit>
-        </div>
+        </CheckoutDiv>
 
         <br />
 
         <div>
-          <h1>Orçamentos retornados:</h1>
-          {/* <ModalProdutos open={open} setOpen={setOpen} /> */}
           <Lojas>
             {mercados &&
               mercados.map((mercado, index) => (
@@ -69,7 +68,7 @@ const Checkout = () => {
         </div>
 
         <div>
-          <h1>Métodos de pagamento:</h1>
+          {/* <h1>Métodos de pagamento:</h1> */}
           <ContainerButton>
             <ButtonCartao>
               <CardIcon />

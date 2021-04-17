@@ -51,9 +51,9 @@ export const MainContainer = styled.main`
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
+    overflow-x: scroll;
     @media (min-width: 768px) {
       width: 100%;
-      overflow-x: hidden;
     }
   }
 
