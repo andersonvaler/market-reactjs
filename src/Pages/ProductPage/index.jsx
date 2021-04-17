@@ -4,17 +4,26 @@ import Footer from "../../Components/Footer";
 import Search from "../../Components/Search";
 import Product from "../../Components/Cards/Product/index";
 import SelectCategory from "../../Components/SelectCategory";
+import { useProdutos } from "../../Providers/ListaProdutos";
 import { useState } from "react";
 
 const Products = () => {
-  const produto1 = {
-    name: "Maçãs",
-    description:
-      "Peça frutas fresquinhas aqui todo dia com entrega grátis essa semana.",
-    image:
-      "https://conteudo.imguol.com.br/c/entretenimento/32/2018/01/18/maca-1516308281068_v2_1920x1279.jpg",
-  };
+  const { produtos } = useProdutos();
+  const [filter, setFilter] = useState();
+  const [filtered, setFiltered] = useState(produtos);
   const [page, setPage] = useState(1);
+
+  const handleFilter = () => {
+    setFiltered(
+      produtos.filter(
+        ({ name, description, category }) =>
+          name.toUpperCase().includes(filter.toUpperCase()) ||
+          description.toUpperCase().includes(filter.toUpperCase()) ||
+          category.toUpperCase().includes(filter.toUpperCase())
+      )
+    );
+    console.log("executou", filtered);
+  };
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -24,7 +33,12 @@ const Products = () => {
 
       <div className="produtos-pesquisa">
         <h1>Produtos</h1>
-        <Search />
+        <Search handleFilter={() => handleFilter()}>
+          <input
+            placeholder="Procurar"
+            onChange={(e) => setFilter(e.target.value)}
+          ></input>
+        </Search>
       </div>
 
       <div className="produtos-categorias">
@@ -32,13 +46,14 @@ const Products = () => {
       </div>
 
       <div className="produtos-cards">
-        <Product produto={produto1} />
-
-        <Product produto={produto1} />
-
-        <Product produto={produto1} />
-
-        <Product produto={produto1} />
+        {filtered.length < 1 && "Nenhum produto encontrado para sua pesquisa"}
+        {filtered.length > 0
+          ? filtered.map((produto, index) => (
+              <Product produto={produto} key={index} />
+            ))
+          : produtos.map((produto, index) => (
+              <Product produto={produto} key={index} />
+            ))}
       </div>
 
       <PaginationContainer

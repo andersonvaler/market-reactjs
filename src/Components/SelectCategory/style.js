@@ -20,6 +20,7 @@ export const ListItemContainer = styled.div`
   height: 30px;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: 16px;
   margin: 8px;
   padding-left: 4px;

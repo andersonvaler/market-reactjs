@@ -10,16 +10,17 @@ export const Container = styled.div`
   border-radius: 24px;
   box-shadow: 0 0.03rem 0.2rem 0.01rem #00000095;
   margin: 0.5rem;
+  input {
+    color: #927dad;
+    width: 85%;
+    height: 100%;
+    font-weight: 600;
+    font-size: 1.3rem;
+    background-color: transparent;
+  }
 `;
 
-export const Input = styled.input`
-  color: #927dad;
-  width: 85%;
-  height: 100%;
-  font-weight: 600;
-  font-size: 1.3rem;
-  background-color: transparent;
-`;
+export const Input = styled.input``;
 
 export const Icon = styled.figure`
   width: 15%;
@@ -27,4 +28,5 @@ export const Icon = styled.figure`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;

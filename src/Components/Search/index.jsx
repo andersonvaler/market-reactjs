@@ -2,12 +2,12 @@ import { Container, Input, Icon } from "./style";
 import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 
-const Search = () => {
+const Search = ({ children, handleFilter }) => {
   const [busca, setBusca] = useState();
   return (
     <>
       <Container>
-        <Icon>
+        <Icon onClick={() => handleFilter()}>
           <FaSearch
             style={{
               fontSize: "1.8rem",
@@ -15,11 +15,7 @@ const Search = () => {
             }}
           />
         </Icon>
-        <Input
-          placeholder="Procurar"
-          value={busca}
-          onChange={(e) => setBusca(e.target.value)}
-        ></Input>
+        {children}
       </Container>
     </>
   );
