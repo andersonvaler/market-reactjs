@@ -17,7 +17,8 @@ export const SelectionListContainer = styled.div`
 
 export const ListItemContainer = styled.div`
   width: 25vw;
-  height: 30px;
+  height: 22px;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -7,7 +7,6 @@ export const ProdutosContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin-top: 70px;
   margin-bottom: 70px;
 
@@ -34,10 +33,13 @@ export const ProdutosContainer = styled.main`
 
   .produtos-cards {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 10rem;
     @media (min-width: 768px) {
-      width: 60vw;
-      display: flex;
-      flex-wrap: wrap;
+      padding: 0;
+      width: 80%;
     }
   }
 `;
