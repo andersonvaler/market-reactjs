@@ -17,9 +17,11 @@ import ComponenteModal from "./ComponenteModal";
 const Product = ({ produto }) => {
   const { carrinho } = useCarrinho();
   const [open, setOpen] = useState(false);
+
   const abrirModal = () => {
     setOpen(true);
   };
+
   return (
     <div>
       <Container>

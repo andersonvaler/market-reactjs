@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useCarrinho } from "../../../Providers/Carrinho";
 import {
   DivContador,
   Button,
@@ -5,9 +7,14 @@ import {
   DescricaoCard,
   TituloCard,
   ProdutoImg,
+  ButtonDel,
+  CardIcon,
 } from "./style";
 
 const ProdutoCarrinho = ({ produto, index, contador }) => {
+  const { carrinho, setCarrinho } = useCarrinho();
+  // const [fakeCarrinho, setFakeCarrinho] = useState(carrinho);
+
   const addContador = () => {
     contador++;
     produto.quantity += 1;
@@ -18,6 +25,13 @@ const ProdutoCarrinho = ({ produto, index, contador }) => {
       produto.quantity -= 1;
     }
   };
+  const deletaCard = () => {
+    console.log("Index", index);
+    carrinho.splice(index, 1);
+    console.log("Carrinho", carrinho);
+    // setCarrinho(fakeCarrinho);
+  };
+
   return (
     <Card key={index}>
       <ProdutoImg>
@@ -30,6 +44,9 @@ const ProdutoCarrinho = ({ produto, index, contador }) => {
         <p>{produto.quantity}</p>
         <Button onClick={addContador}>+</Button>
       </DivContador>
+      <ButtonDel onClick={deletaCard}>
+        <CardIcon />
+      </ButtonDel>
     </Card>
   );
 };

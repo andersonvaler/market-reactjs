@@ -32,7 +32,6 @@ const Products = () => {
           category.toUpperCase().includes(filter.toUpperCase())
       )
     );
-    console.log("executou", filtered);
   };
   return (
     <ProdutosContainer>

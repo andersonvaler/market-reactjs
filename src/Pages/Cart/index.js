@@ -1,6 +1,6 @@
 import { useHistory } from "react-router";
 import { useCarrinho } from "../../Providers/Carrinho";
-// import { useGlobal } from "../../Providers/Global";
+import { useGlobal } from "../../Providers/Global";
 
 import ProdutoCarrinho from "../../Components/Cards/ProdutoCarrinho";
 
@@ -23,7 +23,7 @@ const Cart = () => {
   }, [isStore]);
 
   const { carrinho } = useCarrinho();
-  // const { global } = useGlobal();
+  const { global } = useGlobal();
   let contador = 0;
 
   return (
@@ -43,6 +43,7 @@ const Cart = () => {
                   produto={produto}
                   index={index}
                   contador={contador}
+                  carrinho={carrinho}
                 />
               );
             })}

@@ -15,7 +15,6 @@ const ComponenteModal = ({ produto, setOpen }) => {
     } else {
       produto.quantity += parseInt(quantidade);
     }
-
     setOpen(false);
   };
 
