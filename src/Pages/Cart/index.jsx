@@ -1,6 +1,8 @@
 import { useHistory } from "react-router";
 import { useCarrinho } from "../../Providers/Carrinho";
 // import { useGlobal } from "../../Providers/Global";
+import { useEffect } from "react";
+import { useUsuario } from "../../Providers/Usuario";
 
 import ProdutoCarrinho from "../../Components/Cards/ProdutoCarrinho";
 
@@ -8,8 +10,6 @@ import { DivProdutos, MainContainer, Footer } from "./style";
 import { Button } from "../../Components/Button/PrimaryButton/style";
 
 import Header from "../../Components/Header";
-import { useEffect } from "react";
-import { useUsuario } from "../../Providers/Usuario";
 
 const Cart = () => {
   const { isStore } = useUsuario();
@@ -43,6 +43,7 @@ const Cart = () => {
                   produto={produto}
                   index={index}
                   contador={contador}
+                  carrinho={carrinho}
                 />
               );
             })}
@@ -50,8 +51,11 @@ const Cart = () => {
         </DivProdutos>
       </MainContainer>
       <Footer>
-        <p>Número de Produtos: {contador}</p>
-        <Button onClick={() => history.push("/checkout")}>
+        {carrinho.length > 0 && <p>Itens: {contador}un</p>}
+        <Button
+          onClick={() => history.push("/checkout")}
+          disabled={carrinho.length < 1 && "disabled"}
+        >
           Solicitar Orçamento
         </Button>
       </Footer>

@@ -4,9 +4,13 @@ import {
   CheckIcon,
   MoneyIcon,
 } from "./style";
-import { useState } from "react";
 
-const SelectCategory = ({ selecionado = false }) => {
+const SelectCategory = ({
+  handleDisselect,
+  handleSelect,
+  categorySelection,
+  selecionado = false,
+}) => {
   const category = [
     "Carnes",
     "Frios",
@@ -15,19 +19,14 @@ const SelectCategory = ({ selecionado = false }) => {
     "Higiene",
     "Mercearia",
   ];
-  const [selected, setSelected] = useState("");
-
-  const handleSelect = (selection) => {
-    setSelected(selection);
-  };
 
   return (
     <SelectionListContainer>
       {category.map((categoryName, index) =>
-        selected === categoryName ? (
+        !!categorySelection[0] && categorySelection.includes(categoryName) ? (
           <ListItemContainer
             key={index}
-            onClick={() => handleSelect(categoryName)}
+            onClick={() => handleDisselect(categoryName)}
             selected
           >
             <CheckIcon />
