@@ -5,15 +5,21 @@ import {
   Search,
   PersonAvatar,
   Receipt,
+  Store,
 } from "./style";
 import CompactLogo from "../Logo/CompactLogo";
 import { useHistory, useParams } from "react-router-dom";
 import { useToken } from "../../Providers/Token";
+import { useCarrinho } from "../../Providers/Carrinho";
+import Badge from "@material-ui/core/Badge";
+import { useUsuario } from "../../Providers/Usuario";
 
 const Header = () => {
+  const { carrinho } = useCarrinho();
   const params = useParams();
   const history = useHistory();
   const { clearToken } = useToken();
+  const { setIsStore, setUsuario, usuario } = useUsuario();
 
   return (
     <HeaderContainer>
@@ -30,7 +36,14 @@ const Header = () => {
               className="header-button-desktop"
               onClick={() => history.push("/cart")}
             >
-              <Cart />
+              <Badge
+                badgeContent={carrinho.length}
+                style={{ color: "#fff" }}
+                color="primary"
+              >
+                <Cart />
+              </Badge>
+
               <h4>Carrinho</h4>
             </button>
 
@@ -55,9 +68,11 @@ const Header = () => {
             onClick={() => {
               clearToken();
               history.push("/");
+              setUsuario();
+              setIsStore();
             }}
           >
-            <PersonAvatar>D</PersonAvatar>
+            <PersonAvatar>{usuario?.name[0].toUpperCase()}</PersonAvatar>
           </button>
         </>
       ) : (
@@ -70,7 +85,7 @@ const Header = () => {
           </button>
           <button
             className="header-button-desktop"
-            onClick={() => history.push("/products")}
+            onClick={() => history.push("/pedidos")}
           >
             <Receipt />
             <h4>Pedidos</h4>
@@ -89,7 +104,9 @@ const Header = () => {
               history.push("/");
             }}
           >
-            <PersonAvatar>D</PersonAvatar>
+            <PersonAvatar>
+              <Store />
+            </PersonAvatar>
           </button>
         </>
       )}

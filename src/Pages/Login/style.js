@@ -25,7 +25,7 @@ export const PageContainer = styled.main`
   .cloud1 {
     display: none;
     position: absolute;
-    bottom: 0;
+    bottom: 12%;
     left: 5%;
     overflow: hidden;
     animation: surgirTopo 11s alternate infinite;
@@ -46,7 +46,7 @@ export const PageContainer = styled.main`
   .cloud2 {
     display: none;
     position: absolute;
-    bottom: 5%;
+    bottom: 9%;
     left: 0;
     overflow: hidden;
     animation: surgirBaixo 11s alternate infinite;

@@ -1,16 +1,14 @@
-import { Container, Input, Icon } from "./style";
+import { Container, Icon } from "./style";
 import { FaSearch } from "react-icons/fa";
-import { useState } from "react";
 
 const Search = ({ children, handleFilter }) => {
-  const [busca, setBusca] = useState();
   return (
     <>
       <Container>
         <Icon onClick={() => handleFilter()}>
           <FaSearch
             style={{
-              fontSize: "1.8rem",
+              fontSize: "1.2rem",
               color: "#380F52",
             }}
           />

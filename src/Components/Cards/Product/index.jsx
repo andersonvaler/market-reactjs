@@ -7,6 +7,7 @@ import {
   Description,
   ProductHeader,
 } from "./style";
+import { useCarrinho } from "../../../Providers/Carrinho";
 
 import ModalCard from "../../ModalCard/index";
 
@@ -14,6 +15,7 @@ import { useState } from "react";
 import ComponenteModal from "./ComponenteModal";
 
 const Product = ({ produto }) => {
+  const { carrinho } = useCarrinho();
   const [open, setOpen] = useState(false);
   const abrirModal = () => {
     setOpen(true);
@@ -28,8 +30,13 @@ const Product = ({ produto }) => {
           <Description>
             {produto.description || "Nenhuma descrição foi cadastrada"}
           </Description>
-          <Button onClick={abrirModal} disable={false}>
-            Adicionar ao carrinho
+          <Button
+            onClick={abrirModal}
+            disabled={carrinho.includes(produto) && "disabled"}
+          >
+            {carrinho.includes(produto)
+              ? "Produto no carrinho"
+              : "Adicionar ao carrinho"}
           </Button>
           <ModalCard open={open} setOpen={setOpen}>
             <ComponenteModal produto={produto} setOpen={setOpen} />

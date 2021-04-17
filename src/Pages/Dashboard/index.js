@@ -3,25 +3,42 @@ import Header from "../../Components/Header";
 import StoreCard from "../../Components/Cards/StoreCard";
 import Product from "../../Components/Cards/Product/index";
 import Footer from "../../Components/Footer";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import CardIntroUser from "../../Images/MainBanner.png";
 import CardIntroStore from "../../Images/MainBannerStore.png";
 import { useMercados } from "../../Providers/ListaMercados";
 import { useProdutos } from "../../Providers/ListaProdutos";
+import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
+import { useUsuario } from "../../Providers/Usuario";
 
 const Dashboard = () => {
   const { mercados } = useMercados();
   const { produtos } = useProdutos();
-  const params = useParams();
-  console.log(mercados + "aqui");
+  const { isStore } = useUsuario();
+  const { userType } = useParams();
+  const history = useHistory();
+  const store = userType === "store";
+
+  useEffect(() => {
+    if (store && !isStore) {
+      history.push("/dashboard/user");
+    }
+    if (!store && isStore) {
+      history.push("/dashboard/store");
+    }
+
+    //eslint-disable-next-line
+  }, [isStore]);
 
   return (
     <>
+      <ToastContainer />
       <Header />
       <MainContainer>
-        {params.userType === "user" ? (
+        {userType === "user" && (
           <>
-            <img alt="" className="cardIntro" src={CardIntroUser} />
+            {/* <img alt="" className="cardIntro" src={CardIntroUser} /> */}
 
             <h1>Lojas</h1>
             <h3>Encontre as melhores lojas e mercados</h3>
@@ -46,7 +63,8 @@ const Dashboard = () => {
                 ))}
             </div>
           </>
-        ) : (
+        )}
+        {store && (
           <>
             <div className="cardIntro">
               <img alt="" className="cardImage" src={CardIntroStore} />

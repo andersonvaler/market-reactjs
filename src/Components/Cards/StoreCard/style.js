@@ -27,11 +27,11 @@ export const StoreInfo = styled.div`
   padding: 0.5rem;
 `;
 
-export const Name = styled.h3`
-  font-weight: bold;
+export const Name = styled.h2`
+  font-weight: 700;
   margin: 0;
   color: #380f52;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-align: center;
 `;
 
