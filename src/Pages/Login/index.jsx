@@ -12,7 +12,6 @@ import {
 import { useParams } from "react-router-dom";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
-
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
@@ -32,6 +31,17 @@ const Login = () => {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  const notifyLoginArea = () => {
+    toast.info("Área de Login errada!", {
+      position: "top-center",
+      autoClose: 4000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -58,6 +68,7 @@ const Login = () => {
           userType={userType}
           notifyError={notifyError}
           notifyLogin={notifyLogin}
+          notifyLoginArea={notifyLoginArea}
         />
         <h4>Market &copy; Curitiba, Brazil</h4>
       </LoginContainer>

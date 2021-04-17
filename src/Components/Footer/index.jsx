@@ -36,7 +36,7 @@ const Footer = () => {
         <>
           <button
             className="footer-button"
-            onClick={() => history.push("/managment/store")}
+            onClick={() => history.push("/pedidos")}
           >
             <Receipt />
             <h4>Pedidos</h4>

@@ -1,9 +1,7 @@
-import { Container, Icon } from "./style"; // , Input
+import { Container, Icon } from "./style";
 import { FaSearch } from "react-icons/fa";
-// import { useState } from "react";
 
 const Search = ({ children, handleFilter }) => {
-  // const [busca, setBusca] = useState();
   return (
     <>
       <Container>

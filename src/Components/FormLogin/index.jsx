@@ -17,7 +17,7 @@ import {
 } from "./style";
 import { useHistory } from "react-router";
 
-const FormLogin = ({ userType, notifyError, notifyLogin }) => {
+const FormLogin = ({ userType, notifyError, notifyLogin, notifyLoginArea }) => {
   const { getToken } = useToken();
   const history = useHistory();
 
@@ -39,21 +39,19 @@ const FormLogin = ({ userType, notifyError, notifyLogin }) => {
   });
 
   const redirectToDashboard = () => {
-    userType === "user"
-      ? history.push("/dashboard/user")
-      : history.push("/dashboard/store");
+    userType === "store"
+      ? history.push("/dashboard/store")
+      : history.push("/dashboard/user");
   };
 
   const onSubmit = (data) => {
-    const isStore = userType === "user";
     api
-      .post("login", { ...data, isStore: isStore })
+      .post("login", data)
       .then((response) => {
         localStorage.setItem("token", response.data.accessToken);
+        redirectToDashboard();
         getToken();
         reset();
-        redirectToDashboard();
-        notifyLogin();
       })
       .catch((error) => {
         console.log(error);

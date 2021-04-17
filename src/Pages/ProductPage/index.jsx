@@ -5,13 +5,24 @@ import Search from "../../Components/Search";
 import Product from "../../Components/Cards/Product/index";
 import SelectCategory from "../../Components/SelectCategory";
 import { useProdutos } from "../../Providers/ListaProdutos";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { useUsuario } from "../../Providers/Usuario";
 
 const Products = () => {
   const { produtos } = useProdutos();
   const [filter, setFilter] = useState();
   const [filtered, setFiltered] = useState(produtos);
   const [page, setPage] = useState(1);
+  const { isStore } = useUsuario();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (isStore) {
+      history.push("/dashboard/store");
+    }
+    //eslint-disable-next-line
+  }, [isStore]);
 
   const handleFilter = () => {
     setFiltered(
