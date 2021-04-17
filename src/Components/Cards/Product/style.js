@@ -25,6 +25,11 @@ export const ProductImg = styled.figure`
   height: 100%;
   overflow: hidden;
   border-radius: 0 1rem 1rem 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const ProductHeader = styled.div`

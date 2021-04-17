@@ -6,9 +6,9 @@ import { useGlobal } from "../../Providers/Global";
 import { useEffect } from "react";
 import { useUsuario } from "../../Providers/Usuario";
 import ProdutoCarrinho from "../../Components/Cards/ProdutoCarrinho";
-import { DivProdutos, MainContainer, Footer } from "./style";
+import { DivProdutos, MainContainer, CartFooter } from "./style";
 import { Button } from "../../Components/Button/PrimaryButton/style";
-
+import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 
 const Cart = () => {
@@ -21,14 +21,11 @@ const Cart = () => {
 
   useEffect(() => {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
-  }, [global]);
-
-  useEffect(() => {
     if (isStore) {
       history.push("/dashboard/store");
     }
     //eslint-disable-next-line
-  }, [isStore]);
+  }, [isStore, global]);
 
   const sendCart = () => {
     const { name, adress, id, number } = usuario;
@@ -84,7 +81,7 @@ const Cart = () => {
           {carrinho.length < 1 && <h1>Carrinho vazio!</h1>}
         </DivProdutos>
       </MainContainer>
-      <Footer>
+      <CartFooter>
         {carrinho.length > 0 && <p>Itens: {contador}un</p>}
         <Button
           onClick={() => sendCart()}
@@ -92,7 +89,8 @@ const Cart = () => {
         >
           Solicitar Orçamento
         </Button>
-      </Footer>
+      </CartFooter>
+      <Footer />
     </div>
   );
 };

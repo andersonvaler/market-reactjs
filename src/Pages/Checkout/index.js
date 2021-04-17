@@ -11,12 +11,13 @@ import {
   CardIconMoney,
   CheckoutDiv,
 } from "./style";
-import { MainContainer, Footer } from "../Cart/style";
+import { MainContainer, CartFooter } from "../Cart/style";
 import { EditIcon } from "../../Components/PerfilUser/style";
 import { Button } from "../../Components/Button/PrimaryButton/style";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useUsuario } from "../../Providers/Usuario";
+import Footer from "../../Components/Footer";
 /* import ModalProdutos from "../../Components/ModalProdutos"; */
 
 const Checkout = () => {
@@ -82,13 +83,14 @@ const Checkout = () => {
         </div>
       </MainContainer>
 
-      <Footer>
+      <CartFooter>
         <div>
           <p>Nome</p>
           <p>Total: 0</p>
         </div>
         <Button onClick={() => setOpen(true)}>Confirmar</Button>
-      </Footer>
+      </CartFooter>
+      <Footer />
     </div>
   );
 };
