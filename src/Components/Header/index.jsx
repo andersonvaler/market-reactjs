@@ -9,11 +9,13 @@ import {
 import CompactLogo from "../Logo/CompactLogo";
 import { useHistory, useParams } from "react-router-dom";
 import { useToken } from "../../Providers/Token";
+import { useUsuario } from "../../Providers/Usuario";
 
 const Header = () => {
   const params = useParams();
   const history = useHistory();
   const { clearToken } = useToken();
+  const { setIsStore, setUsuario } = useUsuario();
 
   return (
     <HeaderContainer>
@@ -55,6 +57,8 @@ const Header = () => {
             onClick={() => {
               clearToken();
               history.push("/");
+              setUsuario();
+              setIsStore();
             }}
           >
             <PersonAvatar>D</PersonAvatar>
@@ -70,7 +74,7 @@ const Header = () => {
           </button>
           <button
             className="header-button-desktop"
-            onClick={() => history.push("/products")}
+            onClick={() => history.push("/pedidos")}
           >
             <Receipt />
             <h4>Pedidos</h4>
