@@ -4,6 +4,7 @@ import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
 import Avatar from "@material-ui/core/Avatar";
 import ReceiptRoundedIcon from "@material-ui/icons/ReceiptRounded";
+import StoreRoundedIcon from "@material-ui/icons/StoreRounded";
 
 export const HeaderContainer = styled.header`
   width: 100vw;
@@ -75,4 +76,10 @@ export const PersonAvatar = styled(Avatar)`
 export const Receipt = styled(ReceiptRoundedIcon)`
   color: #380f52;
   margin-bottom: -5px;
+`;
+
+export const Store = styled(StoreRoundedIcon)`
+  color: #c2f244;
+  background-color: #0ec977;
+  font-size: 18px;
 `;

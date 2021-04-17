@@ -4,13 +4,23 @@ import { useCarrinho } from "../../Providers/Carrinho";
 
 import ProdutoCarrinho from "../../Components/Cards/ProdutoCarrinho";
 
-import { DivProdutos, MainContainer, Footer, Contador } from "./style";
+import { DivProdutos, MainContainer, Footer } from "./style";
 import { Button } from "../../Components/Button/PrimaryButton/style";
 
 import Header from "../../Components/Header";
+import { useEffect } from "react";
+import { useUsuario } from "../../Providers/Usuario";
 
 const Cart = () => {
+  const { isStore } = useUsuario();
   const history = useHistory();
+
+  useEffect(() => {
+    if (isStore) {
+      history.push("/dashboard/store");
+    }
+    //eslint-disable-next-line
+  }, [isStore]);
 
   const { carrinho } = useCarrinho();
   // const { global } = useGlobal();
@@ -25,6 +35,8 @@ const Cart = () => {
         </section>
 
         <h3>Escolhas seu melhores produtos e solicite orçamentos</h3>
+        <h1>Carrinho:</h1>
+        <h3>Adicione ou Remova itens e prossiga para o orçamento</h3>
         <DivProdutos>
           {carrinho &&
             carrinho.map((produto, index) => {
@@ -41,8 +53,10 @@ const Cart = () => {
         </DivProdutos>
       </MainContainer>
       <Footer>
-        <Contador>Número de Produtos: {contador}</Contador>
-        <Button>Solicitar Orçamento</Button>
+        <p>Número de Produtos: {contador}</p>
+        <Button onClick={() => history.push("/checkout")}>
+          Solicitar Orçamento
+        </Button>
       </Footer>
     </div>
   );

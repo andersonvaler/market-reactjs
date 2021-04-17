@@ -6,8 +6,8 @@ const { createContext, useContext, useState, useEffect } = require("react");
 const ListaProdutosContext = createContext();
 
 export const ListaProdutosProvider = ({ children }) => {
-  const [produtos, setProdutos] = useState([]);
   const { token } = useToken();
+  const [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
     token &&
