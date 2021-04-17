@@ -38,8 +38,8 @@ export const MainContainer = styled.main`
   }
 
   @media (min-width: 768px) {
-    padding-left: 10vw;
-    padding-right: 10vw;
+    padding-left: 12rem;
+    padding-right: 12rem;
   }
 `;
 
@@ -51,7 +51,7 @@ export const Footer = styled.div`
   min-width: 100vw;
   bottom: 0;
   left: 0;
-  height: 13vh;
+  height: 4.5rem;
   border: 1px solid #d5c5e8;
   background: #f6f2f9;
 
