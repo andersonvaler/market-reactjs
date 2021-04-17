@@ -128,7 +128,7 @@ const PerfilUser = () => {
 
           <div className="topic">CNPJ:</div>
           <div className="edit">
-            <h4>00.000.000/0001-00</h4>
+            {usuario && <h4>{usuario.cnpj}</h4>}
             <EditIcon
               onClick={() => {
                 setpropriedade("cnpj");
