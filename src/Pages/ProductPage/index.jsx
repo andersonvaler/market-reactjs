@@ -12,7 +12,7 @@ import { useUsuario } from "../../Providers/Usuario";
 const Products = () => {
   const { produtos } = useProdutos();
   const [filter, setFilter] = useState();
-  const [filtered, setFiltered] = useState(produtos);
+  const [filtered, setFiltered] = useState([]);
   const [categorySelection, setCategorySelection] = useState([]);
   const { isStore } = useUsuario();
   const history = useHistory();
@@ -30,6 +30,13 @@ const Products = () => {
 
   const addCategorySelection = (selectedCategory) => {
     setFilter();
+    if (filtered.length === produtos.length) {
+      setFiltered([
+        ...produtos.filter(({ category }) =>
+          category.toUpperCase().includes(selectedCategory.toUpperCase())
+        ),
+      ]);
+    }
     setFiltered([
       ...filtered,
       ...produtos.filter(({ category }) =>
@@ -94,7 +101,6 @@ const Products = () => {
           categorySelection={categorySelection}
         />
       </div>
-      {/* {!filtered[0] && "Nenhum produto encontrado para sua pesquisa"} */}
       <div className="produtos-cards">
         {filtered.length > 0
           ? filtered.map((produto, index) => (
