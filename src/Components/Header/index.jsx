@@ -16,7 +16,7 @@ const Header = () => {
   const params = useParams();
   const history = useHistory();
   const { clearToken } = useToken();
-  const { usuario } = useUsuario();
+  const { setIsStore, setUsuario, usuario } = useUsuario();
 
   return (
     <HeaderContainer>
@@ -58,6 +58,8 @@ const Header = () => {
             onClick={() => {
               clearToken();
               history.push("/");
+              setUsuario();
+              setIsStore();
             }}
           >
             <PersonAvatar>{usuario?.name[0].toUpperCase()}</PersonAvatar>
@@ -73,7 +75,7 @@ const Header = () => {
           </button>
           <button
             className="header-button-desktop"
-            onClick={() => history.push("/products")}
+            onClick={() => history.push("/pedidos")}
           >
             <Receipt />
             <h4>Pedidos</h4>
