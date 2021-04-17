@@ -1,31 +1,38 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100vw;
   min-height: 100vh;
-  margin-top: 70px;
-  margin-bottom: 70px;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
   overflow-x: hidden;
 
   h1 {
+    width: 100%;
     font-size: 1.3rem;
     color: #380f52;
+    margin-left: 0.8rem;
   }
 
   h3 {
+    width: 100%;
     font-size: 1rem;
     color: #927dad;
+    margin-left: 0.8rem;
   }
 
   @media (min-width: 768px) {
-    padding-left: 20vw;
-    padding-right: 20vw;
+    padding-left: 12rem;
+    padding-right: 12rem;
   }
 
   .cardIntro {
     display: none;
     @media (min-width: 768px) {
-      width: 60vw;
+      width: 100%;
       display: flex;
       justify-content: center;
       margin-bottom: 2rem;
@@ -45,21 +52,21 @@ export const MainContainer = styled.main`
     justify-content: space-between;
     margin-bottom: 2rem;
     @media (min-width: 768px) {
-      width: 60vw;
+      width: 100%;
       overflow-x: hidden;
     }
   }
 
   .produtos {
-    width: 100vw;
+    padding: 0 1rem;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    @media (min-width: 768px) {
-      width: 60vw;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: space-around;
-    }
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* @media (min-width: 768px) {
+      width: 100%;
+    } */
   }
 
   .produto {
