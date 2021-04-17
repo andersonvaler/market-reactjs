@@ -13,7 +13,6 @@ const Products = () => {
   const { produtos } = useProdutos();
   const [filter, setFilter] = useState();
   const [filtered, setFiltered] = useState(produtos);
-  // const [page, setPage] = useState(1);
   const { isStore } = useUsuario();
   const history = useHistory();
 

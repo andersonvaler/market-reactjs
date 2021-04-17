@@ -33,9 +33,6 @@ const Cart = () => {
         <section onClick={() => history.push("/products")}>
           Ver mais produtos
         </section>
-
-        <h3>Escolhas seu melhores produtos e solicite orçamentos</h3>
-        <h1>Carrinho:</h1>
         <h3>Adicione ou Remova itens e prossiga para o orçamento</h3>
         <DivProdutos>
           {carrinho &&

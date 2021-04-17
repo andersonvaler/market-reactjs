@@ -56,10 +56,8 @@ export const Footer = styled.div`
   background: #f6f2f9;
 
   p {
-    font-size: 24px;
+    font-size: 1rem;
     color: #380f52;
     font-weight: 600;
   }
-  font-size: 24px;
-  color: #380f52;
 `;
