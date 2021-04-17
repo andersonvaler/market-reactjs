@@ -8,7 +8,6 @@ const ListaProdutosContext = createContext();
 export const ListaProdutosProvider = ({ children }) => {
   const { token } = useToken();
   const [produtos, setProdutos] = useState([]);
-  const { token } = useToken();
 
   useEffect(() => {
     token &&

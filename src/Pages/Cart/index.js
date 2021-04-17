@@ -4,7 +4,7 @@ import { useCarrinho } from "../../Providers/Carrinho";
 
 import ProdutoCarrinho from "../../Components/Cards/ProdutoCarrinho";
 
-import { DivProdutos, MainContainer, Footer, Contador } from "./style";
+import { DivProdutos, MainContainer, Footer } from "./style";
 import { Button } from "../../Components/Button/PrimaryButton/style";
 
 import Header from "../../Components/Header";
@@ -20,7 +20,6 @@ const Cart = () => {
     <div>
       <Header />
       <MainContainer>
-        <button onClick={() => history.push("/products")}>Ir para Store</button>
         <h1>Carrinho:</h1>
         <h3>Adicione ou Remova itens e prossiga para o orçamento</h3>
         <DivProdutos>
@@ -38,8 +37,10 @@ const Cart = () => {
         </DivProdutos>
       </MainContainer>
       <Footer>
-        <Contador>Número de Produtos: {contador}</Contador>
-        <Button>Solicitar Orçamento</Button>
+        <p>Número de Produtos: {contador}</p>
+        <Button onClick={() => history.push("/checkout")}>
+          Solicitar Orçamento
+        </Button>
       </Footer>
     </div>
   );

@@ -38,10 +38,12 @@ export const Footer = styled.div`
   height: 13vh;
   border: 1px solid #d5c5e8;
   background: #f6f2f9;
-`;
 
-export const Contador = styled.p`
+  p {
+    font-size: 24px;
+    color: #380f52;
+    font-weight: 600;
+  }
   font-size: 24px;
   color: #380f52;
-  font-weight: 600;
 `;
