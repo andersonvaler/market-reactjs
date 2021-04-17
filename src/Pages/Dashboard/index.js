@@ -13,6 +13,7 @@ const Dashboard = () => {
   const { mercados } = useMercados();
   const { produtos } = useProdutos();
   const params = useParams();
+  console.log(mercados + "aqui");
 
   return (
     <>
