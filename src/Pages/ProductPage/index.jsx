@@ -1,4 +1,4 @@
-import { ProdutosContainer, PaginationContainer } from "./style";
+import { ProdutosContainer } from "./style";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Search from "../../Components/Search";
@@ -13,7 +13,7 @@ const Products = () => {
   const { produtos } = useProdutos();
   const [filter, setFilter] = useState();
   const [filtered, setFiltered] = useState(produtos);
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
   const { isStore } = useUsuario();
   const history = useHistory();
 
@@ -35,15 +35,11 @@ const Products = () => {
     );
     console.log("executou", filtered);
   };
-  const handleChange = (event, value) => {
-    setPage(value);
-  };
   return (
     <ProdutosContainer>
       <Header />
 
       <div className="produtos-pesquisa">
-        <h1>Produtos</h1>
         <Search handleFilter={() => handleFilter()}>
           <input
             placeholder="Procurar"
@@ -55,9 +51,8 @@ const Products = () => {
       <div className="produtos-categorias">
         <SelectCategory />
       </div>
-
+      {filtered.length < 1 && "Nenhum produto encontrado para sua pesquisa"}
       <div className="produtos-cards">
-        {filtered.length < 1 && "Nenhum produto encontrado para sua pesquisa"}
         {filtered.length > 0
           ? filtered.map((produto, index) => (
               <Product produto={produto} key={index} />
@@ -67,12 +62,12 @@ const Products = () => {
             ))}
       </div>
 
-      <PaginationContainer
+      {/* <PaginationContainer
         count={2}
         page={page}
         onChange={handleChange}
         shape="rounded"
-      />
+      /> */}
       <Footer />
     </ProdutosContainer>
   );

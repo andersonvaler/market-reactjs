@@ -8,7 +8,7 @@ const Search = ({ children, handleFilter }) => {
         <Icon onClick={() => handleFilter()}>
           <FaSearch
             style={{
-              fontSize: "1.8rem",
+              fontSize: "1.2rem",
               color: "#380F52",
             }}
           />

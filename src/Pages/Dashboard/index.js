@@ -38,7 +38,7 @@ const Dashboard = () => {
       <MainContainer>
         {userType === "user" && (
           <>
-            <img alt="" className="cardIntro" src={CardIntroUser} />
+            {/* <img alt="" className="cardIntro" src={CardIntroUser} /> */}
 
             <h1>Lojas</h1>
             <h3>Encontre as melhores lojas e mercados</h3>

@@ -9,12 +9,11 @@ export const Card = styled.div`
   border-radius: 16px;
   background: #f6f2f9;
   box-shadow: 0 0 0.2rem 0.01rem #00000090;
-  margin: 20px;
-  max-width: 15vw;
+  margin: 1rem;
+  max-width: 12rem;
 `;
 
 export const DivContador = styled.div`
-  /* position: absolute; */
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -22,13 +21,13 @@ export const DivContador = styled.div`
   margin: 20px 10px;
   border-radius: 8px;
   box-shadow: 0 0 0.2rem 0.01rem #00000090;
-  min-width: 12vw;
+  width: 80%;
 `;
 
 export const Button = styled.div`
   display: flex;
   justify-content: center;
-  width: 2.25vw;
+  width: 2rem;
   background: #0ec977;
   border-radius: 50%;
   cursor: pointer;
@@ -41,18 +40,24 @@ export const Button = styled.div`
 
 export const TituloCard = styled.p`
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1rem;
   color: #380f52;
-  margin: 20px 10px;
+  margin: 0.3rem 0.5rem;
 `;
 
 export const DescricaoCard = styled.p`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   color: #927dad;
+  width: 100%;
+  min-height: 1.8rem;
+  font-size: 0.9rem;
 `;
 
 export const ProdutoImg = styled.figure`
   width: 100%;
-  height: 12vh;
+  height: 8rem;
   overflow: hidden;
-  border-radius: 0 1rem 1rem 0;
+  border-radius: 1rem 1rem 0 0;
 `;

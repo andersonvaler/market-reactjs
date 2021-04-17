@@ -18,6 +18,7 @@ export const HeaderContainer = styled.header`
   background-color: #f6f2f9;
   position: fixed;
   top: 0;
+  z-index: 1000;
 
   .header-button-desktop {
     display: none;
