@@ -20,6 +20,7 @@ export const ListItemContainer = styled.div`
   height: 30px;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: 16px;
   margin: 8px;
   padding-left: 4px;
@@ -31,10 +32,6 @@ export const ListItemContainer = styled.div`
   background-color: ${(props) =>
     props.selected ? "rgba(229,208,255,1)" : "rgba(246, 242, 249, 1)"};
   box-shadow: 0 0 0.2rem 0.01rem #00000090;
-
-  @media (min-width: 768px) {
-    width: 90%;
-  }
 `;
 
 export const CheckIcon = styled(CheckRoundedIcon)`

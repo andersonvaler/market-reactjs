@@ -9,6 +9,7 @@ import Checkout from "../Pages/Checkout";
 import Store from "../Pages/Store";
 import Cart from "../Pages/Cart";
 import ProductPage from "../Pages/ProductPage";
+import PedidosStore from "../Pages/PedidosStore";
 import Route from "./routes.js";
 
 const Routes = () => {
@@ -23,6 +24,7 @@ const Routes = () => {
       <Route path="/profile/:userType" component={Profile} isPrivate />
       <Route path="/checkout" component={Checkout} isPrivate />
       <Route path="/cart" component={Cart} isPrivate />
+      <Route path="/pedidos" component={PedidosStore} isPrivate />
     </Switch>
   );
 };

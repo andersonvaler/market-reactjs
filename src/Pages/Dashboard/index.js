@@ -6,16 +6,14 @@ import Footer from "../../Components/Footer";
 import { useParams } from "react-router-dom";
 import CardIntroUser from "../../Images/MainBanner.png";
 import CardIntroStore from "../../Images/MainBannerStore.png";
+import { useMercados } from "../../Providers/ListaMercados";
+import { useProdutos } from "../../Providers/ListaProdutos";
 
 const Dashboard = () => {
+  const { mercados } = useMercados();
+  const { produtos } = useProdutos();
   const params = useParams();
-  const produto1 = {
-    name: "Maçãs",
-    description:
-      "Peça frutas fresquinhas aqui todo dia com entrega grátis essa semana.",
-    image:
-      "https://conteudo.imguol.com.br/c/entretenimento/32/2018/01/18/maca-1516308281068_v2_1920x1279.jpg",
-  };
+
   return (
     <>
       <Header />
@@ -27,62 +25,24 @@ const Dashboard = () => {
             <h1>Lojas</h1>
             <h3>Encontre as melhores lojas e mercados</h3>
             <div className="lojas">
-              <StoreCard
-                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
-                name="extrabomS"
-              />
-
-              <StoreCard
-                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
-                name="extrabomS"
-              />
-
-              <StoreCard
-                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
-                name="extrabomS"
-              />
-
-              <StoreCard
-                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
-                name="extrabomS"
-              />
-
-              <StoreCard
-                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
-                name="extrabomS"
-              />
-
-              <StoreCard
-                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
-                name="extrabomS"
-              />
-
-              <StoreCard
-                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
-                name="extrabomS"
-              />
-
-              <StoreCard
-                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
-                name="extrabomS"
-              />
+              {mercados &&
+                mercados.map((mercado, index) => (
+                  <StoreCard
+                    name={mercado.name}
+                    adress={mercado.adress}
+                    key={index}
+                    imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
+                  />
+                ))}
             </div>
 
-            <h1>Produtos</h1>
+            <h1>Produtos pedidos recentemente</h1>
             <h3>Selecione os melhores produtos aqui</h3>
             <div className="produtos">
-              <div className="produto">
-                <Product produto={produto1} />
-              </div>
-              <div className="produto">
-                <Product produto={produto1} />
-              </div>
-              <div className="produto">
-                <Product produto={produto1} />
-              </div>
-              <div className="produto">
-                <Product produto={produto1} />
-              </div>
+              {produtos &&
+                produtos.map((produto, index) => (
+                  <Product produto={produto} key={index} />
+                ))}
             </div>
           </>
         ) : (
@@ -147,7 +107,6 @@ const Dashboard = () => {
             </div>
           </>
         )}
-
         <Footer />
       </MainContainer>
     </>
