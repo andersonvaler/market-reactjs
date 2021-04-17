@@ -9,8 +9,11 @@ import {
 import CompactLogo from "../Logo/CompactLogo";
 import { useHistory, useParams } from "react-router-dom";
 import { useToken } from "../../Providers/Token";
+import { useCarrinho } from "../../Providers/Carrinho";
+import Badge from "@material-ui/core/Badge";
 
 const Header = () => {
+  const { carrinho } = useCarrinho();
   const params = useParams();
   const history = useHistory();
   const { clearToken } = useToken();
@@ -30,7 +33,14 @@ const Header = () => {
               className="header-button-desktop"
               onClick={() => history.push("/cart")}
             >
-              <Cart />
+              <Badge
+                badgeContent={carrinho.length}
+                style={{ color: "#fff" }}
+                color="primary"
+              >
+                <Cart />
+              </Badge>
+
               <h4>Carrinho</h4>
             </button>
 

@@ -1,4 +1,3 @@
-import { useGlobal } from "../../../Providers/Global";
 import {
   DivContador,
   Button,
@@ -8,31 +7,27 @@ import {
   ProdutoImg,
 } from "./style";
 
-const ProdutoCarrinho = ({ valor, index, contador }) => {
-  const { global, setGlobal } = useGlobal();
-
+const ProdutoCarrinho = ({ produto, index, contador }) => {
   const addContador = () => {
     contador++;
-    valor.quantity += 1;
-    setGlobal(!global);
+    produto.quantity += 1;
   };
   const subContador = () => {
-    if (valor.quantity > 0) {
+    if (produto.quantity > 0) {
       contador++;
-      valor.quantity -= 1;
-      setGlobal(!global);
+      produto.quantity -= 1;
     }
   };
   return (
     <Card key={index}>
       <ProdutoImg>
-        <img src={null} alt="product" />
+        <img src={"https://picsum.photos/300/200"} alt="product" />
       </ProdutoImg>
-      <TituloCard>{valor.name}</TituloCard>
-      <DescricaoCard>Olá bom dia</DescricaoCard>
+      <TituloCard>{produto.name}</TituloCard>
+      <DescricaoCard>{produto.description}</DescricaoCard>
       <DivContador>
         <Button onClick={subContador}>-</Button>
-        <p>{valor.quantity}</p>
+        <p>{produto.quantity}</p>
         <Button onClick={addContador}>+</Button>
       </DivContador>
     </Card>

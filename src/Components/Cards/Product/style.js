@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 30rem;
-  height: 9rem;
+  max-width: 25rem;
+  height: 8rem;
   background-color: #f6f2f9;
   border-radius: 1rem;
   margin: 0.8rem;
@@ -37,14 +37,14 @@ export const ProductHeader = styled.div`
 export const ProductName = styled.h3`
   font-weight: 600;
   margin: 0;
-  color: #380f52;
-  font-size: 1.2rem;
+  color: #380f52 !important;
+  font-size: 1rem;
 `;
 
 export const Description = styled.p`
   font-weight: 500;
   color: #927dad;
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.2rem;
 `;
 

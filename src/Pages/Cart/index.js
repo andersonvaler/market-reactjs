@@ -20,21 +20,24 @@ const Cart = () => {
     <div>
       <Header />
       <MainContainer>
-        <button onClick={() => history.push("/products")}>Ir para Store</button>
-        <h1>Carrinho:</h1>
-        <h3>Adicione ou Remova itens e prossiga para o orçamento</h3>
+        <section onClick={() => history.push("/products")}>
+          Ver mais produtos
+        </section>
+
+        <h3>Escolhas seu melhores produtos e solicite orçamentos</h3>
         <DivProdutos>
           {carrinho &&
-            carrinho.map((valor, index) => {
-              contador += valor.quantity;
+            carrinho.map((produto, index) => {
+              contador += produto.quantity;
               return (
                 <ProdutoCarrinho
-                  valor={valor}
+                  produto={produto}
                   index={index}
                   contador={contador}
                 />
               );
             })}
+          {carrinho.length < 1 && <h1>Carrinho vazio!</h1>}
         </DivProdutos>
       </MainContainer>
       <Footer>

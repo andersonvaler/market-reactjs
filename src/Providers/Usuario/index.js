@@ -29,7 +29,6 @@ export const UsuarioProvider = ({ children }) => {
   return (
     <UsuarioContext.Provider value={{ usuario, setUsuario }}>
       {children}
-      {console.log(usuario)}
     </UsuarioContext.Provider>
   );
 };
