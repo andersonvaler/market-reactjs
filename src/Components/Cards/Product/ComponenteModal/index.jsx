@@ -9,18 +9,18 @@ const ComponenteModal = ({ produto, setOpen }) => {
   const { carrinho, setCarrinho } = useCarrinho();
 
   const manipulaCarrinho = () => {
-    if (!produto.quantity) {
-      produto["quantity"] = parseInt(quantidade);
+    if (quantidade < 1 || !quantidade) {
+      produto["quantity"] = parseInt(1);
       setCarrinho([...carrinho, produto]);
     } else {
-      produto.quantity += parseInt(quantidade);
+      produto["quantity"] = parseInt(quantidade);
+      setCarrinho([...carrinho, produto]);
     }
     setOpen(false);
   };
 
   return (
     <Modal>
-      {console.log("carrinho", carrinho)}
       <ProductName>Escolha a quantidade</ProductName>
       <Input
         type="number"
