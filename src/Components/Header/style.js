@@ -5,6 +5,7 @@ import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
 import Avatar from "@material-ui/core/Avatar";
 import ReceiptRoundedIcon from "@material-ui/icons/ReceiptRounded";
 import StoreRoundedIcon from "@material-ui/icons/StoreRounded";
+import { Block } from "@material-ui/icons";
 
 export const HeaderContainer = styled.header`
   width: 100vw;
@@ -71,6 +72,11 @@ export const PersonAvatar = styled(Avatar)`
   color: #c2f244 !important;
   background-color: #0ec977 !important;
   font-weight: bold !important;
+  cursor: initial;
+
+  &:hover ~ div {
+    display: block;
+  }
 `;
 
 export const Receipt = styled(ReceiptRoundedIcon)`
@@ -82,4 +88,39 @@ export const Store = styled(StoreRoundedIcon)`
   color: #c2f244;
   background-color: #0ec977;
   font-size: 18px;
+`;
+
+export const DropdownContainer = styled.div`
+  display: ${(props) => (props.showDropdown ? "block" : "none")};
+  position: absolute;
+  background-color: #f6f2f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border: 1px solid #d5c5e8;
+  z-index: 1;
+  padding: 6px 0 0 0;
+  transform: translateX(-70%);
+  border-radius: 16px;
+
+  &:hover {
+    display: block;
+  }
+`;
+
+export const DropdownButton = styled.button`
+  color: #0ec977;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.25rem;
+  background-color: #f6f2f9;
+  border-top: 1px solid #d5c5e8;
+  text-align: left;
+  padding: 8px 16px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+
+  &:hover {
+    background-color: #e6f2e3;
+  }
 `;
