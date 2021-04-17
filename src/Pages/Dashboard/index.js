@@ -4,7 +4,6 @@ import StoreCard from "../../Components/Cards/StoreCard";
 import Product from "../../Components/Cards/Product/index";
 import Footer from "../../Components/Footer";
 import { useHistory, useParams } from "react-router-dom";
-// import CardIntroUser from "../../Images/MainBanner.png";
 import CardIntroStore from "../../Images/MainBannerStore.png";
 import { useMercados } from "../../Providers/ListaMercados";
 import { useProdutos } from "../../Providers/ListaProdutos";
