@@ -57,6 +57,7 @@ export const PerfilContainer = styled.div`
   }
   h4 {
     color: #927dad;
+    padding-top: 1rem;
   }
   h2 {
     color: #380f52;
@@ -69,6 +70,23 @@ export const PerfilContainer = styled.div`
 `;
 
 export const EditIcon = styled(MdModeEdit)`
+  font-size: 1.5rem;
+  color: #0ec977;
+`;
+
+export const Button = styled.button`
+  color: #0ec977;
+  font-weight: 700;
   font-size: 1rem;
-  color: #380f52;
+  text-transform: uppercase;
+  background-color: #380f52;
+  width: 100%;
+  margin-top: 2rem;
+  max-width: 10rem;
+  height: 2.2rem;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  box-shadow: 0 0 0.2rem 0.01rem #00000090;
 `;
