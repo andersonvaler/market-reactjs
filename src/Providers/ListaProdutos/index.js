@@ -1,15 +1,19 @@
-import axios from "axios";
+import api from "../../services/api";
+import { useToken } from "../Token";
 
 const { createContext, useContext, useState, useEffect } = require("react");
 
 const ListaProdutosContext = createContext();
 
 export const ListaProdutosProvider = ({ children }) => {
+  const { token } = useToken();
   const [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://capstone-grupo-dois.herokuapp.com/products")
+    api
+      .get("products", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => setProdutos(response.data))
       .catch((error) => console.log(error));
   }, []);
