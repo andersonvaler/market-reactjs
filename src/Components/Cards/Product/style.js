@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 25rem;
+  width: 90vw;
+  max-width: 300px;
   height: 8rem;
   background-color: #f6f2f9;
   border-radius: 1rem;
@@ -53,6 +54,7 @@ export const Input = styled.input`
   height: 32px;
   border-radius: 16px;
   padding-left: 1.5rem;
+  font-size: 1rem;
   margin: 15px 0;
   color: #380f52;
   border: 1px solid;
