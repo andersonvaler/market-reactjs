@@ -50,8 +50,11 @@ const Cart = () => {
         </DivProdutos>
       </MainContainer>
       <Footer>
-        <p>Número de Produtos: {contador}</p>
-        <Button onClick={() => history.push("/checkout")}>
+        {carrinho.length > 0 && <p>Itens: {contador}un</p>}
+        <Button
+          onClick={() => history.push("/checkout")}
+          disabled={carrinho.length < 1 && "disabled"}
+        >
           Solicitar Orçamento
         </Button>
       </Footer>
