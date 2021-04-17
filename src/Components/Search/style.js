@@ -20,8 +20,6 @@ export const Container = styled.div`
   }
 `;
 
-export const Input = styled.input``;
-
 export const Icon = styled.figure`
   width: 15%;
   height: 100%;
