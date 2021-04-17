@@ -9,6 +9,7 @@ import {
   DropdownContainer,
   DropdownButton,
   DropdownNotificationContainer,
+  DropdownListItem,
 } from "./style";
 import CompactLogo from "../Logo/CompactLogo";
 import { useHistory, useParams } from "react-router-dom";
@@ -25,6 +26,20 @@ const Header = () => {
   const { clearToken } = useToken();
   const { setIsStore, setUsuario, usuario } = useUsuario();
   const [showDropdown, setShowDropdown] = useState();
+  const notifications = [
+    {
+      name: "você recebeu um orçamento",
+    },
+    {
+      name: "você recebeu um orçamento",
+    },
+    {
+      name: "você recebeu um orçamento",
+    },
+    {
+      name: "você recebeu um orçamento",
+    },
+  ];
 
   return (
     <HeaderContainer>
@@ -75,7 +90,14 @@ const Header = () => {
           >
             <PersonAvatar>{usuario?.name[0].toUpperCase()}</PersonAvatar>
             <DropdownContainer showDropdown={showDropdown}>
-              <DropdownNotificationContainer></DropdownNotificationContainer>
+              <DropdownNotificationContainer>
+                <h3>Avisos</h3>
+                {notifications.map((message, index) => (
+                  <DropdownListItem key={index}>
+                    {message.name}
+                  </DropdownListItem>
+                ))}
+              </DropdownNotificationContainer>
               <DropdownButton
                 onClick={() => {
                   clearToken();
@@ -113,14 +135,32 @@ const Header = () => {
           </button>
           <button
             className="header-button"
-            onClick={() => {
-              clearToken();
-              history.push("/");
-            }}
+            onClick={() => setShowDropdown(true)}
+            onMouseLeave={() => setShowDropdown(false)}
           >
             <PersonAvatar>
               <Store />
             </PersonAvatar>
+            <DropdownContainer showDropdown={showDropdown}>
+              <DropdownNotificationContainer>
+                <h3>Avisos</h3>
+                {notifications.map((message, index) => (
+                  <DropdownListItem key={index}>
+                    {message.name}
+                  </DropdownListItem>
+                ))}
+              </DropdownNotificationContainer>
+              <DropdownButton
+                onClick={() => {
+                  clearToken();
+                  history.push("/");
+                  setUsuario();
+                  setIsStore();
+                }}
+              >
+                Sair
+              </DropdownButton>
+            </DropdownContainer>
           </button>
         </>
       )}

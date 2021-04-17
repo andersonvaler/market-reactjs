@@ -5,7 +5,6 @@ import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
 import Avatar from "@material-ui/core/Avatar";
 import ReceiptRoundedIcon from "@material-ui/icons/ReceiptRounded";
 import StoreRoundedIcon from "@material-ui/icons/StoreRounded";
-import { Block } from "@material-ui/icons";
 
 export const HeaderContainer = styled.header`
   width: 100vw;
@@ -99,11 +98,16 @@ export const DropdownContainer = styled.div`
   border: 1px solid #d5c5e8;
   z-index: 1;
   padding: 6px 0 0 0;
-  transform: translateX(-70%);
+  transform: translateX(-80%);
   border-radius: 16px;
+  cursor: initial;
 
   &:hover {
     display: block;
+  }
+
+  @media (min-width: 768px) {
+    transform: translateX(-70%);
   }
 `;
 
@@ -112,7 +116,7 @@ export const DropdownButton = styled.button`
   cursor: pointer;
   width: 100%;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   background-color: #f6f2f9;
   border-top: 1px solid #d5c5e8;
   text-align: left;
@@ -122,5 +126,31 @@ export const DropdownButton = styled.button`
 
   &:hover {
     background-color: #e6f2e3;
+  }
+`;
+
+export const DropdownNotificationContainer = styled.div`
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  &:last-child {
+    border: none;
+  }
+
+  h3 {
+    padding: 8px 16px;
+    border-bottom: 1px solid #d5c5e8;
+  }
+`;
+
+export const DropdownListItem = styled.div`
+  padding: 2px 16px;
+  border-bottom: 1px solid #d5c5e8;
+
+  @media (min-width: 768px) {
+    padding: 8px 16px;
   }
 `;
