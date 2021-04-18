@@ -10,6 +10,7 @@ import { DivProdutos, MainContainer, CartFooter } from "./style";
 import { Button } from "../../Components/Button/PrimaryButton/style";
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
+import { ToastContainer, toast } from "react-toastify";
 
 const Cart = () => {
   const { token } = useToken();
@@ -58,9 +59,40 @@ const Cart = () => {
         console.log(error);
       });
   };
+  const adiciona = () =>
+    toast.success("item adicionado", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  const remove = () =>
+    toast.success("item removido", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  const dell = () =>
+    toast.success("item deletado", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
   return (
     <div>
+      <ToastContainer />
       <Header />
       <MainContainer>
         <section onClick={() => history.push("/products")}>
@@ -76,6 +108,9 @@ const Cart = () => {
                   produto={produto}
                   index={index}
                   contador={contador}
+                  dell={dell}
+                  adiciona={adiciona}
+                  remove={remove}
                 />
               );
             })}
