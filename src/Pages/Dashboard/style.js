@@ -1,3 +1,4 @@
+import { FlipCameraIosRounded } from "@material-ui/icons";
 import styled from "styled-components";
 
 export const MainContainer = styled.main`
@@ -78,27 +79,22 @@ export const MainContainer = styled.main`
 
   .categorias {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 1rem;
+    width: 90vw;
     @media (min-width: 768px) {
-      width: 100%;
-      justify-content: center;
+      justify-content: space-between;
+      width: 60vw;
     }
   }
 
   .categoria {
-    width: 95vw;
-    height: 30vw;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    @media (min-width: 768px) {
-      width: 60vw;
-      height: 20vw;
-    }
-  }
+    display: flex;
+    flex-direction: column;
+    width: 60%;
 
-  .categoriaDiv {
-    text-align: initial;
+    @media (min-width: 768px) {
+      width: 30%;
+    }
   }
 `;
