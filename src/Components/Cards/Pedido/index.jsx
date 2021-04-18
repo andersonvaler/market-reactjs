@@ -24,7 +24,7 @@ const Pedido = ({ pedido, setOpen }) => {
     api
       .post(
         "cart",
-        { data },
+        { ...data },
         {
           headers: {
             Authorization: `Bearer ${token}`,

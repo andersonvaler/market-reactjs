@@ -1,4 +1,4 @@
-import { useMercados } from "../../Providers/ListaMercados";
+// import { useMercados } from "../../Providers/ListaMercados";
 import Header from "../../Components/Header";
 import StoreCardFinal from "../../Components/Cards/StoreCardFinal";
 import {
@@ -17,11 +17,13 @@ import { Button } from "../../Components/Button/PrimaryButton/style";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useUsuario } from "../../Providers/Usuario";
+import { usePedidosRecebidos } from "../../Providers/PedidosRecebidos";
 import Footer from "../../Components/Footer";
 /* import ModalProdutos from "../../Components/ModalProdutos"; */
 
 const Checkout = () => {
-  const { mercados } = useMercados();
+  const { pedidosRecebidos } = usePedidosRecebidos();
+  // const { mercados } = useMercados();
   const { isStore, usuario } = useUsuario();
   const history = useHistory();
   const [open, setOpen] = useState(false);
@@ -41,12 +43,12 @@ const Checkout = () => {
           <h1>Seus dados:</h1>
           <Topic>Endereço:</Topic>
           <Edit>
-            <h4>{usuario.adress}</h4>
+            <h4>{usuario && usuario.adress}</h4>
             <EditIcon />
           </Edit>
           <Topic>Telefone:</Topic>
           <Edit>
-            <h4>{usuario.number}</h4>
+            <h4>{usuario && usuario.number}</h4>
             <EditIcon />
           </Edit>
         </CheckoutDiv>
@@ -54,11 +56,13 @@ const Checkout = () => {
         <br />
 
         <div>
+          <h2>Orçamentos recebidos:</h2>
           <Lojas>
-            {mercados &&
-              mercados.map((mercado, index) => (
+            {pedidosRecebidos &&
+              pedidosRecebidos.map((pedido, index) => (
                 <StoreCardFinal
-                  name={mercado.name}
+                  name={pedido.store.storeName}
+                  valor={pedido.store.price}
                   open={open}
                   setOpen={setOpen}
                   key={index}
@@ -69,7 +73,6 @@ const Checkout = () => {
         </div>
 
         <div>
-          {/* <h1>Métodos de pagamento:</h1> */}
           <ContainerButton>
             <ButtonCartao>
               <CardIcon />

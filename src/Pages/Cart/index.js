@@ -38,6 +38,7 @@ const Cart = () => {
       confirmed: false,
       available: true,
       products: carrinho,
+      stores: [],
     };
     api
       .post(
