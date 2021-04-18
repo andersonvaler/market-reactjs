@@ -1,23 +1,56 @@
 import styled from "styled-components";
 
-export const PedidosPageContainer = styled.main`
+export const PedidosPageContainer = styled.div`
   width: 100vw;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   flex-wrap: wrap;
-  overflow-x: hidden;
-  margin-top: 70px;
-  margin-bottom: 70px;
-
+  overflow: hidden;
+  margin: 100px 0;
+  padding: 0;
+  flex-direction: column;
+  table {
+    margin: 0;
+    padding: 0;
+  }
+  align-content: center;
   @media (min-width: 768px) {
-    overflow-x: hidden;
-    width: 80vw;
-    padding-left: 20vw;
-    padding-right: 20vw;
+    overflow: hidden;
+    flex-direction: row;
+    padding: 0 5rem;
   }
 
   h1 {
     color: #380f52;
+  }
+`;
+
+export const LeftContainer = styled.div`
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 0.2rem 0.01rem #00000090;
+  margin: 0;
+  border: 1px solid #00000040;
+  margin-bottom: 1rem;
+  min-height: 80vh;
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+    width: 50%;
+  }
+`;
+
+export const RightContainer = styled.div`
+  width: 98%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #00000040;
+  box-shadow: 0 0 0.2rem 0.01rem #00000090;
+
+  @media (min-width: 768px) {
+    width: 50%;
   }
 `;
 
