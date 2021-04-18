@@ -5,23 +5,26 @@ import { CarrinhoProvider } from "./Carrinho";
 import { UsuarioProvider } from "./Usuario";
 import { TokenProvider } from "./Token";
 import { PedidosProvider } from "./Pedidos";
+import { NotificationsProvider } from "./Notifications";
 
 const Providers = ({ children }) => {
   return (
     <>
-      <TokenProvider>
-        <UsuarioProvider>
-          <CarrinhoProvider>
-            <ListaMercadosProvider>
-              <ListaProdutosProvider>
-                <PedidosProvider>
-                  <GlobalProvider>{children}</GlobalProvider>
-                </PedidosProvider>
-              </ListaProdutosProvider>
-            </ListaMercadosProvider>
-          </CarrinhoProvider>
-        </UsuarioProvider>
-      </TokenProvider>
+      <GlobalProvider>
+        <TokenProvider>
+          <UsuarioProvider>
+            <NotificationsProvider>
+              <CarrinhoProvider>
+                <ListaMercadosProvider>
+                  <ListaProdutosProvider>
+                    <PedidosProvider>{children}</PedidosProvider>
+                  </ListaProdutosProvider>
+                </ListaMercadosProvider>
+              </CarrinhoProvider>
+            </NotificationsProvider>
+          </UsuarioProvider>
+        </TokenProvider>
+      </GlobalProvider>
     </>
   );
 };

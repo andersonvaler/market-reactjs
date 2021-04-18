@@ -156,6 +156,11 @@ export const DropdownNotificationContainer = styled.div`
 export const DropdownListItem = styled.div`
   padding: 2px 16px;
   border-bottom: 1px solid #d5c5e8;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e6f2e3;
+  }
 
   @media (min-width: 768px) {
     padding: 8px 16px;
