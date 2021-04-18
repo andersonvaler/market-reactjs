@@ -160,6 +160,7 @@ export const DropdownListItem = styled.div`
 
   &:hover {
     background-color: #e6f2e3;
+    content: ${(props) => props.noOrder && "Ir para checkout"};
   }
 
   @media (min-width: 768px) {

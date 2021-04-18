@@ -37,6 +37,11 @@ export const MainContainer = styled.main`
     margin-left: 0.8rem;
   }
 
+  h2 {
+    margin-bottom: 16px;
+    color: #380f52;
+  }
+
   @media (min-width: 768px) {
     padding-left: 12rem;
     padding-right: 12rem;
