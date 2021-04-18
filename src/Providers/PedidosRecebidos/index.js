@@ -1,17 +1,15 @@
 import api from "../../services/api";
-import { useGlobal } from "../Global";
 import { useToken } from "../Token";
 import { useUsuario } from "../Usuario";
 
 const { createContext, useContext, useState, useEffect } = require("react");
 
-const NotificationsContext = createContext();
+const PedidosRecebidosContext = createContext();
 
-export const NotificationsProvider = ({ children }) => {
-  const [notifications, setNotifications] = useState([]);
+export const PedidosRecebidosProvider = ({ children }) => {
+  const [pedidosRecebidos, setPedidosRecebidos] = useState(false);
+  const { isStore, usuario } = useUsuario();
   const { token } = useToken();
-  const { userId } = useUsuario();
-  const { global } = useGlobal();
   const [atualizer, setAtualizer] = useState(false);
 
   const atualizeOrder = () => {
@@ -20,27 +18,30 @@ export const NotificationsProvider = ({ children }) => {
 
   useEffect(() => {
     token &&
+      !isStore &&
       api
-        .get(`notifications/?userId=${userId}`, {
+        .get(`cart?userId=${usuario && usuario.id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setNotifications(response.data);
+          setPedidosRecebidos(response.data);
           atualizeOrder();
         })
         .catch((error) => {
           console.log(error);
         });
     //eslint-disable-next-line
-  }, [token, userId, global, atualizer]);
+  }, [token, isStore, atualizer]);
 
   return (
-    <NotificationsContext.Provider value={{ notifications, setNotifications }}>
+    <PedidosRecebidosContext.Provider
+      value={{ pedidosRecebidos, setPedidosRecebidos }}
+    >
       {children}
-    </NotificationsContext.Provider>
+    </PedidosRecebidosContext.Provider>
   );
 };
 
-export const useNotifications = () => useContext(NotificationsContext);
+export const usePedidosRecebidos = () => useContext(PedidosRecebidosContext);
