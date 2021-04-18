@@ -37,28 +37,37 @@ const Dashboard = () => {
 
   const categories = [
     {
-      category: "carnes",
-      quantity: 30,
+      category: "Carnes",
+      produtos:
+        produtos && produtos.filter((produto) => produto.category === "carnes"),
     },
     {
-      category: "frios",
-      quantity: 30,
+      category: "Frios",
+      produtos:
+        produtos && produtos.filter((produto) => produto.category === "frios"),
     },
     {
-      category: "hortifruti",
-      quantity: 30,
+      category: "Hortifruti",
+      produtos:
+        produtos &&
+        produtos.filter((produto) => produto.category === "hortifruti"),
     },
     {
-      category: "limpeza",
-      quantity: 30,
+      category: "Limpeza",
+      produtos:
+        produtos &&
+        produtos.filter((produto) => produto.category === "limpeza"),
     },
     {
-      category: "higiene",
-      quantity: 30,
+      category: "Higiene",
+      produtos:
+        produtos && produtos.filter((produto) => produto.category === "carnes"),
     },
     {
-      category: "mercearia",
-      quantity: 30,
+      category: "Mercearia",
+      produtos:
+        produtos &&
+        produtos.filter((produto) => produto.category === "mercearia"),
     },
   ];
 
@@ -109,7 +118,7 @@ const Dashboard = () => {
                     <h3>{category.category}</h3>
                     <Categoria
                       category={category.category}
-                      quantity={category.quantity}
+                      produtos={category.produtos}
                     />
                   </div>
                 );

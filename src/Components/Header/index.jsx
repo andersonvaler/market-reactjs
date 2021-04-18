@@ -180,7 +180,7 @@ const Header = () => {
                           key={index}
                           onClick={() => history.push("/pedidos")}
                         >
-                          {pedido.name}
+                          Novo orçamento
                         </DropdownListItem>
                       )
                   )
