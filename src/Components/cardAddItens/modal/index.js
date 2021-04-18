@@ -15,7 +15,6 @@ import api from "../../../services/api";
 
 const Modal = () => {
   const token = localStorage.getItem("token");
-  console.log(token);
   const schema = yup.object().shape({
     name: yup.string().required("campo obrigatorio"),
     amount: yup.string().required("campo obrigatorio"),
@@ -32,13 +31,11 @@ const Modal = () => {
   });
 
   const handleForm = (data) => {
-    console.log(data);
     api
       .post("products", data, {
         header: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
-        console.log("ok");
         reset();
       })
       .catch((error) => {

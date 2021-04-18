@@ -6,6 +6,10 @@ import {
   PersonAvatar,
   Receipt,
   Store,
+  DropdownContainer,
+  DropdownButton,
+  DropdownNotificationContainer,
+  DropdownListItem,
 } from "./style";
 import CompactLogo from "../Logo/CompactLogo";
 import { useHistory, useParams } from "react-router-dom";
@@ -13,17 +17,36 @@ import { useToken } from "../../Providers/Token";
 import { useCarrinho } from "../../Providers/Carrinho";
 import Badge from "@material-ui/core/Badge";
 import { useUsuario } from "../../Providers/Usuario";
+import { useState } from "react";
+import { useNotifications } from "../../Providers/Notifications";
+import api from "../../services/api";
+import { useGlobal } from "../../Providers/Global";
+import { usePedidos } from "../../Providers/Pedidos";
 
 const Header = () => {
   const { carrinho } = useCarrinho();
-  const params = useParams();
+  const { userType } = useParams();
+  const { pedidos } = usePedidos();
   const history = useHistory();
-  const { clearToken } = useToken();
+  const { clearToken, token } = useToken();
   const { setIsStore, setUsuario, usuario } = useUsuario();
+  const [showDropdown, setShowDropdown] = useState();
+  const { notifications } = useNotifications();
+  const { global, setGlobal } = useGlobal();
+
+  const handleDeleteNotification = (id) => {
+    history.push("/checkout");
+    api.delete(`notifications/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    setGlobal(!global);
+  };
 
   return (
     <HeaderContainer>
-      {params.userType !== "store" ? (
+      {userType !== "store" && history.location.pathname !== "/pedidos" ? (
         <>
           <button
             className="header-button"
@@ -65,14 +88,45 @@ const Header = () => {
           </>
           <button
             className="header-button"
-            onClick={() => {
-              clearToken();
-              history.push("/");
-              setUsuario();
-              setIsStore();
-            }}
+            onMouseOver={() => setShowDropdown(true)}
+            onClick={() => setShowDropdown(true)}
+            onMouseLeave={() => setShowDropdown(false)}
           >
-            <PersonAvatar>{usuario?.name[0].toUpperCase()}</PersonAvatar>
+            <Badge
+              badgeContent={notifications?.length}
+              style={{ color: "#fff" }}
+              overlap="circle"
+              color="primary"
+            >
+              <PersonAvatar>{usuario?.name[0].toUpperCase()}</PersonAvatar>
+            </Badge>
+            <DropdownContainer showDropdown={showDropdown}>
+              <DropdownNotificationContainer>
+                <h3>Avisos</h3>
+                {!!notifications[0] ? (
+                  notifications.map((notification, index) => (
+                    <DropdownListItem
+                      key={index}
+                      onClick={() => handleDeleteNotification(notification.id)}
+                    >
+                      {notification.name}
+                    </DropdownListItem>
+                  ))
+                ) : (
+                  <DropdownListItem>Nenhum aviso</DropdownListItem>
+                )}
+              </DropdownNotificationContainer>
+              <DropdownButton
+                onClick={() => {
+                  clearToken();
+                  history.push("/");
+                  setUsuario();
+                  setIsStore();
+                }}
+              >
+                Sair
+              </DropdownButton>
+            </DropdownContainer>
           </button>
         </>
       ) : (
@@ -99,14 +153,52 @@ const Header = () => {
           </button>
           <button
             className="header-button"
-            onClick={() => {
-              clearToken();
-              history.push("/");
-            }}
+            onClick={() => setShowDropdown(true)}
+            onMouseLeave={() => setShowDropdown(false)}
+            onMouseOver={() => setShowDropdown(true)}
           >
-            <PersonAvatar>
-              <Store />
-            </PersonAvatar>
+            <Badge
+              badgeContent={
+                pedidos && pedidos.filter((pedido) => pedido.available).length
+              }
+              style={{ color: "#fff" }}
+              overlap="circle"
+              color="primary"
+            >
+              <PersonAvatar>
+                <Store />
+              </PersonAvatar>
+            </Badge>
+            <DropdownContainer showDropdown={showDropdown}>
+              <DropdownNotificationContainer>
+                <h3>Avisos</h3>
+                {!!pedidos[0] ? (
+                  pedidos.map(
+                    (pedido, index) =>
+                      pedido.available && (
+                        <DropdownListItem
+                          key={index}
+                          onClick={() => history.push("/pedidos")}
+                        >
+                          {pedido.name}
+                        </DropdownListItem>
+                      )
+                  )
+                ) : (
+                  <DropdownListItem>Nenhum pedido</DropdownListItem>
+                )}
+              </DropdownNotificationContainer>
+              <DropdownButton
+                onClick={() => {
+                  clearToken();
+                  history.push("/");
+                  setUsuario();
+                  setIsStore();
+                }}
+              >
+                Sair
+              </DropdownButton>
+            </DropdownContainer>
           </button>
         </>
       )}

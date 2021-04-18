@@ -8,18 +8,20 @@ import {
   ProductHeader,
 } from "./style";
 import { useCarrinho } from "../../../Providers/Carrinho";
-
 import ModalCard from "../../ModalCard/index";
-
 import { useState } from "react";
+
 import ComponenteModal from "./ComponenteModal";
+import ImageGenerator from "../../ImageGenerator";
 
 const Product = ({ produto }) => {
   const { carrinho } = useCarrinho();
   const [open, setOpen] = useState(false);
+
   const abrirModal = () => {
     setOpen(true);
   };
+
   return (
     <div>
       <Container>
@@ -43,11 +45,9 @@ const Product = ({ produto }) => {
           </ModalCard>
         </ProductInfo>
         <ProductImg>
-          <img
-            src={
-              "https://conteudo.imguol.com.br/c/entretenimento/32/2018/01/18/maca-1516308281068_v2_1920x1279.jpg"
-            }
-            alt="product"
+          <ImageGenerator
+            category={produto.category}
+            productName={produto.name}
           />
         </ProductImg>
       </Container>

@@ -1,6 +1,6 @@
-import { useMercados } from "../../Providers/ListaMercados";
+// import { useMercados } from "../../Providers/ListaMercados";
 import Header from "../../Components/Header";
-import StoreCard from "../../Components/Cards/StoreCard";
+import StoreCardFinal from "../../Components/Cards/StoreCardFinal";
 import {
   Edit,
   Topic,
@@ -9,18 +9,24 @@ import {
   ButtonCartao,
   ContainerButton,
   CardIconMoney,
+  CheckoutDiv,
 } from "./style";
-import { MainContainer, Footer } from "../Cart/style";
+import { MainContainer, CartFooter } from "../Cart/style";
 import { EditIcon } from "../../Components/PerfilUser/style";
 import { Button } from "../../Components/Button/PrimaryButton/style";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useUsuario } from "../../Providers/Usuario";
+import { usePedidosRecebidos } from "../../Providers/PedidosRecebidos";
+import Footer from "../../Components/Footer";
+/* import ModalProdutos from "../../Components/ModalProdutos"; */
 
 const Checkout = () => {
-  const { mercados } = useMercados();
-  const { isStore } = useUsuario();
+  const { pedidosRecebidos } = usePedidosRecebidos();
+  // const { mercados } = useMercados();
+  const { isStore, usuario } = useUsuario();
   const history = useHistory();
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (isStore) {
@@ -33,39 +39,44 @@ const Checkout = () => {
     <div>
       <Header />
       <MainContainer>
-        <div>
-          <h1>Confirme os dados:</h1>
+        <CheckoutDiv>
+          <h1>Seus dados:</h1>
           <Topic>Endereço:</Topic>
           <Edit>
-            <h4>R. Não sei das quantas, n 235</h4>
+            <h4>{usuario && usuario.adress}</h4>
             <EditIcon />
           </Edit>
           <Topic>Telefone:</Topic>
           <Edit>
-            <h4>(00) 99999-9999</h4>
+            <h4>{usuario && usuario.number}</h4>
             <EditIcon />
           </Edit>
-        </div>
+        </CheckoutDiv>
 
         <br />
 
         <div>
-          <h1>Orçamentos retornados:</h1>
+          <h2>Orçamentos recebidos:</h2>
           <Lojas>
-            {mercados &&
-              mercados.map((mercado, index) => (
-                <StoreCard
-                  name={mercado.name}
-                  adress={mercado.adress}
+            {pedidosRecebidos &&
+              pedidosRecebidos.length > 0 &&
+              pedidosRecebidos.map((pedido, index) => (
+                <StoreCardFinal
+                  name={pedido.store?.storeName}
+                  valor={pedido.store?.price}
+                  open={open}
+                  setOpen={setOpen}
                   key={index}
                   imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
                 />
               ))}
+            {pedidosRecebidos && pedidosRecebidos.length < 1 && (
+              <>Nenhum orçamento recebido</>
+            )}
           </Lojas>
         </div>
 
         <div>
-          <h1>Métodos de pagamento:</h1>
           <ContainerButton>
             <ButtonCartao>
               <CardIcon />
@@ -79,13 +90,14 @@ const Checkout = () => {
         </div>
       </MainContainer>
 
-      <Footer>
+      <CartFooter>
         <div>
           <p>Nome</p>
           <p>Total: 0</p>
         </div>
-        <Button>Confirmar</Button>
-      </Footer>
+        <Button onClick={() => setOpen(true)}>Confirmar</Button>
+      </CartFooter>
+      <Footer />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DivProdutos = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 4rem;
   width: 100%;
@@ -43,17 +43,21 @@ export const MainContainer = styled.main`
   }
 `;
 
-export const Footer = styled.div`
+export const CartFooter = styled.div`
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   min-width: 100vw;
-  bottom: 0;
+  bottom: 59px;
   left: 0;
   height: 4.5rem;
   border: 1px solid #d5c5e8;
   background: #f6f2f9;
+
+  @media (min-width: 768px) {
+    bottom: 0;
+  }
 
   p {
     font-size: 1rem;

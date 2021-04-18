@@ -1,17 +1,11 @@
-import { Container, Icon } from "./style";
-import { FaSearch } from "react-icons/fa";
+import { Container, Icon, SearchIcon } from "./style";
 
 const Search = ({ children, handleFilter }) => {
   return (
     <>
       <Container>
         <Icon onClick={() => handleFilter()}>
-          <FaSearch
-            style={{
-              fontSize: "1.2rem",
-              color: "#380F52",
-            }}
-          />
+          <SearchIcon />
         </Icon>
         {children}
       </Container>

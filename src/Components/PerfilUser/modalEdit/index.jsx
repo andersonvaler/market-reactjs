@@ -3,101 +3,30 @@ import { Button } from "../style";
 import api from "../../../services/api";
 import { useState } from "react";
 import { useToken } from "../../../Providers/Token";
+// import { useGlobal } from "../../../Providers/Global";
 
 export const ModalEdit = ({ propriedade, usuario }) => {
   const [texto, setTexto] = useState("");
   const { token } = useToken();
+  // const { global, setGlobal } = useGlobal();
+
   const editar = () => {
-    if (propriedade === "name") {
+    let objeto = {};
+    objeto[propriedade] = texto;
+    texto &&
       api
-        .patch(
-          `users/${usuario.id}`,
-          { name: texto },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
+        .patch(`users/${usuario.id}`, objeto, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then((response) => {
           console.log(response);
+          window.location.reload();
         })
         .catch((error) => {
           console.log(error);
         });
-    }
-    if (propriedade === "email") {
-      api
-        .patch(
-          `users/${usuario.id}`,
-          { email: texto },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-    if (propriedade === "number") {
-      api
-        .patch(
-          `users/${usuario.id}`,
-          { number: texto },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-    if (propriedade === "adress") {
-      api
-        .patch(
-          `users/${usuario.id}`,
-          { adress: texto },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-    if (propriedade === "cnpj") {
-      api
-        .patch(
-          `users/${usuario.id}`,
-          { cnpj: texto },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
   };
 
   return (

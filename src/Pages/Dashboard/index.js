@@ -1,21 +1,21 @@
-import { MainContainer } from "./style";
+import { MainContainer, LoadingDiv, SpinStyled } from "./style";
 import Header from "../../Components/Header";
 import StoreCard from "../../Components/Cards/StoreCard";
 import Product from "../../Components/Cards/Product/index";
 import Footer from "../../Components/Footer";
 import { useHistory, useParams } from "react-router-dom";
-import CardIntroUser from "../../Images/MainBanner.png";
-import CardIntroStore from "../../Images/MainBannerStore.png";
 import { useMercados } from "../../Providers/ListaMercados";
 import { useProdutos } from "../../Providers/ListaProdutos";
 import { ToastContainer } from "react-toastify";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useUsuario } from "../../Providers/Usuario";
+import Categoria from "../../Components/Cards/Categoria";
 
 const Dashboard = () => {
   const { mercados } = useMercados();
-  const { produtos } = useProdutos();
   const { isStore } = useUsuario();
+  const [loading, setLoading] = useState(isStore ? false : true);
+  const { produtos } = useProdutos();
   const { userType } = useParams();
   const history = useHistory();
   const store = userType === "store";
@@ -28,18 +28,52 @@ const Dashboard = () => {
       history.push("/dashboard/store");
     }
 
+    if (loading) {
+      setTimeout(() => setLoading(false), 1000);
+    }
+
     //eslint-disable-next-line
   }, [isStore]);
 
+  const categories = [
+    {
+      category: "carnes",
+      quantity: 30,
+    },
+    {
+      category: "frios",
+      quantity: 30,
+    },
+    {
+      category: "hortifruti",
+      quantity: 30,
+    },
+    {
+      category: "limpeza",
+      quantity: 30,
+    },
+    {
+      category: "higiene",
+      quantity: 30,
+    },
+    {
+      category: "mercearia",
+      quantity: 30,
+    },
+  ];
+
   return (
     <>
+      {loading && (
+        <LoadingDiv>
+          <SpinStyled />
+        </LoadingDiv>
+      )}
       <ToastContainer />
       <Header />
       <MainContainer>
         {userType === "user" && (
           <>
-            {/* <img alt="" className="cardIntro" src={CardIntroUser} /> */}
-
             <h1>Lojas</h1>
             <h3>Encontre as melhores lojas e mercados</h3>
             <div className="lojas">
@@ -58,71 +92,28 @@ const Dashboard = () => {
             <h3>Selecione os melhores produtos aqui</h3>
             <div className="produtos">
               {produtos &&
-                produtos.map((produto, index) => (
-                  <Product produto={produto} key={index} />
-                ))}
+                produtos.map(
+                  (produto, index) =>
+                    index < 6 && <Product produto={produto} key={index} />
+                )}
             </div>
           </>
         )}
         {store && (
           <>
-            <div className="cardIntro">
-              <img alt="" className="cardImage" src={CardIntroStore} />
-            </div>
-
-            <h1>Meus produtos</h1>
+            <h1>Minhas categorias:</h1>
             <div className="categorias">
-              <div className="categoriaDiv">
-                <h3>Carnes</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://pastoextraordinario.com.br/wp-content/uploads/2019/07/Pasto-Extraordinario-Carnes-Premium-Nicho-Ou-Nova-Realidade-867x323.png"
-                />
-              </div>
-
-              <div className="categoriaDiv">
-                <h3>Frios</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://yata-apix-3b7803cb-fef9-4a2a-bbdf-f6351c752652.lss.locawebcorp.com.br/6f715130127e4a42b0e17483286be219.jpg"
-                />
-              </div>
-
-              <div className="categoriaDiv">
-                <h3>Hortfruit</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://i1.wp.com/chacarastrapasson.com.br/wp-content/uploads/2020/02/hortifruti.jpg?w=658&ssl=1"
-                />
-              </div>
-
-              <div className="categoriaDiv">
-                <h3>Limpeza</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://img.imageboss.me/consul/cdn/animation:true/wp-content/uploads/2020/09/top-banner-Lista-de-produtos-de-limpeza-que-nao-podem-faltar-na-sua-casa.jpg"
-                />
-              </div>
-              <div className="categoriaDiv">
-                <h3>Higiene</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://cdn.consumidormoderno.com.br/wp-content/uploads/2019/03/cosm%C3%A9ticos-e-higiene-pessoal-editado.jpg"
-                />
-              </div>
-              <div className="categoriaDiv">
-                <h3>Mercearia</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://www.guapposocorro.com.br/wp-content/uploads/2018/10/destaque-mercearia-e-emporio-oliveira-preto.jpg"
-                />
-              </div>
+              {categories.map((category, index) => {
+                return (
+                  <div className="categoria" key={index}>
+                    <h3>{category.category}</h3>
+                    <Categoria
+                      category={category.category}
+                      quantity={category.quantity}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </>
         )}

@@ -1,3 +1,4 @@
+import { CircularProgress } from "@material-ui/core";
 import styled from "styled-components";
 
 export const MainContainer = styled.main`
@@ -51,22 +52,22 @@ export const MainContainer = styled.main`
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
+    overflow-x: scroll;
     @media (min-width: 768px) {
       width: 100%;
-      overflow-x: hidden;
     }
   }
 
   .produtos {
-    padding: 0 1rem;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    /* @media (min-width: 768px) {
-      width: 100%;
-    } */
+
+    @media (min-width: 768px) {
+      width: 110%;
+    }
   }
 
   .produto {
@@ -78,29 +79,42 @@ export const MainContainer = styled.main`
 
   .categorias {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 1rem;
+    width: 90vw;
     @media (min-width: 768px) {
-      width: 100%;
-      justify-content: center;
+      justify-content: space-between;
+      width: 60vw;
     }
   }
 
   .categoria {
-    width: 95vw;
-    height: 30vw;
-    border-radius: 10px;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+
     @media (min-width: 768px) {
-      width: 60vw;
-      height: 20vw;
+      width: 30%;
     }
   }
+`;
 
-  .categoriaDiv {
-    text-align: initial;
-  }
+export const LoadingDiv = styled.div`
+  z-index: 1000;
+  height: 150%;
+  min-width: 100vw;
+  backdrop-filter: blur(35px);
+  position: absolute;
+  top: 0;
+
+  background-color: rgba(255, 255, 255, 0.5);
+`;
+
+export const SpinStyled = styled(CircularProgress)`
+  color: #0ec977 !important;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 const ListUsersSlide = styled.div`
   padding: 0px 20px;
