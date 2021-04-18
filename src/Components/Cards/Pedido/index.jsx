@@ -21,49 +21,53 @@ const Pedido = ({ pedido, setOpen }) => {
         price: price,
       },
     };
-    api
-      .post(
-        "cart",
-        { ...data },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then(() => {
-        api.post(
-          "notifications",
-          { userId: pedido.userId, name: `Novo orçamento de ${usuario.name}` },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-      })
-      .then(() =>
-        api.patch(
-          `order/${pedido.id}`,
-          { available: false },
+    price &&
+      api
+        .post(
+          "cart",
+          { ...data },
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         )
-      )
-      .then(() => setOpen(false))
-      .catch((error) => {
-        console.log(error);
-      });
+        .then(() => {
+          api.post(
+            "notifications",
+            {
+              userId: pedido.userId,
+              name: `Novo orçamento de ${usuario.name}`,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+        })
+        .then(() =>
+          api.patch(
+            `order/${pedido.id}`,
+            { available: false },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
+        )
+        .then(() => setOpen(false))
+        .catch((error) => {
+          console.log(error);
+        });
   };
 
   return (
     <PedidoContainer>
       <div>
-        <h2>Detalhes do pedido</h2>
-        <h3>Cliente: {pedido.name} </h3>
+        <h1>Detalhes do orçamento</h1>
+        <h2>Cliente: {pedido.name} </h2>
         <h3>Endereço: {pedido.adress}</h3>
         <h3>Telefone: {pedido.number}</h3>
         <ProdutosContainer>

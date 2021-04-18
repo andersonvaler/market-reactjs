@@ -32,7 +32,7 @@ const PreOrder = () => {
         )}
         {preOrder && preOrder.length < 1 && (
           <SemPedido>
-            <h1>Nenhum orçamento pendente</h1>
+            <h2>Nenhum orçamento pendente!</h2>
           </SemPedido>
         )}
       </Container>

@@ -21,8 +21,13 @@ export const PedidosPageContainer = styled.div`
   }
 
   h1 {
+    width: 100%;
+    background-color: #00000020;
     color: #380f52;
     font-size: 1.4rem;
+    border-radius: 1rem 1rem 0 0;
+    text-align: center;
+    padding: 0.5rem;
   }
 `;
 
