@@ -13,19 +13,20 @@ export const ModalEdit = ({ propriedade, usuario }) => {
   const editar = () => {
     let objeto = {};
     objeto[propriedade] = texto;
-    api
-      .patch(`users/${usuario.id}`, objeto, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    texto &&
+      api
+        .patch(`users/${usuario.id}`, objeto, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   };
 
   return (

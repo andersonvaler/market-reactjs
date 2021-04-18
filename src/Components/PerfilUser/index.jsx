@@ -1,17 +1,20 @@
 import { PerfilContainer, EditIcon, Button } from "./style";
 // import Pagamento from "../Pagamento";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useUsuario } from "../../Providers/Usuario";
 import { useState } from "react";
 import ModalCard from "../ModalCard";
 import { ModalEdit } from "./modalEdit";
 import { PersonAvatar, Store } from "../Header/style";
+import { useToken } from "../../Providers/Token";
 
 const PerfilUser = () => {
   const params = useParams();
   const [open, setopen] = useState(false);
   const [propriedade, setpropriedade] = useState("name");
-  const { usuario } = useUsuario();
+  const { clearToken } = useToken();
+  const { setIsStore, setUsuario, usuario } = useUsuario();
+  const history = useHistory();
 
   return (
     <PerfilContainer>
@@ -69,7 +72,16 @@ const PerfilUser = () => {
               }}
             />
           </div>
-          <Button>sair</Button>
+          <Button
+            onClick={() => {
+              clearToken();
+              history.push("/");
+              setUsuario();
+              setIsStore();
+            }}
+          >
+            sair
+          </Button>
         </>
       ) : (
         <>
@@ -122,7 +134,16 @@ const PerfilUser = () => {
               }}
             />
           </div>
-          <Button>sair</Button>
+          <Button
+            onClick={() => {
+              clearToken();
+              history.push("/");
+              setUsuario();
+              setIsStore();
+            }}
+          >
+            sair
+          </Button>
         </>
       )}
     </PerfilContainer>
