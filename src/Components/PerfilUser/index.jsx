@@ -19,7 +19,7 @@ const PerfilUser = () => {
   return (
     <PerfilContainer>
       <ModalCard open={open} setOpen={setopen}>
-        <ModalEdit propriedade={propriedade} usuario={usuario} />
+        <ModalEdit propriedade={propriedade} setOpen={setopen} />
       </ModalCard>
       {params.userType === "user" ? (
         <>

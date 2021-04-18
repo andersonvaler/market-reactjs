@@ -54,6 +54,7 @@ export const ButtonDel = styled.button`
   width: 9rem;
   height: 100%;
   align-items: center;
+  cursor: pointer;
   &&:hover {
     background-color: #ff5232;
     color: #fff;
