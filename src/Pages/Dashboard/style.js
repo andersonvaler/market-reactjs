@@ -12,10 +12,8 @@ export const MainContainer = styled.main`
   overflow-x: hidden;
 
   h1 {
-    width: 100%;
     font-size: 1.3rem;
     color: #380f52;
-    margin-left: 0.8rem;
   }
 
   h3 {
@@ -81,10 +79,11 @@ export const MainContainer = styled.main`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 90vw;
+    width: 100vw;
     @media (min-width: 768px) {
       justify-content: space-between;
-      width: 60vw;
+      flex-wrap: wrap;
+      width: 80vw;
     }
   }
 

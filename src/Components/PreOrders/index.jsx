@@ -24,7 +24,7 @@ const PreOrder = () => {
               preOrder.map((pedido, index) => {
                 return (
                   <>
-                    <OrderDetail pedido={pedido} />
+                    <OrderDetail pedido={pedido} key={index} />
                   </>
                 );
               })}

@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.figure`
-  width: 100%;
+  min-width: 14rem;
   height: 9rem;
   overflow: hidden;
   border-radius: 1rem 1rem 0 0;
