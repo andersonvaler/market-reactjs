@@ -21,7 +21,7 @@ import { useState } from "react";
 
 const Header = () => {
   const { carrinho } = useCarrinho();
-  const params = useParams();
+  const { userType } = useParams();
   const history = useHistory();
   const { clearToken } = useToken();
   const { setIsStore, setUsuario, usuario } = useUsuario();
@@ -43,7 +43,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      {params.userType !== "store" ? (
+      {userType !== "store" && history.location.pathname !== "/pedidos" ? (
         <>
           <button
             className="header-button"

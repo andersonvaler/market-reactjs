@@ -71,10 +71,17 @@ export const PersonAvatar = styled(Avatar)`
   color: #c2f244 !important;
   background-color: #0ec977 !important;
   font-weight: bold !important;
+  font-size: ${({ profilePage }) => profilePage && "70px"} !important;
+  width: ${({ profilePage }) => profilePage && "150px"} !important;
+  height: ${({ profilePage }) => profilePage && "150px"} !important;
   cursor: initial;
 
   &:hover ~ div {
-    display: block;
+    display: ${({ profilePage }) => !profilePage && "block"} !important;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: ${({ profilePage }) => profilePage && "50px"} !important;
   }
 `;
 
@@ -86,7 +93,7 @@ export const Receipt = styled(ReceiptRoundedIcon)`
 export const Store = styled(StoreRoundedIcon)`
   color: #c2f244;
   background-color: #0ec977;
-  font-size: 18px;
+  font-size: ${({ profilePage }) => (profilePage ? "80px" : "24px")} !important;
 `;
 
 export const DropdownContainer = styled.div`

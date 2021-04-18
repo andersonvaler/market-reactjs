@@ -8,7 +8,8 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      {params.userType !== "store" ? (
+      {params.userType !== "store" &&
+      history.location.pathname !== "/pedidos" ? (
         <>
           <button
             className="footer-button"

@@ -8,6 +8,10 @@ export const CategoriaContainer = styled.div`
   width: 90vw;
   border: solid 1px #d5c5e8;
 
+  img {
+    width: 100%;
+  }
+
   @media (min-width: 768px) {
     width: 100%;
     flex-direction: row;
