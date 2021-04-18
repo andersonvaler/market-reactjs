@@ -11,6 +11,12 @@ import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 import { useUsuario } from "../../Providers/Usuario";
 import Categoria from "../../Components/Cards/Categoria";
+import carnes from "../../Images/carnes.jpg";
+import frios from "../../Images/frios.jpg";
+import hortifruti from "../../Images/hortifruti.jpg";
+import higiene from "../../Images/higiene.jpg";
+import limpeza from "../../Images/limpeza.jpg";
+import mercearia from "../../Images/mercearia.jpg";
 
 const Dashboard = () => {
   const { mercados } = useMercados();
@@ -34,38 +40,32 @@ const Dashboard = () => {
   const categories = [
     {
       name: "Carnes",
-      image:
-        "https://pastoextraordinario.com.br/wp-content/uploads/2019/07/Pasto-Extraordinario-Carnes-Premium-Nicho-Ou-Nova-Realidade-867x323.png",
+      image: carnes,
       quantity: 30,
     },
     {
       name: "Frios",
-      image:
-        "https://yata-apix-3b7803cb-fef9-4a2a-bbdf-f6351c752652.lss.locawebcorp.com.br/6f715130127e4a42b0e17483286be219.jpg",
+      image: frios,
       quantity: 30,
     },
     {
       name: "Hortifruti",
-      image:
-        "https://i1.wp.com/chacarastrapasson.com.br/wp-content/uploads/2020/02/hortifruti.jpg?w=658&ssl=1",
+      image: hortifruti,
       quantity: 30,
     },
     {
       name: "Limpeza",
-      image:
-        "https://img.imageboss.me/consul/cdn/animation:true/wp-content/uploads/2020/09/top-banner-Lista-de-produtos-de-limpeza-que-nao-podem-faltar-na-sua-casa.jpg",
+      image: limpeza,
       quantity: 30,
     },
     {
       name: "Higiene",
-      image:
-        "https://cdn.consumidormoderno.com.br/wp-content/uploads/2019/03/cosm%C3%A9ticos-e-higiene-pessoal-editado.jpg",
+      image: higiene,
       quantity: 30,
     },
     {
       name: "Mercearia",
-      image:
-        "https://www.guapposocorro.com.br/wp-content/uploads/2018/10/destaque-mercearia-e-emporio-oliveira-preto.jpg",
+      image: mercearia,
       quantity: 30,
     },
   ];
