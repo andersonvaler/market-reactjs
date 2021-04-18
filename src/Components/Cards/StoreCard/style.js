@@ -12,10 +12,13 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.figure`
-  width: 100%;
+  min-width: 14rem;
   height: 65%;
   overflow: hidden;
   border-radius: 1rem 1rem 0 0;
+  img {
+    width: 100%;
+  }
 `;
 
 export const StoreInfo = styled.div`
