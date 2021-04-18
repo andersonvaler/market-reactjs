@@ -102,3 +102,10 @@ export const MainContainer = styled.main`
     text-align: initial;
   }
 `;
+const ListUsersSlide = styled.div`
+  padding: 0px 20px;
+  margin: 50px 0;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  border-width: 100%;
+`;
