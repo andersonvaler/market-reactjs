@@ -22,6 +22,7 @@ export const PedidosPageContainer = styled.div`
 
   h1 {
     color: #380f52;
+    font-size: 1.4rem;
   }
 `;
 
@@ -35,6 +36,7 @@ export const LeftContainer = styled.div`
   border: 1px solid #00000040;
   margin-bottom: 1rem;
   min-height: 80vh;
+  border-radius: 1rem;
   @media (min-width: 768px) {
     margin-bottom: 0;
     width: 50%;
@@ -47,6 +49,8 @@ export const RightContainer = styled.div`
   align-items: center;
   flex-direction: column;
   border: 1px solid #00000040;
+  border-radius: 1rem;
+
   box-shadow: 0 0 0.2rem 0.01rem #00000090;
 
   @media (min-width: 768px) {

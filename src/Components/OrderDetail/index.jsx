@@ -16,7 +16,7 @@ const OrderDetail = ({ pedido }) => {
         </td>
       </tr>
       <ModalCard open={open} setOpen={setOpen}>
-        <Pedido pedido={pedido}></Pedido>
+        <Pedido pedido={pedido} setOpen={setOpen}></Pedido>
       </ModalCard>
     </>
   );
