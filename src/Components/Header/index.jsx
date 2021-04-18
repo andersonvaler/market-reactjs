@@ -18,28 +18,29 @@ import { useCarrinho } from "../../Providers/Carrinho";
 import Badge from "@material-ui/core/Badge";
 import { useUsuario } from "../../Providers/Usuario";
 import { useState } from "react";
+import { useNotifications } from "../../Providers/Notifications";
+import api from "../../services/api";
+import { useGlobal } from "../../Providers/Global";
 
 const Header = () => {
   const { carrinho } = useCarrinho();
   const { userType } = useParams();
   const history = useHistory();
-  const { clearToken } = useToken();
+  const { clearToken, token } = useToken();
   const { setIsStore, setUsuario, usuario } = useUsuario();
   const [showDropdown, setShowDropdown] = useState();
-  const notifications = [
-    {
-      name: "você recebeu um orçamento",
-    },
-    {
-      name: "você recebeu um orçamento",
-    },
-    {
-      name: "você recebeu um orçamento",
-    },
-    {
-      name: "você recebeu um orçamento",
-    },
-  ];
+  const { notifications } = useNotifications();
+  const { global, setGlobal } = useGlobal();
+
+  const handleDeleteNotification = (id) => {
+    history.push("/checkout");
+    api.delete(`notifications/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    setGlobal(!global);
+  };
 
   return (
     <HeaderContainer>
@@ -85,18 +86,33 @@ const Header = () => {
           </>
           <button
             className="header-button"
+            onMouseOver={() => setShowDropdown(true)}
             onClick={() => setShowDropdown(true)}
             onMouseLeave={() => setShowDropdown(false)}
           >
-            <PersonAvatar>{usuario?.name[0].toUpperCase()}</PersonAvatar>
+            <Badge
+              badgeContent={notifications?.length}
+              style={{ color: "#fff" }}
+              overlap="circle"
+              color="primary"
+            >
+              <PersonAvatar>{usuario?.name[0].toUpperCase()}</PersonAvatar>
+            </Badge>
             <DropdownContainer showDropdown={showDropdown}>
               <DropdownNotificationContainer>
                 <h3>Avisos</h3>
-                {notifications.map((message, index) => (
-                  <DropdownListItem key={index}>
-                    {message.name}
-                  </DropdownListItem>
-                ))}
+                {!!notifications[0] ? (
+                  notifications.map((notification, index) => (
+                    <DropdownListItem
+                      key={index}
+                      onClick={() => handleDeleteNotification(notification.id)}
+                    >
+                      {notification.name}
+                    </DropdownListItem>
+                  ))
+                ) : (
+                  <DropdownListItem>Nenhum aviso</DropdownListItem>
+                )}
               </DropdownNotificationContainer>
               <DropdownButton
                 onClick={() => {

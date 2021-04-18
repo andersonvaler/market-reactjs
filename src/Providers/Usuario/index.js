@@ -11,6 +11,7 @@ export const UsuarioProvider = ({ children }) => {
   const { token } = useToken();
   const [usuario, setUsuario] = useState();
   const [isStore, setIsStore] = useState();
+  const [userId, setUserId] = useState();
 
   useEffect(() => {
     const user_id = token ? jwt_decode(token) : false;
@@ -24,13 +25,14 @@ export const UsuarioProvider = ({ children }) => {
         .then((response) => {
           setIsStore(response.data.isStore);
           setUsuario(response.data);
+          setUserId(user_id.sub);
         })
         .catch((e) => console.log(e));
   }, [token]);
 
   return (
     <UsuarioContext.Provider
-      value={{ usuario, setUsuario, isStore, setIsStore }}
+      value={{ usuario, setUsuario, isStore, setIsStore, userId }}
     >
       {children}
     </UsuarioContext.Provider>

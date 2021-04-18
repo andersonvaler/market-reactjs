@@ -31,7 +31,6 @@ export const PedidosProvider = ({ children }) => {
   return (
     <PedidosContext.Provider value={{ pedidos, setPedidos }}>
       {children}
-      {console.log(pedidos)}
     </PedidosContext.Provider>
   );
 };
