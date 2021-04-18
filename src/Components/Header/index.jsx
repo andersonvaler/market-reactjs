@@ -158,7 +158,9 @@ const Header = () => {
             onMouseOver={() => setShowDropdown(true)}
           >
             <Badge
-              badgeContent={pedidos.filter((pedido) => pedido.available).length}
+              badgeContent={
+                pedidos && pedidos.filter((pedido) => pedido.available).length
+              }
               style={{ color: "#fff" }}
               overlap="circle"
               color="primary"
