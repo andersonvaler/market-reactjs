@@ -21,10 +21,12 @@ import { useState } from "react";
 import { useNotifications } from "../../Providers/Notifications";
 import api from "../../services/api";
 import { useGlobal } from "../../Providers/Global";
+import { usePedidos } from "../../Providers/Pedidos";
 
 const Header = () => {
   const { carrinho } = useCarrinho();
   const { userType } = useParams();
+  const { pedidos } = usePedidos();
   const history = useHistory();
   const { clearToken, token } = useToken();
   const { setIsStore, setUsuario, usuario } = useUsuario();
@@ -153,18 +155,36 @@ const Header = () => {
             className="header-button"
             onClick={() => setShowDropdown(true)}
             onMouseLeave={() => setShowDropdown(false)}
+            onMouseOver={() => setShowDropdown(true)}
           >
-            <PersonAvatar>
-              <Store />
-            </PersonAvatar>
+            <Badge
+              badgeContent={pedidos.filter((pedido) => pedido.available).length}
+              style={{ color: "#fff" }}
+              overlap="circle"
+              color="primary"
+            >
+              <PersonAvatar>
+                <Store />
+              </PersonAvatar>
+            </Badge>
             <DropdownContainer showDropdown={showDropdown}>
               <DropdownNotificationContainer>
                 <h3>Avisos</h3>
-                {notifications.map((message, index) => (
-                  <DropdownListItem key={index}>
-                    {message.name}
-                  </DropdownListItem>
-                ))}
+                {!!pedidos[0] ? (
+                  pedidos.map(
+                    (pedido, index) =>
+                      pedido.available && (
+                        <DropdownListItem
+                          key={index}
+                          onClick={() => history.push("/pedidos")}
+                        >
+                          {pedido.name}
+                        </DropdownListItem>
+                      )
+                  )
+                ) : (
+                  <DropdownListItem>Nenhum pedido</DropdownListItem>
+                )}
               </DropdownNotificationContainer>
               <DropdownButton
                 onClick={() => {
