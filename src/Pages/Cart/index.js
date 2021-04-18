@@ -24,7 +24,7 @@ const Cart = () => {
     if (isStore) {
       history.push("/dashboard/store");
     }
-    //eslint-disable-next-line
+    // eslint-disable-next-line
   }, [isStore, global]);
 
   const sendCart = () => {

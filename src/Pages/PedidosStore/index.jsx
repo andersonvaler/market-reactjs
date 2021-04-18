@@ -29,33 +29,6 @@ const PedidosStore = () => {
         <RightContainer>
           <h1>Pedidos</h1>
         </RightContainer>
-
-        {/* <h1>Pedidos em andamento</h1>
-        <PedidosContainer>
-          <Pedido />
-          <Pedido />
-          <Pedido />
-          <Pedido />
-          <Pedido />
-          <Pedido />
-          <Pedido />
-          <Pedido />
-          <Pedido />
-          <Pedido />
-        </PedidosContainer>
-        <h1>Pedidos em aberto</h1>
-        <PedidosContainer>
-          <PedidoAceito />
-          <PedidoAceito />
-          <PedidoAceito />
-          <PedidoAceito />
-          <PedidoAceito />
-          <PedidoAceito />
-          <PedidoAceito />
-          <PedidoAceito />
-          <PedidoAceito />
-          <PedidoAceito />
-        </PedidosContainer> */}
       </PedidosPageContainer>
       <Footer />
     </>

@@ -22,5 +22,19 @@ body {
   overflow-x: hidden;
   background-color: #F6F2F9;
 }
+
+::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background: #F6F2F9;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 2rem;
+  background: #927dad;
+}
+
 `;
 export default GlobalStyles;
