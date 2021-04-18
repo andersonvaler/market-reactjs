@@ -1,3 +1,4 @@
+import { CircularProgress } from "@material-ui/core";
 import styled from "styled-components";
 
 export const MainContainer = styled.main`
@@ -95,4 +96,23 @@ export const MainContainer = styled.main`
       width: 30%;
     }
   }
+`;
+
+export const LoadingDiv = styled.div`
+  z-index: 1000;
+  height: 150%;
+  min-width: 100vw;
+  backdrop-filter: blur(35px);
+  position: absolute;
+  top: 0;
+
+  background-color: rgba(255, 255, 255, 0.5);
+`;
+
+export const SpinStyled = styled(CircularProgress)`
+  color: #0ec977 !important;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
 `;
