@@ -1,16 +1,15 @@
 import { PedidoContainer } from "./style";
-import Button from "../../Button/PrimaryButton";
+import { Button } from "../../Button/PrimaryButton/style";
 
-const Pedido = () => {
+const Pedido = ({ pedido }) => {
+  console.log(pedido);
   return (
     <PedidoContainer>
       <h2>Detalhes do pedido</h2>
-      <h3>Nome do cliente: Ricardo </h3>
-      <h3>Endereço: Rua não sei das quantas, n 221</h3>
-      <h3>Telefone: (00) 99999-9999</h3>
-      <h3>Preço: R$ 89,23</h3>
-      <h3>Método de pagamento: Cartão</h3>
-      <Button children="Sinalizar entrega" />
+      <h4>Cliente: {pedido.name} </h4>
+      <h4>Endereço: {pedido.adress}</h4>
+      <h4>Telefone: {pedido.number}</h4>
+      <Button>Enviar orçamento</Button>
     </PedidoContainer>
   );
 };
