@@ -1,4 +1,4 @@
-import { MainContainer } from "./style";
+import { MainContainer, LoadingDiv, SpinStyled } from "./style";
 import Header from "../../Components/Header";
 import StoreCard from "../../Components/Cards/StoreCard";
 import Product from "../../Components/Cards/Product/index";
@@ -7,14 +7,15 @@ import { useHistory, useParams } from "react-router-dom";
 import { useMercados } from "../../Providers/ListaMercados";
 import { useProdutos } from "../../Providers/ListaProdutos";
 import { ToastContainer } from "react-toastify";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useUsuario } from "../../Providers/Usuario";
 import Categoria from "../../Components/Cards/Categoria";
 
 const Dashboard = () => {
   const { mercados } = useMercados();
-  const { produtos } = useProdutos();
   const { isStore } = useUsuario();
+  const [loading, setLoading] = useState(isStore ? false : true);
+  const { produtos } = useProdutos();
   const { userType } = useParams();
   const history = useHistory();
   const store = userType === "store";
@@ -25,6 +26,10 @@ const Dashboard = () => {
     }
     if (!store && isStore) {
       history.push("/dashboard/store");
+    }
+
+    if (loading) {
+      setTimeout(() => setLoading(false), 1000);
     }
 
     //eslint-disable-next-line
@@ -59,6 +64,11 @@ const Dashboard = () => {
 
   return (
     <>
+      {loading && (
+        <LoadingDiv>
+          <SpinStyled />
+        </LoadingDiv>
+      )}
       <ToastContainer />
       <Header />
       <MainContainer>
