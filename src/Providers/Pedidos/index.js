@@ -10,6 +10,11 @@ export const PedidosProvider = ({ children }) => {
   const [pedidos, setPedidos] = useState(false);
   const { isStore } = useUsuario();
   const { token } = useToken();
+  const [atualizer, setAtualizer] = useState(false);
+
+  const atualizeOrder = () => {
+    setTimeout(() => setAtualizer(!atualizer), 10000);
+  };
 
   useEffect(() => {
     token &&
@@ -22,11 +27,13 @@ export const PedidosProvider = ({ children }) => {
         })
         .then((response) => {
           setPedidos(response.data);
+          atualizeOrder();
         })
         .catch((error) => {
           console.log(error);
         });
-  }, [token, isStore]);
+    //eslint-disable-next-line
+  }, [token, isStore, atualizer]);
 
   return (
     <PedidosContext.Provider value={{ pedidos, setPedidos }}>

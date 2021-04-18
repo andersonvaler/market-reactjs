@@ -12,6 +12,11 @@ export const NotificationsProvider = ({ children }) => {
   const { token } = useToken();
   const { userId } = useUsuario();
   const { global } = useGlobal();
+  const [atualizer, setAtualizer] = useState(false);
+
+  const atualizeOrder = () => {
+    setTimeout(() => setAtualizer(!atualizer), 10000);
+  };
 
   useEffect(() => {
     token &&
@@ -23,11 +28,13 @@ export const NotificationsProvider = ({ children }) => {
         })
         .then((response) => {
           setNotifications(response.data);
+          atualizeOrder();
         })
         .catch((error) => {
           console.log(error);
         });
-  }, [token, userId, global]);
+    //eslint-disable-next-line
+  }, [token, userId, global, atualizer]);
 
   return (
     <NotificationsContext.Provider value={{ notifications, setNotifications }}>
