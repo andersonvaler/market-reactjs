@@ -1,5 +1,6 @@
 import { useCarrinho } from "../../../Providers/Carrinho";
 import { useGlobal } from "../../../Providers/Global";
+import ImageGenerator from "../../ImageGenerator";
 
 import {
   DivContador,
@@ -38,7 +39,7 @@ const ProdutoCarrinho = ({ produto, index, contador }) => {
   return (
     <Card key={index}>
       <ProdutoImg>
-        <img src={"https://picsum.photos/300/200"} alt="product" />
+        <ImageGenerator category={produto.category} alt={produto.name} />
       </ProdutoImg>
       <TituloCard>{produto.name}</TituloCard>
       <DescricaoCard>{produto.description}</DescricaoCard>

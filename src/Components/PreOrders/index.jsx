@@ -6,7 +6,7 @@ const PreOrder = () => {
   const [preOrder, setPreOrder] = useState();
 
   useEffect(() => {
-    setPreOrder(pedidos.filter((pedido) => pedido.available));
+    setPreOrder(pedidos && pedidos.filter((pedido) => pedido.available));
   }, [pedidos]);
 
   return (

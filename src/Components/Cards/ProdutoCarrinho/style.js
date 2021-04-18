@@ -113,16 +113,18 @@ export const DescricaoCard = styled.p`
 `;
 
 export const ProdutoImg = styled.figure`
-  max-width: 6rem;
-  min-width: 6rem;
-  max-height: 6rem;
+  width: 100%;
+  height: 100%;
   border-radius: 1rem 0 0 1rem;
   overflow: hidden;
 
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
   @media (min-width: 768px) {
     min-width: 100%;
-    max-height: 8rem;
-    min-height: 8rem;
     border-radius: 1rem 1rem 0 0;
   }
 `;
