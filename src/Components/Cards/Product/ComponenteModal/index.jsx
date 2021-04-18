@@ -4,7 +4,7 @@ import { Button } from "../../../Button/PrimaryButton/style";
 import { useState } from "react";
 import { useCarrinho } from "../../../../Providers/Carrinho";
 
-const ComponenteModal = ({ produto, setOpen }) => {
+const ComponenteModal = ({ produto, setOpen, notify }) => {
   const [quantidade, setQuantidade] = useState();
   const { carrinho, setCarrinho } = useCarrinho();
 
@@ -16,6 +16,7 @@ const ComponenteModal = ({ produto, setOpen }) => {
       produto["quantity"] = parseInt(quantidade);
       setCarrinho([...carrinho, produto]);
     }
+    notify();
     setOpen(false);
   };
 

@@ -17,7 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const { userType } = useParams();
   const notifyError = () =>
-    toast.error("tente novamente", {
+    toast.error("email ou senha invalidos", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,

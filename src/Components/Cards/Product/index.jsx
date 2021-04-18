@@ -13,6 +13,7 @@ import { useState } from "react";
 
 import ComponenteModal from "./ComponenteModal";
 import ImageGenerator from "../../ImageGenerator";
+import { ToastContainer, toast } from "react-toastify";
 
 const Product = ({ produto, store = false }) => {
   const { carrinho } = useCarrinho();
@@ -21,9 +22,21 @@ const Product = ({ produto, store = false }) => {
   const abrirModal = () => {
     setOpen(true);
   };
+  const notify = () => {
+    toast.success("item adicionado", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   return (
     <div>
+      <ToastContainer />
       <Container>
         <ProductInfo>
           <ProductHeader>
@@ -43,7 +56,11 @@ const Product = ({ produto, store = false }) => {
             </Button>
           )}
           <ModalCard open={open} setOpen={setOpen}>
-            <ComponenteModal produto={produto} setOpen={setOpen} />
+            <ComponenteModal
+              produto={produto}
+              setOpen={setOpen}
+              notify={notify}
+            />
           </ModalCard>
         </ProductInfo>
         <ProductImg>
