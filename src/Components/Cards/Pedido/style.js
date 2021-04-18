@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const PedidoContainer = styled.main`
-  width: 260px;
-  height: 360px;
+  width: 80vw;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -17,4 +17,14 @@ export const PedidoContainer = styled.main`
   h3 {
     color: #927dad;
   }
+`;
+
+export const ProdutosContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  width: 100%;
+  min-height: 17rem;
 `;

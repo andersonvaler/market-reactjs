@@ -1,8 +1,7 @@
 import { Container, SemPedido } from "./style";
 import { usePedidos } from "../../Providers/Pedidos";
 import { useState, useEffect } from "react";
-import ModalCard from "../ModalCard";
-import Pedido from "../Cards/Pedido";
+import OrderDetail from "../OrderDetail";
 const PreOrder = () => {
   const { pedidos } = usePedidos();
   const [preOrder, setPreOrder] = useState();
@@ -26,16 +25,7 @@ const PreOrder = () => {
               preOrder.map((pedido, index) => {
                 return (
                   <>
-                    <tr key={index}>
-                      <td className="name">{pedido.name}</td>
-                      <td className="adress">{pedido.adress}</td>
-                      <td className="button">
-                        <button onClick={() => setOpen(!open)}>Detalhar</button>
-                      </td>
-                    </tr>
-                    <ModalCard open={open} setOpen={setOpen}>
-                      <Pedido pedido={pedido}></Pedido>
-                    </ModalCard>
+                    <OrderDetail pedido={pedido} />
                   </>
                 );
               })}
