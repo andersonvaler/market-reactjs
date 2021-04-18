@@ -4,19 +4,12 @@ import StoreCard from "../../Components/Cards/StoreCard";
 import Product from "../../Components/Cards/Product/index";
 import Footer from "../../Components/Footer";
 import { useHistory, useParams } from "react-router-dom";
-// import CardIntroStore from "../../Images/MainBannerStore.png";
 import { useMercados } from "../../Providers/ListaMercados";
 import { useProdutos } from "../../Providers/ListaProdutos";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 import { useUsuario } from "../../Providers/Usuario";
 import Categoria from "../../Components/Cards/Categoria";
-import carnes from "../../Images/carnes.jpg";
-import frios from "../../Images/frios.jpg";
-import hortifruti from "../../Images/hortifruti.jpg";
-import higiene from "../../Images/higiene.jpg";
-import limpeza from "../../Images/limpeza.jpg";
-import mercearia from "../../Images/mercearia.jpg";
 
 const Dashboard = () => {
   const { mercados } = useMercados();
@@ -39,33 +32,27 @@ const Dashboard = () => {
 
   const categories = [
     {
-      name: "Carnes",
-      image: carnes,
+      category: "carnes",
       quantity: 30,
     },
     {
-      name: "Frios",
-      image: frios,
+      category: "frios",
       quantity: 30,
     },
     {
-      name: "Hortifruti",
-      image: hortifruti,
+      category: "hortifruti",
       quantity: 30,
     },
     {
-      name: "Limpeza",
-      image: limpeza,
+      category: "limpeza",
       quantity: 30,
     },
     {
-      name: "Higiene",
-      image: higiene,
+      category: "higiene",
       quantity: 30,
     },
     {
-      name: "Mercearia",
-      image: mercearia,
+      name: "mercearia",
       quantity: 30,
     },
   ];
@@ -77,8 +64,6 @@ const Dashboard = () => {
       <MainContainer>
         {userType === "user" && (
           <>
-            {/* <img alt="" className="cardIntro" src={CardIntroUser} /> */}
-
             <h1>Lojas</h1>
             <h3>Encontre as melhores lojas e mercados</h3>
             <div className="lojas">

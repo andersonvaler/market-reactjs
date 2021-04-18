@@ -10,7 +10,6 @@ import {
 import { useCarrinho } from "../../../Providers/Carrinho";
 import ModalCard from "../../ModalCard/index";
 import { useState } from "react";
-import Images from "../../../Images/hortifruti.jpg";
 
 import ComponenteModal from "./ComponenteModal";
 import ImageGenerator from "../../ImageGenerator";
@@ -22,7 +21,6 @@ const Product = ({ produto }) => {
   const abrirModal = () => {
     setOpen(true);
   };
-  console.log(Images);
 
   return (
     <div>
