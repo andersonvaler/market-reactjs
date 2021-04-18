@@ -22,7 +22,7 @@ export const Card = styled.div`
 `;
 
 export const DivContador = styled.div`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #fff;
   font-weight: 800;
   display: flex;
@@ -31,12 +31,11 @@ export const DivContador = styled.div`
   justify-content: space-evenly;
   background: #0ec977;
   box-shadow: 0 0 0.2rem 0.01rem #00000090;
-  min-width: 10%;
+  min-width: 15%;
   height: 100%;
   margin-left: 0.5rem;
   border-radius: 0 1rem 1rem 0;
   @media (min-width: 768px) {
-    font-size: 1rem;
     margin: 0;
     height: 1.4rem;
     flex-direction: row-reverse;

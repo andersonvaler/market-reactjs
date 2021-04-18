@@ -59,16 +59,20 @@ const Checkout = () => {
           <h2>Orçamentos recebidos:</h2>
           <Lojas>
             {pedidosRecebidos &&
+              pedidosRecebidos.length > 0 &&
               pedidosRecebidos.map((pedido, index) => (
                 <StoreCardFinal
-                  name={pedido.store.storeName}
-                  valor={pedido.store.price}
+                  name={pedido.store?.storeName}
+                  valor={pedido.store?.price}
                   open={open}
                   setOpen={setOpen}
                   key={index}
                   imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDtpaqHXNFVQIc-f5uMn2SI37D8LLkShXvwg&usqp=CAU"
                 />
               ))}
+            {pedidosRecebidos && pedidosRecebidos.length < 1 && (
+              <>Nenhum orçamento recebido</>
+            )}
           </Lojas>
         </div>
 

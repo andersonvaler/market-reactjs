@@ -9,14 +9,18 @@ export const PedidoContainer = styled.main`
   align-items: center;
   border-radius: 16px;
   margin-right: 15px;
+  overflow: hidden;
   && > div {
     width: 100%;
   }
   h2 {
     color: #380f52;
+    font-size: 1.1rem;
   }
 
   h3 {
+    font-size: 1rem;
+    padding: 0;
     color: #927dad;
   }
   input {
@@ -35,6 +39,7 @@ export const PedidoContainer = styled.main`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    height: 5rem;
     @media (min-width: 768px) {
       flex-direction: row;
     }
@@ -52,10 +57,9 @@ export const ProdutosContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  max-height: 35rem;
+  max-height: 16rem;
   overflow: scroll;
-
   @media (min-width: 768px) {
-    max-height: 32rem;
+    max-height: 30rem;
   }
 `;
