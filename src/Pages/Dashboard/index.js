@@ -10,6 +10,13 @@ import { useProdutos } from "../../Providers/ListaProdutos";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 import { useUsuario } from "../../Providers/Usuario";
+import Categoria from "../../Components/Cards/Categoria";
+import carnes from "../../Images/carnes.jpg";
+import frios from "../../Images/frios.jpg";
+import hortifruti from "../../Images/hortifruti.jpg";
+import higiene from "../../Images/higiene.jpg";
+import limpeza from "../../Images/limpeza.jpg";
+import mercearia from "../../Images/mercearia.jpg";
 
 const Dashboard = () => {
   const { mercados } = useMercados();
@@ -29,6 +36,39 @@ const Dashboard = () => {
 
     //eslint-disable-next-line
   }, [isStore]);
+
+  const categories = [
+    {
+      name: "Carnes",
+      image: carnes,
+      quantity: 30,
+    },
+    {
+      name: "Frios",
+      image: frios,
+      quantity: 30,
+    },
+    {
+      name: "Hortifruti",
+      image: hortifruti,
+      quantity: 30,
+    },
+    {
+      name: "Limpeza",
+      image: limpeza,
+      quantity: 30,
+    },
+    {
+      name: "Higiene",
+      image: higiene,
+      quantity: 30,
+    },
+    {
+      name: "Mercearia",
+      image: mercearia,
+      quantity: 30,
+    },
+  ];
 
   return (
     <>
@@ -68,57 +108,17 @@ const Dashboard = () => {
           <>
             <h1>Minhas categorias:</h1>
             <div className="categorias">
-              <div className="categoriaDiv">
-                <h3>Carnes</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://pastoextraordinario.com.br/wp-content/uploads/2019/07/Pasto-Extraordinario-Carnes-Premium-Nicho-Ou-Nova-Realidade-867x323.png"
-                />
-              </div>
-
-              <div className="categoriaDiv">
-                <h3>Frios</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://yata-apix-3b7803cb-fef9-4a2a-bbdf-f6351c752652.lss.locawebcorp.com.br/6f715130127e4a42b0e17483286be219.jpg"
-                />
-              </div>
-
-              <div className="categoriaDiv">
-                <h3>Hortfruit</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://i1.wp.com/chacarastrapasson.com.br/wp-content/uploads/2020/02/hortifruti.jpg?w=658&ssl=1"
-                />
-              </div>
-
-              <div className="categoriaDiv">
-                <h3>Limpeza</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://img.imageboss.me/consul/cdn/animation:true/wp-content/uploads/2020/09/top-banner-Lista-de-produtos-de-limpeza-que-nao-podem-faltar-na-sua-casa.jpg"
-                />
-              </div>
-              <div className="categoriaDiv">
-                <h3>Higiene</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://cdn.consumidormoderno.com.br/wp-content/uploads/2019/03/cosm%C3%A9ticos-e-higiene-pessoal-editado.jpg"
-                />
-              </div>
-              <div className="categoriaDiv">
-                <h3>Mercearia</h3>
-                <img
-                  alt=""
-                  className="categoria"
-                  src="https://www.guapposocorro.com.br/wp-content/uploads/2018/10/destaque-mercearia-e-emporio-oliveira-preto.jpg"
-                />
-              </div>
+              {categories.map((category) => {
+                return (
+                  <div className="categoria">
+                    <h3>{category.name}</h3>
+                    <Categoria
+                      quantity={category.quantity}
+                      image={category.image}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </>
         )}
