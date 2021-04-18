@@ -1,4 +1,3 @@
-import ModalCard from "../../Components/ModalCard";
 import { ModalCardContainer } from "./style";
 
 /* Para fazer funcionar precisa:

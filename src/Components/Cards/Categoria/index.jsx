@@ -1,14 +1,15 @@
-import { CategoriaContainer } from "./style";
-import { Button } from "../../Button/PrimaryButton/style";
-import { ImageGenerator } from "../../ImageGenerator";
+import { CategoriaContainer, ImageContainer, NewButton } from "./style";
+import ImageGenerator from "../../ImageGenerator";
 
-const Categoria = ({ quantity, image }) => {
+const Categoria = ({ quantity, category }) => {
   return (
     <CategoriaContainer>
-      <img alt="" src={image} className="image-category" />
+      <ImageContainer>
+        <ImageGenerator productName={category} category={category} />
+      </ImageContainer>
       <div className="text-categoria">
         <h3>Número de produtos: {quantity}</h3>
-        <Button>Ver produtos</Button>
+        <NewButton>Ver produtos</NewButton>
       </div>
     </CategoriaContainer>
   );

@@ -5,7 +5,6 @@ import OrderDetail from "../OrderDetail";
 const PreOrder = () => {
   const { pedidos } = usePedidos();
   const [preOrder, setPreOrder] = useState();
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setPreOrder(pedidos && pedidos.filter((pedido) => pedido.available));

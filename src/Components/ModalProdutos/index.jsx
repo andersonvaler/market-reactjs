@@ -2,7 +2,7 @@ import ModalCard from "../../Components/ModalCard";
 import { ModalProdutosContainer } from "./style";
 import { useCarrinho } from "../../Providers/Carrinho";
 import { Button } from "../../Components/Button/PrimaryButton/style";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ModalConfimado from "../../Components/ModalConfirmado";
 
 const ModalProdutos = ({ open, setOpen }) => {

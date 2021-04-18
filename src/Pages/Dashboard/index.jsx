@@ -52,7 +52,7 @@ const Dashboard = () => {
       quantity: 30,
     },
     {
-      name: "mercearia",
+      category: "mercearia",
       quantity: 30,
     },
   ];
@@ -93,13 +93,13 @@ const Dashboard = () => {
           <>
             <h1>Minhas categorias:</h1>
             <div className="categorias">
-              {categories.map((category) => {
+              {categories.map((category, index) => {
                 return (
-                  <div className="categoria">
-                    <h3>{category.name}</h3>
+                  <div className="categoria" key={index}>
+                    <h3>{category.category}</h3>
                     <Categoria
+                      category={category.category}
                       quantity={category.quantity}
-                      image={category.image}
                     />
                   </div>
                 );
