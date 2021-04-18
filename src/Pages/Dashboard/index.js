@@ -88,7 +88,7 @@ const Dashboard = () => {
                 ))}
             </div>
 
-            <h1>Produtos pedidos recentemente</h1>
+            <h1>Produtos mais pedidos</h1>
             <h3>Selecione os melhores produtos aqui</h3>
             <div className="produtos">
               {produtos &&
