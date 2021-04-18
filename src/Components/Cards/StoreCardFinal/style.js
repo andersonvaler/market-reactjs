@@ -37,7 +37,7 @@ export const StoreInfo = styled.div`
 
 export const Name = styled.h2`
   font-weight: 700;
-  margin: 0;
+  margin: 0 !important;
   color: #380f52;
   font-size: 1rem;
   text-align: center;

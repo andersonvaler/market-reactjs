@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { MdCreditCard, MdAttachMoney } from "react-icons/md";
+import CheckRoundedIcon from "@material-ui/icons/CheckRounded";
 
 export const Edit = styled.div`
   width: 90%;
@@ -10,6 +11,17 @@ export const Edit = styled.div`
     color: #927dad;
     font-weight: 600;
     font-size: 0.9rem;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+
+    h4 {
+      margin-right: 8px;
+    }
   }
 `;
 
@@ -27,53 +39,66 @@ export const Lojas = styled.div`
   justify-content: space-between;
   margin-bottom: 2rem;
   overflow-x: scroll;
+
   @media (min-width: 768px) {
-    width: 60vw;
+    width: 95%;
   }
 `;
 
 export const ContainerButton = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-bottom: 10vh;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 `;
 
 export const ButtonCartao = styled.button`
   display: flex;
   align-items: center;
   font-weight: 600;
-  font-size: 24px;
-  background: #f6f2f9;
+  font-size: 1.5rem;
+  background: ${(props) => (props.selecionado ? "#E5D0FF" : "#f6f2f9")};
+  cursor: pointer;
   border-radius: 8px;
-  width: 20vw;
-  color: #927dad;
+  width: 90vw;
+  color: ${(props) => (props.selecionado ? "#7000FF" : "#927DAD")};
   margin: 10px 15px;
   box-shadow: 0 0 0.2rem 0.01rem #00000090;
 
-  :hover {
-    background: #e5d0ff;
-  }
-
-  @media (min-width: 768px) {
+  @media (min-width: 600px) {
     width: 40vw;
     font-weight: 600;
     font-size: 20px;
+    max-width: 500px;
   }
 `;
 
 export const CardIcon = styled(MdCreditCard)`
-  color: #380f52;
+  color: ${(props) => (props.selecionado ? "#7000FF" : "#927DAD")};
   font-size: 2rem;
+  margin: 0 1rem 0 0.5rem;
 `;
 
 export const CardIconMoney = styled(MdAttachMoney)`
-  color: #380f52;
+  color: ${(props) => (props.selecionado ? "#7000FF" : "#927DAD")};
   font-size: 2rem;
+  margin: 0 1rem 0 0.5rem;
 `;
 
 export const CheckoutDiv = styled.div`
+  margin-left: 24px;
+
   h1 {
     font-size: 1.2rem;
     text-align: left;
   }
+`;
+
+export const CheckIcon = styled(CheckRoundedIcon)`
+  color: rgba(112, 0, 255, 1);
+  margin: 4px;
 `;

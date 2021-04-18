@@ -1,10 +1,14 @@
 import { Button } from "../../Button/PrimaryButton/style";
 import { Container, Footer, Image, Name, StoreInfo } from "./style";
-import ModalProdutos from "../../ModalProdutos";
-import { useState } from "react";
 
-const StoreCardFinal = ({ name, valor, imageUrl }) => {
-  const [open, setOpen] = useState(false);
+const StoreCardFinal = ({
+  name,
+  valor,
+  imageUrl,
+  lojaSelecionada,
+  setLojaSelecionada,
+  pedido,
+}) => {
   return (
     <>
       <Container>
@@ -18,10 +22,15 @@ const StoreCardFinal = ({ name, valor, imageUrl }) => {
           </StoreInfo>
         </div>
         <Footer>
-          <Button onClick={() => setOpen(!open)}>Detalhes</Button>
+          {pedido.store?.storeId === lojaSelecionada.store?.storeId ? (
+            <Button disabled>Selecionado</Button>
+          ) : (
+            <Button onClick={() => setLojaSelecionada(pedido)}>
+              Selecionar
+            </Button>
+          )}
         </Footer>
       </Container>
-      <ModalProdutos open={open} setOpen={setOpen} />
     </>
   );
 };
