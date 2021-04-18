@@ -1,4 +1,3 @@
-import { FlipCameraIosRounded } from "@material-ui/icons";
 import styled from "styled-components";
 
 export const MainContainer = styled.main`
@@ -91,7 +90,6 @@ export const MainContainer = styled.main`
   .categoria {
     display: flex;
     flex-direction: column;
-    width: 60%;
 
     @media (min-width: 768px) {
       width: 30%;
