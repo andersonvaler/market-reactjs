@@ -13,13 +13,18 @@ describe("Cliente usando a aplicação", () => {
     cy.contains("Carnes").click();
     cy.wait(1500);
     cy.get('input[placeholder="Procurar"]').focus().type("Picanha").click();
+    cy.wait(1500);
     cy.get(".sc-eGPWxh").click();
+    cy.wait(1500);
     cy.contains("Adicionar ao carrinho").click();
+    cy.wait(1500);
     cy.get('input[type="number"]').type("5");
+    cy.wait(1500);
     cy.contains("Confirmar").click();
   });
 
   it("Pedindo orçamento", () => {
+    cy.wait(1500);
     cy.contains("Carrinho").click();
     cy.wait(1500);
     cy.contains("Solicitar Orçamento").click();
