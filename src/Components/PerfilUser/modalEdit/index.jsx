@@ -3,12 +3,12 @@ import { Button } from "../style";
 import api from "../../../services/api";
 import { useState } from "react";
 import { useToken } from "../../../Providers/Token";
-// import { useGlobal } from "../../../Providers/Global";
+import { useUsuario } from "../../../Providers/Usuario";
 
-export const ModalEdit = ({ propriedade, usuario }) => {
+export const ModalEdit = ({ propriedade, setOpen }) => {
   const [texto, setTexto] = useState("");
   const { token } = useToken();
-  // const { global, setGlobal } = useGlobal();
+  const { setUsuario, usuario } = useUsuario();
 
   const editar = () => {
     let objeto = {};
@@ -21,8 +21,8 @@ export const ModalEdit = ({ propriedade, usuario }) => {
           },
         })
         .then((response) => {
-          console.log(response);
-          window.location.reload();
+          setUsuario(response.data);
+          setOpen(false);
         })
         .catch((error) => {
           console.log(error);

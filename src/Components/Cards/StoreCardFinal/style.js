@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.figure`
-  width: 100%;
+  min-width: 14rem;
   height: 9rem;
   overflow: hidden;
   border-radius: 1rem 1rem 0 0;
@@ -37,7 +37,7 @@ export const StoreInfo = styled.div`
 
 export const Name = styled.h2`
   font-weight: 700;
-  margin: 0;
+  margin: 0 !important;
   color: #380f52;
   font-size: 1rem;
   text-align: center;

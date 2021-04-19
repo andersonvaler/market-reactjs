@@ -82,7 +82,6 @@ const Products = () => {
   return (
     <ProdutosContainer>
       <Header />
-
       <div className="produtos-pesquisa">
         <Search handleFilter={() => handleFilter()}>
           <input
@@ -93,7 +92,6 @@ const Products = () => {
           ></input>
         </Search>
       </div>
-
       <div className="produtos-categorias">
         <SelectCategory
           handleSelect={handleSelect}

@@ -113,7 +113,12 @@ const Header = () => {
                     </DropdownListItem>
                   ))
                 ) : (
-                  <DropdownListItem>Nenhum aviso</DropdownListItem>
+                  <DropdownListItem
+                    onClick={() => history.push("/checkout")}
+                    noOrder
+                  >
+                    Nenhum aviso
+                  </DropdownListItem>
                 )}
               </DropdownNotificationContainer>
               <DropdownButton
@@ -180,7 +185,7 @@ const Header = () => {
                           key={index}
                           onClick={() => history.push("/pedidos")}
                         >
-                          {pedido.name}
+                          Novo orçamento
                         </DropdownListItem>
                       )
                   )

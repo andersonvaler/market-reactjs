@@ -1,13 +1,34 @@
-describe("criando usuario cliente", () => {
-  it("Criar conta cliente", () => {
-    cy.visit("https://market-six.vercel.app/");
-    cy.contains("Sou cliente").click();
-    cy.contains("Cadastre-se").click();
-    cy.get('input[name="name"]').focus().type("Clebinho Teste");
-    cy.get('input[name="email"]').focus().type("clebinho@teste.com");
-    cy.get('input[name="adress"]').focus().type("R. Testes aleatorios, 406");
+describe("Cliente usando a aplicação", () => {
+  it("Fazer login do cliente", () => {
+    cy.visit("https://market-six.vercel.app/login/user");
+    cy.get('input[name="email"]').focus().type("clebinho@teste2.com");
     cy.get('input[name="password"]').focus().type(123456);
-    cy.get('input[name="confirmPassword"]').focus().type(123456);
-    cy.contains("Cadastrar").click();
+    cy.contains("Entrar").click();
+  });
+
+  it("Pesquisando produtos", () => {
+    cy.wait(10000);
+    cy.contains("Buscar").click();
+    cy.wait(3000);
+    cy.contains("Carnes").click();
+    cy.wait(1500);
+    cy.get('input[placeholder="Procurar"]').focus().type("Picanha").click();
+    cy.get(".sc-eGPWxh").click();
+    cy.contains("Adicionar ao carrinho").click();
+    cy.get('input[type="number"]').type("5");
+    cy.contains("Confirmar").click();
+  });
+
+  it("Pedindo orçamento", () => {
+    cy.contains("Carrinho").click();
+    cy.wait(1500);
+    cy.contains("Solicitar Orçamento").click();
+  });
+
+  it("Escolhendo orçamento", () => {
+    cy.wait(3000);
+    cy.contains("Selecionar").click();
+    cy.wait(1500);
+    cy.contains("Confirmar").click();
   });
 });

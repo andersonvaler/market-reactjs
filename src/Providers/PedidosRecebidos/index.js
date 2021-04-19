@@ -32,6 +32,22 @@ export const PedidosRecebidosProvider = ({ children }) => {
         .catch((error) => {
           console.log(error);
         });
+
+    token &&
+      isStore &&
+      api
+        .get(`cart`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setPedidosRecebidos(response.data);
+          atualizeOrder();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     //eslint-disable-next-line
   }, [token, isStore, atualizer]);
 
@@ -40,6 +56,7 @@ export const PedidosRecebidosProvider = ({ children }) => {
       value={{ pedidosRecebidos, setPedidosRecebidos }}
     >
       {children}
+      {console.log(pedidosRecebidos)}
     </PedidosRecebidosContext.Provider>
   );
 };

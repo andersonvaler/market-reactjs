@@ -13,13 +13,22 @@ export const PedidoContainer = styled.main`
   && > div {
     width: 100%;
   }
+  h1 {
+    color: #fff;
+    font-size: 1.8rem;
+    background-color: #933fff;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
   h2 {
+    font-size: 1.5rem;
+    padding: 0;
     color: #380f52;
-    font-size: 1.1rem;
   }
 
   h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding: 0;
     color: #927dad;
   }
@@ -40,6 +49,8 @@ export const PedidoContainer = styled.main`
     justify-content: center;
     flex-direction: column;
     height: 5rem;
+    background-color: #00000020;
+
     @media (min-width: 768px) {
       flex-direction: row;
     }

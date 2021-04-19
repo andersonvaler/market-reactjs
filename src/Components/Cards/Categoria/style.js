@@ -6,16 +6,20 @@ export const CategoriaContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: space-around;
-  width: 90vw;
-  max-width: 300px;
+  width: 45vw;
+  min-width: 260px;
+  max-width: 400px;
   border: solid 1px #d5c5e8;
   height: 100%;
   margin: 8px;
+  margin-left: 0px;
 
   @media (min-width: 768px) {
+    width: 90vw;
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 8px;
+    margin: 8px 16px;
     min-width: 20vw;
     max-width: 200px;
     height: 25vh;

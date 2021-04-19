@@ -7,14 +7,14 @@ export const Container = styled.div`
     font-weight: 600;
     font-size: 1.3rem;
     color: #fff;
-    background-color: #933fff;
+    background-color: #0ec977;
   }
 
   td {
     padding: 0.5rem;
     background-color: #00000010;
     button {
-      background-color: #933fff;
+      background-color: #0ec977;
       padding: 0.5rem;
       color: #fff;
       font-weight: 800;
@@ -30,7 +30,7 @@ export const Container = styled.div`
   .name {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #933fff;
+    color: #0ec977;
     text-transform: uppercase;
   }
 

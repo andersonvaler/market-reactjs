@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     minWidth: "50vh",
+    margin: "0",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,

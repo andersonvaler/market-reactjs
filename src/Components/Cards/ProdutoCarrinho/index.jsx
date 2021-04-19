@@ -13,7 +13,14 @@ import {
   CardIcon,
 } from "./style";
 
-const ProdutoCarrinho = ({ produto, index, contador }) => {
+const ProdutoCarrinho = ({
+  produto,
+  index,
+  contador,
+  dell,
+  adiciona,
+  remove,
+}) => {
   const { setCarrinho } = useCarrinho();
   let fakeCarrinho = JSON.parse(localStorage.getItem("carrinho"));
   const { global, setGlobal } = useGlobal();
@@ -21,18 +28,21 @@ const ProdutoCarrinho = ({ produto, index, contador }) => {
   const addContador = () => {
     contador++;
     produto.quantity++;
+    adiciona();
     setGlobal(!global);
   };
   const subContador = () => {
     if (produto.quantity > 0) {
       contador--;
       produto.quantity--;
+      remove();
       setGlobal(!global);
     }
   };
   const deletaCard = () => {
     fakeCarrinho.splice(index, 1);
     localStorage.setItem("carrinho", JSON.stringify(fakeCarrinho));
+    dell();
     setCarrinho(fakeCarrinho);
   };
 
