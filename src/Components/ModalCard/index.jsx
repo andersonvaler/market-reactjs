@@ -1,11 +1,3 @@
-/*
-Pra chamar este componente é necessário criar um state com valor false inicial 
-no componente onde for chamado e passar por prop, 
-ex: 
-const [open, setopen] = useState(false)
-<ModalCard open={open} setOpen ={setOpen}> Só colocar o conteudo aqui que vai entrar no modal </ModalCard>
-aí para abrir pode criar uma função que aciona setOpen(!open)
-*/
 import { forwardRef } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";

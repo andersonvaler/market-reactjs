@@ -48,8 +48,8 @@ const Checkout = () => {
         .then((res) => {
           setLojaSelecionada([]);
           setMetodoSelecionado("");
-          console.log(res);
-        });
+        })
+        .catch((e) => console.log(e));
     }
   };
 

@@ -56,7 +56,6 @@ export const PedidosRecebidosProvider = ({ children }) => {
       value={{ pedidosRecebidos, setPedidosRecebidos }}
     >
       {children}
-      {console.log(pedidosRecebidos)}
     </PedidosRecebidosContext.Provider>
   );
 };
