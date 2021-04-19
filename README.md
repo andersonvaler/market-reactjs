@@ -42,4 +42,4 @@ Acesse => [Link para o Deploy no Heroku.](https://capstone-grupo-dois.herokuapp.
 
 ### Vercel - Deploy Aplicação
 
-Acesse => [Link para o Deploy no Vercel.] (https://market-six.vercel.app/)
+Acesse => [Link para o Deploy no Vercel.](https://market-six.vercel.app/)
