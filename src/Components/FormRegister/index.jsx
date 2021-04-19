@@ -50,7 +50,6 @@ const FormRegister = ({ userType, notifyError, notifyRegister }) => {
     api
       .post("register", { ...data, isStore: isStore })
       .then((res) => {
-        console.log("ok", res);
         reset();
         redirect();
         notifyRegister();

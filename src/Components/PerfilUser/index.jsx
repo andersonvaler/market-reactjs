@@ -1,5 +1,4 @@
 import { PerfilContainer, EditIcon, Button } from "./style";
-// import Pagamento from "../Pagamento";
 import { useHistory, useParams } from "react-router-dom";
 import { useUsuario } from "../../Providers/Usuario";
 import { useState } from "react";

@@ -53,6 +53,7 @@ const Cart = () => {
       )
       .then(() => {
         setCarrinho([]);
+        localStorage.setItem("carrinho", JSON.stringify([]));
         history.push("/checkout");
       })
       .catch((error) => {

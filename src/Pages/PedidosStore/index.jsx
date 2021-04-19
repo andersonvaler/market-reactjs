@@ -2,8 +2,6 @@ import { PedidosPageContainer, LeftContainer, RightContainer } from "./style";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import PreOrder from "../../Components/PreOrders";
-// import Pedido from "../../Components/Cards/Pedido";
-// import PedidoAceito from "../../Components/Cards/PedidoAceito";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useUsuario } from "../../Providers/Usuario";

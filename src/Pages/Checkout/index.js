@@ -63,7 +63,8 @@ const Checkout = () => {
           setMetodoSelecionado("");
           history.push("/dashboard/user");
           notifySend();
-        });
+        })
+        .catch((e) => console.log(e));
     }
   };
 
