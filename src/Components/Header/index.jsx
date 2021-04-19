@@ -17,11 +17,12 @@ import { useToken } from "../../Providers/Token";
 import { useCarrinho } from "../../Providers/Carrinho";
 import Badge from "@material-ui/core/Badge";
 import { useUsuario } from "../../Providers/Usuario";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNotifications } from "../../Providers/Notifications";
 import api from "../../services/api";
 import { useGlobal } from "../../Providers/Global";
 import { usePedidos } from "../../Providers/Pedidos";
+import { usePedidosRecebidos } from "../../Providers/PedidosRecebidos";
 
 const Header = () => {
   const { carrinho } = useCarrinho();
@@ -29,10 +30,23 @@ const Header = () => {
   const { pedidos } = usePedidos();
   const history = useHistory();
   const { clearToken, token } = useToken();
-  const { setIsStore, setUsuario, usuario } = useUsuario();
+  const { setIsStore, setUsuario, usuario, isStore } = useUsuario();
   const [showDropdown, setShowDropdown] = useState();
   const { notifications } = useNotifications();
   const { global, setGlobal } = useGlobal();
+  const { pedidosRecebidos } = usePedidosRecebidos();
+  const [order, setOrder] = useState([]);
+
+  useEffect(() => {
+    userType === "store" &&
+      isStore &&
+      setOrder([
+        ...pedidos.filter((pedido) => pedido.available),
+        ...pedidosRecebidos.filter(
+          (pedido) => pedido?.isOrder && pedido?.store.storeId === usuario.id
+        ),
+      ]);
+  }, [pedidosRecebidos, usuario, pedidos, userType, isStore]);
 
   const handleDeleteNotification = (id) => {
     history.push("/checkout");
@@ -163,9 +177,7 @@ const Header = () => {
             onMouseOver={() => setShowDropdown(true)}
           >
             <Badge
-              badgeContent={
-                pedidos && pedidos.filter((pedido) => pedido.available).length
-              }
+              badgeContent={order.length}
               style={{ color: "#fff" }}
               overlap="circle"
               color="primary"
@@ -177,20 +189,21 @@ const Header = () => {
             <DropdownContainer showDropdown={showDropdown}>
               <DropdownNotificationContainer>
                 <h3>Avisos</h3>
-                {!!pedidos[0] ? (
-                  pedidos.map(
-                    (pedido, index) =>
-                      pedido.available && (
-                        <DropdownListItem
-                          key={index}
-                          onClick={() => history.push("/pedidos")}
-                        >
-                          Novo orçamento
-                        </DropdownListItem>
-                      )
-                  )
+                {!!order[0] ? (
+                  order.map((pedido, index) => (
+                    <DropdownListItem
+                      key={index}
+                      onClick={() => history.push("/pedidos")}
+                    >
+                      {pedido.isOrder
+                        ? "Pedido confirmado"
+                        : pedido.available && "Novo orçamento"}
+                    </DropdownListItem>
+                  ))
                 ) : (
-                  <DropdownListItem>Nenhum pedido</DropdownListItem>
+                  <DropdownListItem>
+                    Nenhum pedido ou orçamento
+                  </DropdownListItem>
                 )}
               </DropdownNotificationContainer>
               <DropdownButton

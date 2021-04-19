@@ -16,7 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const { userType } = useParams();
   const notifyError = () =>
-    toast.error("email ou senha invalidos", {
+    toast.error("Email e/ou senha inválidos!", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -26,7 +26,7 @@ const Login = () => {
       progress: undefined,
     });
   const notifyLogin = () => {
-    toast.success("Logado com seucesso!", {
+    toast.success("Logado com sucesso!", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,

@@ -24,8 +24,7 @@ export const MainContainer = styled.main`
   }
 
   @media (min-width: 768px) {
-    padding-left: 12rem;
-    padding-right: 12rem;
+    padding: 0 15vw;
   }
 
   .cardIntro {

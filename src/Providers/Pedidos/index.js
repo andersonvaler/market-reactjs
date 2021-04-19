@@ -7,7 +7,7 @@ const { createContext, useContext, useState, useEffect } = require("react");
 const PedidosContext = createContext();
 
 export const PedidosProvider = ({ children }) => {
-  const [pedidos, setPedidos] = useState(false);
+  const [pedidos, setPedidos] = useState();
   const { isStore } = useUsuario();
   const { token } = useToken();
   const [atualizer, setAtualizer] = useState(false);

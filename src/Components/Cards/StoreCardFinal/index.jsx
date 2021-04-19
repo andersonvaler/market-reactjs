@@ -22,7 +22,7 @@ const StoreCardFinal = ({
           </StoreInfo>
         </div>
         <Footer>
-          {pedido.store?.storeId === lojaSelecionada.store?.storeId ? (
+          {pedido?.id === lojaSelecionada?.id ? (
             <Button disabled>Selecionado</Button>
           ) : (
             <Button onClick={() => setLojaSelecionada(pedido)}>
