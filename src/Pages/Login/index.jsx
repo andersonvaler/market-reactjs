@@ -1,4 +1,3 @@
-// import { useParams } from "react-router-dom";
 import FormLogin from "../../Components/FormLogin";
 import FullLogo from "../../Components/Logo/FullLogo";
 import FullLogoBusiness from "../../Components/Logo/FullLogoBusiness";
