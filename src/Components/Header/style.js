@@ -108,6 +108,7 @@ export const DropdownContainer = styled.div`
   transform: translateX(-80%);
   border-radius: 16px;
   cursor: initial;
+  padding-top: 8px;
 
   &:hover {
     display: block;
@@ -142,6 +143,8 @@ export const DropdownNotificationContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
+  max-height: 400px;
+  overflow-y: scroll;
 
   &:last-child {
     border: none;
@@ -160,7 +163,6 @@ export const DropdownListItem = styled.div`
 
   &:hover {
     background-color: #e6f2e3;
-    content: ${(props) => props.noOrder && "Ir para checkout"};
   }
 
   @media (min-width: 768px) {

@@ -36,7 +36,7 @@ export const Topic = styled.div`
 export const Lojas = styled.div`
   width: 100vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-bottom: 2rem;
   overflow-x: scroll;
 

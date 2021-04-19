@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
   const { userType } = useParams();
   const notifyError = () =>
-    toast.error("registro invalido", {
+    toast.error("Registro inválido!", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -22,7 +22,7 @@ const Register = () => {
       progress: undefined,
     });
   const notifyRegister = () => {
-    toast.success("registrado com seucesso!", {
+    toast.success("Registrado com sucesso!", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,

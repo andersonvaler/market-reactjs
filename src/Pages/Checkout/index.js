@@ -22,6 +22,8 @@ import { usePedidosRecebidos } from "../../Providers/PedidosRecebidos";
 import Footer from "../../Components/Footer";
 import api from "../../services/api";
 import { useToken } from "../../Providers/Token";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = () => {
   const { pedidosRecebidos } = usePedidosRecebidos();
@@ -30,6 +32,17 @@ const Checkout = () => {
   const [metodoSelecionado, setMetodoSelecionado] = useState("");
   const [lojaSelecionada, setLojaSelecionada] = useState({});
   const { token } = useToken();
+
+  const notifySend = () =>
+    toast.success("Pedido Enviado com sucesso", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
   const confirmOrder = () => {
     if (lojaSelecionada.hasOwnProperty("store") && metodoSelecionado) {
@@ -48,7 +61,8 @@ const Checkout = () => {
         .then((res) => {
           setLojaSelecionada([]);
           setMetodoSelecionado("");
-          console.log(res);
+          history.push("/dashboard/user");
+          notifySend();
         });
     }
   };
@@ -62,6 +76,7 @@ const Checkout = () => {
 
   return (
     <div>
+      <ToastContainer />
       <Header />
       <MainContainer>
         <CheckoutDiv>

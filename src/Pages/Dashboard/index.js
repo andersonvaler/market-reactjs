@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
 import { useUsuario } from "../../Providers/Usuario";
 import Categoria from "../../Components/Cards/Categoria";
+import "react-toastify/dist/ReactToastify.css";
 
 const Dashboard = () => {
   const { mercados } = useMercados();
