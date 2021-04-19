@@ -39,3 +39,7 @@ Acesse => [Link para o Gitlab.](https://gitlab.com/2-grupo-capstone-willian/mark
 ### Heroku - Deploy do JSON Server
 
 Acesse => [Link para o Deploy no Heroku.](https://capstone-grupo-dois.herokuapp.com/)
+
+### Vercel - Deploy Aplicação
+
+Acesse => [Link para o Deploy no Vercel.] (https://market-six.vercel.app/)
